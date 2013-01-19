@@ -17,7 +17,8 @@ namespace EventOrganizer.App_Start
 
             bundles.Add(new StyleBundle("~/styles/bootstrap").Include(
                 "~/Content/bootstrap.css", 
-                "~/Content/bootstrap-responsive.css"));
+                "~/Content/bootstrap-responsive.css",
+                "~/Content/site.css"));
         }
     }
 }
