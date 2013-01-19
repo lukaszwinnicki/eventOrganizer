@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using EventOrganizer.Models;
+using EventOrganizer.Resources;
 using EventOrganizer.ViewModels;
 
 namespace EventOrganizer.Controllers
@@ -25,6 +27,11 @@ namespace EventOrganizer.Controllers
                                          {
                                              RegistrationViewModel = viewModel
                                          });
+            }
+            if (Users.Any(x => x.Email == viewModel.Email))
+            {
+                ModelState.AddModelError("Email", ValidationMessages.EmailExists);
+                return View("Index", new IndexViewModel { RegistrationViewModel = viewModel});
             }
 
             Users.Add(new User { Email = viewModel.Email, Password = viewModel.Password });
@@ -68,7 +75,9 @@ namespace EventOrganizer.Controllers
         {
             var isValid = UserAuthenticated(viewModel.Email, viewModel.Password);
 
-            return isValid ? Json(new {IsValid = true, Url = Url.Action("Groups")}) : Json(new { IsValid = false, ErrorMessage = "sadsadaq" });
+            return isValid
+                       ? Json(new {IsValid = true, Url = Url.Action("Groups")})
+                       : Json(new {IsValid = false, ErrorMessage = ValidationMessages.IncorrectLoginOrPassword});
         }
 
         [Authorize]
