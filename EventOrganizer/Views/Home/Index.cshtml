@@ -11,7 +11,27 @@
     </div>
     @Html.Partial("_Register", Model.RegistrationViewModel)
 </div>
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#js-login-form').submit(function () {
+                $.ajax("/Home/IsValidUser", { data: $(this).serializeArray(), method: "POST" }).success(function (data) {
+                    if (data.IsValid) {
+                        window.location = data.Url;
+                    } else {
+                        showErrorMessage(data.ErrorMessage);
+                    }
+                });
 
+                return false;
+            });
+            
+            function showErrorMessage(errorMessage) {
+                $('#js-login-error').text(errorMessage);
+            }
+        });
+    </script>
+}
 
 
 

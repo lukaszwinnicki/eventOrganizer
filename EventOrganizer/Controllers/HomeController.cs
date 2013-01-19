@@ -26,8 +26,8 @@ namespace EventOrganizer.Controllers
                                              RegistrationViewModel = viewModel
                                          });
             }
-            
-            Users.Add(new User {Email = viewModel.Email, Password = viewModel.Password});
+
+            Users.Add(new User { Email = viewModel.Email, Password = viewModel.Password });
 
             if (UserAuthenticated(viewModel.Email, viewModel.Password))
             {
@@ -61,6 +61,14 @@ namespace EventOrganizer.Controllers
             {
                 LoginViewModel = model
             });
+        }
+
+        [HttpPost]
+        public ActionResult IsValidUser(LoginViewModel viewModel)
+        {
+            var isValid = UserAuthenticated(viewModel.Email, viewModel.Password);
+
+            return isValid ? Json(new {IsValid = true, Url = Url.Action("Groups")}) : Json(new { IsValid = false, ErrorMessage = "sadsadaq" });
         }
 
         [Authorize]
