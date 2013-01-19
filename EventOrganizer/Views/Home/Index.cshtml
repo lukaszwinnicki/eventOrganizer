@@ -1,4 +1,4 @@
-﻿@using EventOrganizer.ViewModels
+﻿@model IndexViewModel
 <div class="jumbotron">
     <h1>Super awesome event organizer!</h1>
     <p class="lead">Meaningfull description</p>
@@ -9,7 +9,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Registration</h3>
     </div>
-    @Html.Partial("_Register", new RegisterViewModel())
+    @Html.Partial("_Register", Model.RegistrationViewModel)
 </div>
 
 

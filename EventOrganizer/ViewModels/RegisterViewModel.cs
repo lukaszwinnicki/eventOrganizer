@@ -13,5 +13,6 @@ namespace EventOrganizer.ViewModels
         [Compare("Password")]
         [Display(Name = "Retype password")]
         public string RePassword { get; set; }
+        public bool Remember { get; set; }
     }
 }
