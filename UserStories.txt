@@ -1,0 +1,35 @@
+unlogged user = guest
+user = logged user (!guest)
+member = group member
+participant = event participant
+
+Backlog:
+As a unlogged user I can see "Homepage"
+As a unlogged user I can Register/Log in.
+As a user I can see "My home page"(with my groups)
+As a user I can add new group (popup)
+As a user I can enter one of the groups page ("Group page")
+As a group owner I can remove member from the group
+As a group owner I can specify "group ban list"
+As a group owner I can close group (archive)
+As a member I can add new member to group (popup)
+As a member I can add new event to group
+As a member I can see event's details
+As a event owner I can edit event(and/or delete)
+As a member I can add comment to an event
+As a member I can sign in to an event (set my event participation status)
+As a member I can leave message at "shoutbox"/"chat"
+As a member I can see notifications about group
+As a user I can see notifications about my groups (limited?)
+As a user I can specify which kind of notification I want to get
+As a member I can see either upcomming event or past events (or all events)
+As a participant of past event I can rate it, comment it and add photos
+As a member I can see "before-event" comments and "after-event" comments(default)
+end;
+
+Backlog.run().startiWith("sprint1"):
+As a unlogged user I can see "Homepage"
+As a unlogged user I can Register/Log in.
+As a user I can see "My home page"(with my groups)
+As a user I can add new group (popup)
+end;
