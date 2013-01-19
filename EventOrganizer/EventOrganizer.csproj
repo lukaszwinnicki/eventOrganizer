@@ -128,8 +128,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\img\glyphicons-halflings-white.png" />
-    <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\Images\glyphicons-halflings-white.png" />
+    <Content Include="Content\Images\glyphicons-halflings.png" />
     <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -324,8 +324,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Templates\" />
     <Folder Include="Images\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\App\Controllers\" />
+    <Folder Include="Scripts\App\Directives\" />
+    <Folder Include="Scripts\App\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
