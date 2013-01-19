@@ -1,7 +1,15 @@
-﻿<div class="jumbotron">
+﻿@using EventOrganizer.ViewModels
+<div class="jumbotron">
     <h1>Super awesome event organizer!</h1>
     <p class="lead">Meaningfull description</p>
-    <a class="btn btn-large btn-success" href="#">Register</a>
+    <a href="#myModal" role="button" class="btn" data-toggle="modal">Register</a>
+</div>
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Registration</h3>
+    </div>
+    @Html.Partial("_Register", new RegisterViewModel())
 </div>
 
 

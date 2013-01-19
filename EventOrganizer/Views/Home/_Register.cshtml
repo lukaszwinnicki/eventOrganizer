@@ -1,0 +1,41 @@
+﻿@model RegisterViewModel
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="modal-body">
+        <div class="control-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "help-inline" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            <div class="controls">
+                @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-inline" })
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.RePassword, new { @class = "control-label" })
+            <div class="controls">
+                @Html.PasswordFor(m => m.RePassword, new { placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.RePassword, null, new { @class = "help-inline" })
+            </div>
+
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Register</button>
+    </div>
+}
