@@ -137,6 +137,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoggedUserController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -165,6 +167,7 @@
     <Content Include="Content\Images\bejdzi.jpg" />
     <Content Include="Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Content\Images\glyphicons-halflings.png" />
+    <Content Include="Content\Partials\Groups.html" />
     <Content Include="Content\select2.css" />
     <Content Include="Content\select2.png" />
     <Content Include="Content\select2x2.png" />
@@ -172,7 +175,11 @@
     <Content Include="Content\spinner.gif" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\App\App.js" />
+    <Content Include="Scripts\App\Controllers\GroupCtrl.js" />
     <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
+    <Content Include="Scripts\App\Services\GroupService.js" />
+    <Content Include="Scripts\App\Services\UserService.js" />
     <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.min.js.map">
       <DependentUpon>angular-bootstrap-prettify.js</DependentUpon>
     </Content>
@@ -557,7 +564,6 @@
     <Folder Include="Content\Templates\" />
     <Folder Include="Images\" />
     <Folder Include="Scripts\App\Directives\" />
-    <Folder Include="Scripts\App\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

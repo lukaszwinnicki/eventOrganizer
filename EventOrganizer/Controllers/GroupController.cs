@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using EventOrganizer.Web.Models;
 using EventOrganizer.Web.Services;
 using EventOrganizer.Web.Services.Abstract;
 
@@ -26,6 +27,13 @@ namespace EventOrganizer.Web.Controllers
             return string.IsNullOrEmpty(User.Identity.Name) ?
                 Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.") :
                 Request.CreateResponse(HttpStatusCode.OK, _groupService.GetGropus(User.Identity.Name));
+        }
+
+        public HttpResponseMessage Post(Group group)
+        {
+            var newGroup = _groupService.Save(group);
+
+            return Request.CreateResponse(HttpStatusCode.OK, newGroup);
         }
     }
 }

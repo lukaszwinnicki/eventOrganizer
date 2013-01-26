@@ -6,9 +6,11 @@ namespace EventOrganizer.Web.Services
 {
     public class GroupService : IGroupService
     {
-        public IList<Group> GetGropus(string userId)
+        private static List<Group> _groups;
+
+        public GroupService()
         {
-            return new List<Group>
+            _groups = new List<Group>
                 {
                     new Group {Description = "Short description", Name = "Beer lovers 1"},
                     new Group {Description = "Short description", Name = "Beer lovers 2"},
@@ -19,6 +21,18 @@ namespace EventOrganizer.Web.Services
                     new Group {Description = "Short description", Name = "Beer lovers 7"},
                     new Group {Description = "Short description", Name = "Beer lovers 8"}
                 };
+        }
+
+        public IList<Group> GetGropus(string userId)
+        {
+            return _groups;
+        }
+
+        public Group Save(Group group)
+        {
+            _groups.Add(group);
+
+            return group;
         }
     }
 }

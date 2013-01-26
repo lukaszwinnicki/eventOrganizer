@@ -1,0 +1,46 @@
+﻿<div>
+    <div ui-modal class="fade" ng-model="modalShown" id="myModal">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="groupName">Name</label>
+                <div class="controls">
+                    <input type="text" id="groupName" ng-model="group.name">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="groupDescription">Description</label>
+                <div class="controls">
+                    <input type="text" id="groupDescription" ng-model="group.description">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="button" class="btn btn-info" ng-click="save(group)">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="media">
+        <div class="pull-left">
+            <div style="padding-bottom: 10px; padding-right: 20px;">
+                <img class="media-object img-polaroid" ng-src="{{ user.PhotoUrl }}">
+            </div>
+            <span style="margin-top: 10px;"><strong>{{ user.Name }} {{ user.Surname }}</strong></span>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">My Groups</h4>
+            <button type="button" class="btn btn-info" ng-click="modalShown=true">Add Group</button>
+            <table class="table table-hover">
+                <tr ng-repeat="group in groups">
+                    <td>
+                        <dl>
+                            <dt>{{ group.Name }}</dt>
+                            <dd>{{ group.Description }}</dd>
+                        </dl>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

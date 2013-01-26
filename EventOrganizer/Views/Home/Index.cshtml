@@ -13,7 +13,11 @@
 </div>
 
 @section scripts {
+    @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/App/Custom/homepage.js"></script>
+    <script type="text/javascript">
+        $('#login').popover({})
+    </script>
 }
 
 
