@@ -1,7 +1,7 @@
 ﻿<ul class="nav nav-pills pull-right">
     @if (Request.IsAuthenticated)
     {
-        <li><a href="#">Logout</a></li>
+        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
     }
     else
     {
