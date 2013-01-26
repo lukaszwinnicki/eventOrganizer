@@ -1,7 +1,9 @@
-﻿using Autofac;
+﻿using System.Reflection;
+using Autofac;
 using Autofac.Integration.Mvc;
 using EventOrganizer.Web.Services;
 using EventOrganizer.Web.Services.Abstract;
+using Module = Autofac.Module;
 
 namespace EventOrganizer.Web.Infrastructure.Modules
 {
