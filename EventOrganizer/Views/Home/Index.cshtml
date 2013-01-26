@@ -15,7 +15,7 @@
     <script type="text/javascript">
         $(function () {
             $('#js-login-form').submit(function () {
-                $.ajax("/Home/IsValidUser", { data: $(this).serializeArray(), method: "POST" }).success(function (data) {
+                $.ajax("/Home/IsValidUser", { data: $(this).serializeArray(), method: "POST" }).done(function (data) {
                     if (data.IsValid) {
                         window.location = data.Url;
                     } else {
@@ -25,7 +25,7 @@
 
                 return false;
             });
-            
+
             function showErrorMessage(errorMessage) {
                 $('#js-login-error').text(errorMessage);
             }
