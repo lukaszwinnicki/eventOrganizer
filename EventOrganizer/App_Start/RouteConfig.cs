@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace EventOrganizer.App_Start
+namespace EventOrganizer.Web.App_Start
 {
     public class RouteConfig
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace EventOrganizer.App_Start
+namespace EventOrganizer.Web.App_Start
 {
     public class FilterConfig
     {

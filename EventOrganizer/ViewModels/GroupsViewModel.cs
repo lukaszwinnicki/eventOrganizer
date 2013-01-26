@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using EventOrganizer.Models;
-using Group = EventOrganizer.Models.Group;
+using EventOrganizer.Web.Models;
 
-namespace EventOrganizer.ViewModels
+namespace EventOrganizer.Web.ViewModels
 {
     public class GroupsViewModel
     {

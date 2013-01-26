@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace EventOrganizer.App_Start
+namespace EventOrganizer.Web.App_Start
 {
     public class BundleConfig
     {

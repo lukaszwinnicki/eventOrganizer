@@ -1,4 +1,4 @@
-﻿namespace EventOrganizer.ViewModels
+﻿namespace EventOrganizer.Web.ViewModels
 {
     public class IndexViewModel
     {

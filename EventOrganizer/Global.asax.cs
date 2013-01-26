@@ -2,9 +2,9 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using EventOrganizer.App_Start;
+using EventOrganizer.Web.App_Start;
 
-namespace EventOrganizer
+namespace EventOrganizer.Web
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

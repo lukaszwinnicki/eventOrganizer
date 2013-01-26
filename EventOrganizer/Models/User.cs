@@ -1,4 +1,4 @@
-﻿namespace EventOrganizer.Models
+﻿namespace EventOrganizer.Web.Models
 {
     public class User
     {

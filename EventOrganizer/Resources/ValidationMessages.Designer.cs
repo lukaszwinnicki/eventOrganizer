@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EventOrganizer.Resources {
+namespace EventOrganizer.Web.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace EventOrganizer.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EventOrganizer.Resources.ValidationMessages", typeof(ValidationMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EventOrganizer.Web.Resources.ValidationMessages", typeof(ValidationMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

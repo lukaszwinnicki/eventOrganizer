@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EventOrganizer.ViewModels
+namespace EventOrganizer.Web.ViewModels
 {
     public class RegisterViewModel
     {
