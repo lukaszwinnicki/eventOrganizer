@@ -45,3 +45,7 @@
 {
     margin-top: 28px;
 }
+
+.hidden {
+    display: none;
+}
