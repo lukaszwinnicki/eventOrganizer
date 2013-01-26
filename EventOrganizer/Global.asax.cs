@@ -2,7 +2,10 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Integration.Mvc;
 using EventOrganizer.Web.App_Start;
+using EventOrganizer.Web.Infrastructure.Modules;
 
 namespace EventOrganizer.Web
 {
@@ -10,6 +13,11 @@ namespace EventOrganizer.Web
     {
         protected void Application_Start()
         {
+            var builder = new ContainerBuilder();
+            builder.RegisterModule<PrimaryModule>();
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
