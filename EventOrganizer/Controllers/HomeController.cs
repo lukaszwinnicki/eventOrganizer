@@ -31,7 +31,7 @@ namespace EventOrganizer.Controllers
             if (Users.Any(x => x.Email == viewModel.Email))
             {
                 ModelState.AddModelError("Email", ValidationMessages.EmailExists);
-                return View("Index", new IndexViewModel { RegistrationViewModel = viewModel});
+                return View("Index", new IndexViewModel { RegistrationViewModel = viewModel });
             }
 
             Users.Add(new User { Email = viewModel.Email, Password = viewModel.Password });
@@ -64,14 +64,18 @@ namespace EventOrganizer.Controllers
                 FormsAuthentication.SetAuthCookie(viewModel.Email, viewModel.Remember);
             }
             return isValid
-                       ? Json(new {IsValid = true, Url = Url.Action("Groups")})
-                       : Json(new {IsValid = false, ErrorMessage = ValidationMessages.IncorrectLoginOrPassword});
+                       ? Json(new { IsValid = true, Url = Url.Action("Groups") })
+                       : Json(new { IsValid = false, ErrorMessage = ValidationMessages.IncorrectLoginOrPassword });
         }
 
         [Authorize]
         public ActionResult Groups()
         {
-            return View();
+            return View("Groups", new GroupsViewModel
+                {
+                    User = new User { Email = "test@test.com", Password = "Password" }, 
+                    Groups = new List<Group> { new Group { Description = "Short description", Name = "Beer lovers" } }
+                });
         }
 
         bool UserAuthenticated(string userName, string password)
