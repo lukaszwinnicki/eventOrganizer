@@ -1,7 +1,20 @@
-﻿@model dynamic
+﻿@model GroupsViewModel
 
-@{
-    ViewBag.Title = "Groups";
-}
 
-<h2>Welcome, @User.Identity.Name</h2>
+<div class="media">
+    <a class="pull-left" href="#">
+        <img class="media-object" src="/Content/Images/holder.png">
+        @Model.User.Email
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading">My Groups</h4>
+        <table class="table table-hover">
+            @foreach (var group in Model.Groups)
+            {
+                <tr>
+                    <td>@group.Name</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

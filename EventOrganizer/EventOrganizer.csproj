@@ -146,6 +146,7 @@
     <Content Include="Global.asax" />
     <None Include="Scripts\Libraries\JQuery\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\App\Custom\homepage.js" />
+    <Content Include="Content\Images\holder.png" />
     <Content Include="Scripts\Libraries\JQuery\jquery.validate.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-1.9.0.js" />
