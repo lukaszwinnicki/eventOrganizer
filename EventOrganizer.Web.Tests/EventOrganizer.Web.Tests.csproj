@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EventOrganizer\EventOrganizer.Web.csproj">
-      <Project>{E79D8883-CC1D-4A19-A91C-E41588F20EB3}</Project>
+      <Project>{e79d8883-cc1d-4a19-a91c-e41588f20eb3}</Project>
       <Name>EventOrganizer.Web</Name>
     </ProjectReference>
   </ItemGroup>
