@@ -14,17 +14,7 @@
 <body>
     <div class="container-narrow">
         <div>
-            <ul class="nav nav-pills pull-right">
-                <li id="login" class="dropdown">
-
-                    <a class="" data-toggle="dropdown" href="#">Login</a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <li>
-                            @Html.Partial("_Login", new LoginViewModel())
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            @Html.Partial("_Menu")
             <h3 class="muted">Event organizer</h3>
         </div>
         <hr>

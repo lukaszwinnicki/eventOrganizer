@@ -1,0 +1,13 @@
+﻿<ul class="nav nav-pills pull-right">
+    @if (Request.IsAuthenticated)
+    {
+        <li><a href="#">Logout</a></li>
+    }
+    else
+    {
+        <li id="login" class="dropdown">
+            <a class="" data-toggle="dropdown" href="#">Login</a>
+            @Html.Partial("_Login", new LoginViewModel())
+        </li>
+    }
+</ul>

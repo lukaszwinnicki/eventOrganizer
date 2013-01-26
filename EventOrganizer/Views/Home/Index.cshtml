@@ -31,7 +31,6 @@
                     method: "POST"
                 }).done(function(data) {
                     if (data.IsValid) {
-                        $.cookies.addCookie()
                         window.location = data.Url;
                     } else {
                         showErrorMessage(data.ErrorMessage);

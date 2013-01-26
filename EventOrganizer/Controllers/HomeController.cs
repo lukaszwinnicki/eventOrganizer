@@ -48,33 +48,21 @@ namespace EventOrganizer.Controllers
                                          RegistrationViewModel = viewModel
                                      });
         }
-        [HttpPost]
-        public ActionResult Login(LoginViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("Index", new IndexViewModel
-                                         {
-                                             LoginViewModel = model
-                                         });
-            }
-            if (UserAuthenticated(model.Email, model.Password))
-            {
-                FormsAuthentication.SetAuthCookie(model.Email, model.Remember);
-
-                return RedirectToAction("Groups");
-            }
-            return View("Index", new IndexViewModel
-            {
-                LoginViewModel = model
-            });
-        }
-
+        
         [HttpPost]
         public ActionResult IsValidUser(LoginViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { IsValid = false, ErrorMessage = ValidationMessages.IncorrectLoginOrPassword });
+            }
+
             var isValid = UserAuthenticated(viewModel.Email, viewModel.Password);
 
+            if (isValid)
+            {
+                FormsAuthentication.SetAuthCookie(viewModel.Email, viewModel.Remember);
+            }
             return isValid
                        ? Json(new {IsValid = true, Url = Url.Action("Groups")})
                        : Json(new {IsValid = false, ErrorMessage = ValidationMessages.IncorrectLoginOrPassword});
