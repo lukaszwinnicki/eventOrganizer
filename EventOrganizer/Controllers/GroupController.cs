@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using EventOrganizer.Web.Services;
 using EventOrganizer.Web.Services.Abstract;
 
 namespace EventOrganizer.Web.Controllers
@@ -9,6 +10,12 @@ namespace EventOrganizer.Web.Controllers
     {
         private readonly IGroupService _groupService;
 
+        public GroupController()
+            : this(new GroupService())
+        {
+
+        }
+
         public GroupController(IGroupService groupService)
         {
             _groupService = groupService;
@@ -16,8 +23,8 @@ namespace EventOrganizer.Web.Controllers
 
         public HttpResponseMessage Get()
         {
-            return string.IsNullOrEmpty(User.Identity.Name) ? 
-                Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.") : 
+            return string.IsNullOrEmpty(User.Identity.Name) ?
+                Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.") :
                 Request.CreateResponse(HttpStatusCode.OK, _groupService.GetGropus(User.Identity.Name));
         }
     }

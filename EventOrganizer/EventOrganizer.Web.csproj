@@ -52,6 +52,9 @@
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\packages\Autofac.WebApi.2.6.3.862-beta\lib\NET40\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi.2.6.2.859\lib\NET40\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -169,27 +172,31 @@
     <Content Include="Content\spinner.gif" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.min.js.map">
+      <DependentUpon>angular-bootstrap-prettify.js</DependentUpon>
+    </Content>
     <None Include="Scripts\Libraries\JQuery\jquery-1.9.0.intellisense.js" />
-    <Content Include="Scripts\angular-bootstrap-prettify.js" />
-    <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
-    <Content Include="Scripts\angular-bootstrap.js" />
-    <Content Include="Scripts\angular-bootstrap.min.js" />
-    <Content Include="Scripts\angular-cookies.js" />
-    <Content Include="Scripts\angular-cookies.min.js" />
-    <Content Include="Scripts\angular-loader.js" />
-    <Content Include="Scripts\angular-loader.min.js" />
-    <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular-resource.js" />
-    <Content Include="Scripts\angular-resource.min.js" />
-    <Content Include="Scripts\angular-sanitize.js" />
-    <Content Include="Scripts\angular-sanitize.min.js" />
-    <Content Include="Scripts\angular-scenario.js" />
-    <Content Include="Scripts\angular-ui-ieshiv.js" />
-    <Content Include="Scripts\angular-ui-ieshiv.min.js" />
-    <Content Include="Scripts\angular-ui.js" />
-    <Content Include="Scripts\angular-ui.min.js" />
-    <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-cookies.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-cookies.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-loader.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-loader.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-mocks.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-resource.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-resource.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-sanitize.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-sanitize.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-scenario.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-ui-ieshiv.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-ui-ieshiv.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-ui.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular-ui.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular.js" />
+    <Content Include="Scripts\Libraries\AngularUI\angular.min.js" />
     <Content Include="Scripts\i18n\angular-locale_am-et.js" />
     <Content Include="Scripts\i18n\angular-locale_am.js" />
     <Content Include="Scripts\i18n\angular-locale_ar-eg.js" />
@@ -345,8 +352,8 @@
     <Content Include="Scripts\i18n\angular-locale_zh-hk.js" />
     <Content Include="Scripts\i18n\angular-locale_zh-tw.js" />
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
-    <Content Include="Scripts\jstd-scenario-adapter-config.js" />
-    <Content Include="Scripts\jstd-scenario-adapter.js" />
+    <Content Include="Scripts\Libraries\AngularUI\jstd-scenario-adapter-config.js" />
+    <Content Include="Scripts\Libraries\AngularUI\jstd-scenario-adapter.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery.validate.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-1.9.0.js" />
@@ -524,8 +531,8 @@
     <Content Include="Scripts\Libraries\Angular\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\Libraries\Angular\jstd-scenario-adapter-config.js" />
     <Content Include="Scripts\Libraries\Angular\jstd-scenario-adapter.js" />
-    <Content Include="Scripts\select2.js" />
-    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\select2.js" />
+    <Content Include="Scripts\Libraries\AngularUI\select2.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -549,7 +556,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Templates\" />
     <Folder Include="Images\" />
-    <Folder Include="Scripts\App\Controllers\" />
     <Folder Include="Scripts\App\Directives\" />
     <Folder Include="Scripts\App\Services\" />
   </ItemGroup>
