@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using EventOrganizer.Web.Models;
 
 namespace EventOrganizer.Web.Services
@@ -15,17 +17,18 @@ namespace EventOrganizer.Web.Services
                                              };
         public void AddUser(User user)
         {
-            
+            Users.Add(user);
         }
 
         public bool CanAuthorize(string email, string password)
         {
-            return false;
+            return Users.Any(x => string.Equals(x.Email, email, StringComparison.InvariantCultureIgnoreCase)
+                                  && string.Equals(x.Password, password));
         }
 
         public bool IsEmailAvailable(string email)
         {
-            return false;
+            return Users.All(user => !string.Equals(email, user.Email, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }
