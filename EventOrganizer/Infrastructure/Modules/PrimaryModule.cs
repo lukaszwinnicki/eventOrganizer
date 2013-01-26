@@ -12,8 +12,8 @@ namespace EventOrganizer.Web.Infrastructure.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterControllers(typeof(WebApiApplication).Assembly);
             builder.RegisterApiControllers(typeof(WebApiApplication).Assembly);
+            builder.RegisterControllers(typeof(WebApiApplication).Assembly);
 
             builder.RegisterModule<AutofacWebTypesModule>();
 

@@ -24,5 +24,12 @@ namespace EventOrganizer.Web.Tests.Infrastructure
             var controller = _container.Resolve<HomeController>();
             Assert.IsInstanceOf<HomeController>(controller);
         }
+
+        [Test]
+        public void CanResolveGroupApiController()
+        {
+            var controller = _container.Resolve<GroupController>();
+            Assert.IsInstanceOf<GroupController>(controller);
+        }
     }
 }
