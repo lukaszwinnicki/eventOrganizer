@@ -1,1 +1,1 @@
-MSBuild EventOrganizer/EventOrganizer.Web.csproj /p:Configuration=Release /p:DeployOnBuild=True /p:DeployTarget=MSDeployPublish /p:MsDeployServiceUrl=localhost /p:DeployIisAppPath=W4F_EventOrganizer /p:MSDeployPublishMethod=Inproc /p:CreatePackageOnPublish=True
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe EventOrganizer/EventOrganizer.Web.csproj /p:Configuration=Release /p:DeployOnBuild=True /p:DeployTarget=MSDeployPublish /p:MsDeployServiceUrl=localhost /p:DeployIisAppPath=W4F_EventOrganizer /p:MSDeployPublishMethod=Inproc /p:CreatePackageOnPublish=True
