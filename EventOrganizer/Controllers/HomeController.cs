@@ -1,16 +1,21 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
-using EventOrganizer.Models;
-using EventOrganizer.Resources;
-using EventOrganizer.ViewModels;
+using EventOrganizer.Web.Models;
+using EventOrganizer.Web.Resources;
+using EventOrganizer.Web.Services;
+using EventOrganizer.Web.ViewModels;
 
-namespace EventOrganizer.Controllers
+namespace EventOrganizer.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public static List<User> Users = new List<User>();
+        private readonly UserService _userService;
+
+        public HomeController()
+        {
+            _userService = new UserService();
+        }
 
         public ActionResult Index()
         {
@@ -27,15 +32,15 @@ namespace EventOrganizer.Controllers
                                              RegistrationViewModel = viewModel
                                          });
             }
-            if (Users.Any(x => x.Email == viewModel.Email))
+            if (_userService.IsEmailAvailable(viewModel.Email))
             {
                 ModelState.AddModelError("Email", ValidationMessages.EmailExists);
                 return View("Index", new IndexViewModel { RegistrationViewModel = viewModel });
             }
 
-            Users.Add(new User { Email = viewModel.Email, Password = viewModel.Password });
+            _userService.AddUser(new User { Email = viewModel.Email, Password = viewModel.Password });
 
-            if (UserAuthenticated(viewModel.Email, viewModel.Password))
+            if (_userService.CanAuthorize(viewModel.Email, viewModel.Password))
             {
                 FormsAuthentication.SetAuthCookie(viewModel.Email, viewModel.Remember);
 
@@ -56,7 +61,7 @@ namespace EventOrganizer.Controllers
                 return Json(new { IsValid = false, ErrorMessage = ValidationMessages.IncorrectLoginOrPassword });
             }
 
-            var isValid = UserAuthenticated(viewModel.Email, viewModel.Password);
+            var isValid = _userService.CanAuthorize(viewModel.Email, viewModel.Password);
 
             if (isValid)
             {
@@ -75,13 +80,6 @@ namespace EventOrganizer.Controllers
                     User = new User { Email = "test@test.com", Password = "Password" }, 
                     Groups = new List<Group> { new Group { Description = "Short description", Name = "Beer lovers" } }
                 });
-        }
-
-        bool UserAuthenticated(string userName, string password)
-        {
-            if (Users.All(x => x.Email != userName))
-                return false;
-            return Users.Single(x => x.Email == userName).Password == password;
         }
 
         public ActionResult Logout()

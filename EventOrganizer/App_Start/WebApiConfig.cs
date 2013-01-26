@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace EventOrganizer.App_Start
+namespace EventOrganizer.Web.App_Start
 {
     public static class WebApiConfig
     {

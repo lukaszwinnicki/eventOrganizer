@@ -1,9 +1,8 @@
-﻿@model LoginViewModel
+﻿@model EventOrganizer.Web.ViewModels.LoginViewModel
 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
     <li>
         <div style="padding: 10px">
-            @using (Html.BeginForm("Login", "Home", FormMethod.Post, new {@class = "form-horizontal", id = "js-login-form"}))
-            {
+            <form method="POST" class = "form-horizontal" id = "js-login-form">
                 <span class="text-error" id="js-login-error" style="margin: 20px 0"></span>
 
                 <div class="control-group" style="margin-bottom: 3px">
@@ -34,7 +33,7 @@
                         <button type="submit" class="btn">Sign in</button>
                     </div>
                 </div>
-            }
+            </form>
         </div>
     </li>
 </ul>
