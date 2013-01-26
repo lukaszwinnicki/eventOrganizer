@@ -48,6 +48,9 @@
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\packages\Autofac.Mvc4.2.6.2.859\lib\NET40\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi.2.6.2.859\lib\NET40\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -165,6 +168,7 @@
     <Content Include="Content\spinner.gif" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
     <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.min.js.map">
       <DependentUpon>angular-bootstrap-prettify.js</DependentUpon>
     </Content>
@@ -548,7 +552,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Templates\" />
     <Folder Include="Images\" />
-    <Folder Include="Scripts\App\Controllers\" />
     <Folder Include="Scripts\App\Directives\" />
     <Folder Include="Scripts\App\Services\" />
   </ItemGroup>

@@ -1,7 +1,7 @@
 ﻿@model EventOrganizer.Web.ViewModels.GroupsViewModel
 
 
-<div class="media">
+<div class="media" ng-controller="GroupsCtrl">
     <div class="pull-left">
         <div style="padding-bottom: 10px; padding-right: 20px;">
             <img class="media-object img-polaroid" src="@Model.User.PhotoUrl">
@@ -11,12 +11,16 @@
     <div class="media-body">
         <h4 class="media-heading">My Groups</h4>
         <table class="table table-hover">
-            @foreach (var group in Model.Groups)
+            <tr ng-repeat="group in groups">
+                <td>{{ group.Name }}</td>
+            </tr>
+            @*@foreach (var group in Model.Groups)
             {
                 <tr>
                     <td>@group.Name</td>
                 </tr>
-            }
+            }*@
         </table>
     </div>
 </div>
+<script src="~/Scripts/App/Controllers/GroupsCtrl.js"></script>
