@@ -52,7 +52,7 @@ namespace EventOrganizer.Web.Controllers
                                          RegistrationViewModel = viewModel
                                      });
         }
-        
+
         [HttpPost]
         public ActionResult IsValidUser(LoginViewModel viewModel)
         {
@@ -77,8 +77,17 @@ namespace EventOrganizer.Web.Controllers
         {
             return View("Groups", new GroupsViewModel
                 {
-                    User = new User { Email = "test@test.com", Password = "Password" }, 
-                    Groups = new List<Group> { new Group { Description = "Short description", Name = "Beer lovers" } }
+                    User = new User { Email = "test@test.com", Password = "Password", PhotoUrl = "/Content/Images/bejdzi.jpg", Name = "Paweł", Surname = "Bejger" },
+                    Groups = new List<Group> { 
+                        new Group { Description = "Short description", Name = "Beer lovers 1" },
+                        new Group { Description = "Short description", Name = "Beer lovers 2" },
+                        new Group { Description = "Short description", Name = "Beer lovers 3" },
+                        new Group { Description = "Short description", Name = "Beer lovers 4" },
+                        new Group { Description = "Short description", Name = "Beer lovers 5" },
+                        new Group { Description = "Short description", Name = "Beer lovers 6" },
+                        new Group { Description = "Short description", Name = "Beer lovers 7" },
+                        new Group { Description = "Short description", Name = "Beer lovers 8" }
+                    }
                 });
         }
 

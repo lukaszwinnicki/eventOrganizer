@@ -2,10 +2,12 @@
 
 
 <div class="media">
-    <a class="pull-left" href="#">
-        <img class="media-object" src="/Content/Images/holder.png">
-        @Model.User.Email
-    </a>
+    <div class="pull-left">
+        <div style="padding-bottom: 10px; padding-right: 20px;">
+            <img class="media-object img-polaroid" src="@Model.User.PhotoUrl">
+        </div>
+        <span style="margin-top: 10px;"><strong>@Model.User.Name @Model.User.Surname</strong></span>
+    </div>
     <div class="media-body">
         <h4 class="media-heading">My Groups</h4>
         <table class="table table-hover">
