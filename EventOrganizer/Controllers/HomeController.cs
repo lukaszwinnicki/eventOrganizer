@@ -1,19 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using EventOrganizer.Web.Models;
 using EventOrganizer.Web.Resources;
 using EventOrganizer.Web.Services;
+using EventOrganizer.Web.Services.Abstract;
 using EventOrganizer.Web.ViewModels;
 
 namespace EventOrganizer.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IGroupService _groupService;
         private readonly UserService _userService;
 
-        public HomeController()
+        public HomeController(IGroupService groupService)
         {
+            _groupService = groupService;
             _userService = new UserService();
         }
 
@@ -77,8 +81,15 @@ namespace EventOrganizer.Web.Controllers
         {
             return View("Groups", new GroupsViewModel
                 {
-                    User = new User { Email = "test@test.com", Password = "Password", PhotoUrl = "/Content/Images/bejdzi.jpg", Name = "Paweł", Surname = "Bejger" },
-                    Groups = 
+                    User = new User
+                        {
+                            Email = "test@test.com", 
+                            Password = "Password", 
+                            PhotoUrl = "/Content/Images/bejdzi.jpg", 
+                            Name = "Paweł", 
+                            Surname = "Bejger"
+                        },
+                    Groups = _groupService.GetGropus(User.Identity.Name).ToList()
                 });
         }
 

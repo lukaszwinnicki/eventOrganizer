@@ -132,6 +132,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ValidationMessages.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\Abstract\IGroupService.cs" />
+    <Compile Include="Services\Groupservice.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\GroupsViewModel.cs" />
     <Compile Include="ViewModels\IndexViewModel.cs" />
