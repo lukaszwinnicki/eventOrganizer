@@ -19,6 +19,14 @@ namespace EventOrganizer.Web.App_Start
                         "~/Scripts/Libraries/JQuery/jquery.validate.js",
                         "~/Scripts/Libraries/JQuery/jquery.validate.unobtrusive.js"));            
 
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                    "~/Scripts/App/Services/GroupService.js",
+                    "~/Scripts/App/Services/UserService.js",
+                    "~/Scripts/App/Controllers/GroupCtrl.js",
+                    "~/Scripts/App/Controllers/GroupsCtrl.js",
+                    "~/Scripts/App/App.js"
+                ));
+
             bundles.Add(new StyleBundle("~/styles/bootstrap").Include(
                 "~/Content/bootstrap.css", 
                 "~/Content/bootstrap-responsive.css",
