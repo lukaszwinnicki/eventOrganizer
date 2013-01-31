@@ -540,6 +540,7 @@
     <Content Include="Scripts\Libraries\Angular\jstd-scenario-adapter.js" />
     <Content Include="Scripts\Libraries\AngularUI\select2.js" />
     <Content Include="Scripts\Libraries\AngularUI\select2.min.js" />
+    <Content Include="Scripts\Tests\Unit\Controllers\GroupsCtrlTest.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -558,6 +559,7 @@
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Home\Groups.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Scripts\Tests\testacular.conf.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
