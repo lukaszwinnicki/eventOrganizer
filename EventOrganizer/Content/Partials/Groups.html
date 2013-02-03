@@ -1,24 +1,27 @@
 ﻿<div>
     <div ui-modal class="fade" ng-model="modalShown" id="myModal">
-        <form class="form-horizontal">
-            <div class="control-group">
-                <label class="control-label" for="groupName">Name</label>
-                <div class="controls">
-                    <input type="text" id="groupName" ng-model="group.name">
+        <div class="modal-header">
+            <h3>Add group</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="groupName">Name</label>
+                    <div class="controls">
+                        <input type="text" id="groupName" ng-model="group.name">
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="groupDescription">Description</label>
-                <div class="controls">
-                    <input type="text" id="groupDescription" ng-model="group.description">
+                <div class="control-group">
+                    <label class="control-label" for="groupDescription">Description</label>
+                    <div class="controls">
+                        <input type="text" id="groupDescription" ng-model="group.description">
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <button type="button" class="btn btn-info" ng-click="save(group)">Save</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" ng-click="save(group)">Save</button>
+        </div>
     </div>
 
     <div class="media">
@@ -33,7 +36,7 @@
             <button type="button" class="btn btn-info" ng-click="modalShown=true">Add Group</button>
             <table class="table table-hover">
                 <tr ng-repeat="group in groups">
-                    <td>
+                    <td ng-click="goToGropuDetails(group.Id)">
                         <dl>
                             <dt>{{ group.Name }}</dt>
                             <dd>{{ group.Description }}</dd>

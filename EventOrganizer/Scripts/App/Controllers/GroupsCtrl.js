@@ -1,7 +1,7 @@
-﻿function GroupsCtrl($scope, groupResource, loggedUserResource) {
+﻿function GroupsCtrl($scope, $location, groupsResource, groupResource, loggedUserResource) {
     $scope.groups = [];
 
-    groupResource.query({}, function (data) {
+    groupsResource.query({}, function (data) {
         $scope.groups = data;
     });
 
@@ -16,6 +16,10 @@
             $scope.modalShown = false;
         });
     };
+
+    $scope.goToGropuDetails = function (groupId) {
+        $location.url('/group/' + groupId);
+    };
 }
 
-GroupsCtrl.$inject = ['$scope', 'GroupResource', 'LoggedUserResource'];
+GroupsCtrl.$inject = ['$scope', '$location', 'GroupsResource', 'GroupResource', 'LoggedUserResource'];

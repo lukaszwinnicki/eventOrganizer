@@ -1,16 +1,31 @@
 ﻿@model EventOrganizer.Web.ViewModels.IndexViewModel
-<div class="jumbotron">
-    <h1>Super awesome event organizer!</h1>
-    <p class="lead">Meaningfull description</p>
-    <a href="#myModal" role="button" class="btn" data-toggle="modal">Register</a>
-</div>
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Registration</h3>
+<div class="container-narrow">
+    <div>
+        @Html.Partial("_Menu")
+        <h3 class="muted">Event organizer</h3>
     </div>
-    @Html.Partial("_Register", Model.RegistrationViewModel)
+    <hr>
+    <div id="body">
+        <div class="jumbotron">
+            <h1>Super awesome event organizer!</h1>
+            <p class="lead">Meaningfull description</p>
+            <a href="#myModal" role="button" class="btn" data-toggle="modal">Register</a>
+        </div>
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Registration</h3>
+            </div>
+            @Html.Partial("_Register", Model.RegistrationViewModel)
+        </div>
+    </div>
+    <hr>
+
+    <div>
+        <p>&copy; Work4Food @DateTime.Now.Date.Year</p>
+    </div>
 </div>
+
 
 @section scripts {
     <script src="~/Scripts/App/Custom/homepage.js"></script>

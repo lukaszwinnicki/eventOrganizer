@@ -22,11 +22,11 @@ namespace EventOrganizer.Web.Controllers
             _groupService = groupService;
         }
 
-        public HttpResponseMessage Get()
+        public HttpResponseMessage Get(int id)
         {
             return string.IsNullOrEmpty(User.Identity.Name) ?
                 Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.") :
-                Request.CreateResponse(HttpStatusCode.OK, _groupService.GetGropus(User.Identity.Name));
+                Request.CreateResponse(HttpStatusCode.OK, _groupService.GetGropu(id));
         }
 
         public HttpResponseMessage Post(Group group)

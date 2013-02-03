@@ -7,5 +7,6 @@ namespace EventOrganizer.Web.Services.Abstract
     {
         IList<Group> GetGropus(string userId);
         Group Save(Group group);
+        Group GetGropu(int id);
     }
 }
