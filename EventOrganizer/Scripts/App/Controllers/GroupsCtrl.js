@@ -17,7 +17,7 @@
         });
     };
 
-    $scope.goToGropuDetails = function (groupId) {
+    $scope.goToGroupDetails = function (groupId) {
         $location.url('/group/' + groupId);
     };
 }
