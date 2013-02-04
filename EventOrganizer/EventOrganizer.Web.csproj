@@ -56,6 +56,18 @@
       <HintPath>..\packages\Autofac.WebApi.2.6.2.859\lib\NET40\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\packages\ServiceStack.Common.3.9.35\lib\net35\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\packages\ServiceStack.Common.3.9.35\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\packages\ServiceStack.Redis.3.9.35\lib\net35\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.3.9.35\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -139,6 +151,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoggedUserController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\Abstract\IRepository.cs" />
+    <Compile Include="DAL\Repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -152,6 +166,7 @@
       <DependentUpon>ValidationMessages.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\Abstract\IGroupService.cs" />
+    <Compile Include="Services\Abstract\IUserService.cs" />
     <Compile Include="Services\Groupservice.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\GroupsViewModel.cs" />
@@ -178,8 +193,11 @@
     <Content Include="Scripts\App\App.js" />
     <Content Include="Scripts\App\Controllers\GroupCtrl.js" />
     <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
+    <Content Include="Scripts\App\Custom\homepage.js" />
     <Content Include="Scripts\App\Services\GroupService.js" />
     <Content Include="Scripts\App\Services\UserService.js" />
+    <Content Include="Scripts\Libraries\JQuery\jquery-migrate-1.1.0.js" />
+    <Content Include="Scripts\Libraries\JQuery\jquery-migrate-1.1.0.min.js" />
     <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.min.js.map">
       <DependentUpon>angular-bootstrap-prettify.js</DependentUpon>
     </Content>

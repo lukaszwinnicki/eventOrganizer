@@ -12,12 +12,12 @@ namespace EventOrganizer.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IGroupService _groupService;
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public HomeController(IGroupService groupService)
+        public HomeController(IGroupService groupService, IUserService userService)
         {
             _groupService = groupService;
-            _userService = new UserService();
+            _userService = userService;
         }
 
         public ActionResult Index()

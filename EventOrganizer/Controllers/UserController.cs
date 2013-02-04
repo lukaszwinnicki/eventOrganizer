@@ -2,19 +2,20 @@
 using System.Net.Http;
 using System.Web.Http;
 using EventOrganizer.Web.Services;
+using EventOrganizer.Web.Services.Abstract;
 
 namespace EventOrganizer.Web.Controllers
 {
     public class UserController : ApiController
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public UserController()
+        public UserController(IUserService userService)
         {
-            _userService = new UserService();
+            _userService = userService;
         }
 
-        public HttpResponseMessage Get(string id)
+        public HttpResponseMessage Get(long id)
         {
             return Request.CreateResponse(HttpStatusCode.OK, _userService.GetUser(id));
         }

@@ -1,6 +1,8 @@
-﻿using EventOrganizer.Web.Models;
+﻿using EventOrganizer.Web.DAL.Abstract;
+using EventOrganizer.Web.Models;
 using EventOrganizer.Web.Services;
 using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace EventOrganizer.Web.Tests.Services
 {
@@ -12,7 +14,7 @@ namespace EventOrganizer.Web.Tests.Services
         [SetUp]
         public void Before()
         {
-            _sut = new UserService();
+            _sut = new UserService(new StaticRepository());
         }
 
         [Test]
@@ -67,4 +69,5 @@ namespace EventOrganizer.Web.Tests.Services
             Assert.IsTrue(result);            
         }
     }
+
 }

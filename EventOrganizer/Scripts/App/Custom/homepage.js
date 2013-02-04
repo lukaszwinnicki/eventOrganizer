@@ -1,13 +1,13 @@
 ﻿$(function() {
     $("#js-login-form").submit(function() {
+        $(this).find(":input").each(function(i, item) {
+            if (!$(item).valid()) {
+                $(item).closest(".control-group").addClass("error");
+            } else {
+                $(item).closest(".control-group").removeClass("error");
+            }
+        });
         if (!$(this).valid()) {
-            $(this).find(":input").each(function(i, item) {
-                if (!$(item).valid()) {
-                    $(item).closest(".control-group").addClass("error");
-                } else {
-                    $(item).closest(".control-group").removeClass("error");
-                }
-            });
             return false;
         }
         $.ajax("/Home/IsValidUser", {

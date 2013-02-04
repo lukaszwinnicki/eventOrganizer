@@ -1,49 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EventOrganizer.Web.DAL;
+using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
+using EventOrganizer.Web.Services.Abstract;
 
 namespace EventOrganizer.Web.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
-        public static List<User> Users = new List<User>
-            {
-                new User
-                    {
-                        Id = "111",
-                        Email = "bj@gy.com",
-                        Password = "aaa",
-                        PhotoUrl = "/Content/Images/bejdzi.jpg",
-                        Name = "Paweł",
-                        Surname = "Bejger"
-                    }
-            };
+        private readonly IRepository _repository;
+
+        public UserService(IRepository repository)
+        {
+            _repository = repository;
+        }
 
         public void AddUser(User user)
         {
-            Users.Add(user);
+            _repository.AddUser(user);
         }
 
         public bool CanAuthorize(string email, string password)
         {
-            return Users.Any(x => string.Equals(x.Email, email, StringComparison.InvariantCultureIgnoreCase)
-                                  && string.Equals(x.Password, password));
+            var user = _repository.GetUserByEmail(email);
+            return user != null && string.Equals(user.Password, password);
         }
 
         public bool IsEmailAvailable(string email)
         {
-            return Users.All(user => !string.Equals(email, user.Email, StringComparison.InvariantCultureIgnoreCase));
-        }
-
-        public User GetUser(string id)
-        {
-            return Users.Single(u => string.Equals(u.Id, id, StringComparison.InvariantCulture));
+            return _repository.GetUserByEmail(email) == null;
         }
 
         public User GetUserByEmail(string email)
         {
-            return Users.Single(u => string.Equals(u.Email, email, StringComparison.InvariantCulture));
+            return _repository.GetUserByEmail(email);
+        }
+
+        public User GetUser(long id)
+        {
+            return _repository.GetUserById(id);
         }
     }
 }

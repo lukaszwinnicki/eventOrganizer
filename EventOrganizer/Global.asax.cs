@@ -6,7 +6,10 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using EventOrganizer.Web.App_Start;
+using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Infrastructure.Modules;
+using EventOrganizer.Web.Models;
+using ServiceStack.Redis;
 
 namespace EventOrganizer.Web
 {
@@ -29,6 +32,21 @@ namespace EventOrganizer.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+            // REDIS
+            var client = container.Resolve<IRedisClient>();
+            client.FlushDb();
+            client.FlushAll();
+            var repo = container.Resolve<IRepository>();
+            repo.AddUser(new User                 
+                    {
+                        Email = "bj@gy.com",
+                        Password = "aaa",
+                        PhotoUrl = "/Content/Images/bejdzi.jpg",
+                        Name = "Paweł",
+                        Surname = "Bejger"
+                    });
         }
     }
 }
