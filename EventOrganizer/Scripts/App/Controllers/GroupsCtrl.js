@@ -1,11 +1,11 @@
-﻿function GroupsCtrl($scope, $location, groupsResource, groupResource, loggedUserResource) {
+﻿function GroupsCtrl($scope, $location, groupsResource, groupResource, loggedInUser) {
     $scope.groups = [];
-
+    
     groupsResource.query({}, function (data) {
         $scope.groups = data;
     });
 
-    loggedUserResource.get({}, function (data) {
+    loggedInUser.getUser().then(function (data) {
         $scope.user = data;
     });
     
@@ -22,4 +22,4 @@
     };
 }
 
-GroupsCtrl.$inject = ['$scope', '$location', 'GroupsResource', 'GroupResource', 'LoggedUserResource'];
+GroupsCtrl.$inject = ['$scope', '$location', 'GroupsResource', 'GroupResource', 'LoggedInUser'];

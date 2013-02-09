@@ -25,6 +25,7 @@ namespace EventOrganizer.Web.App_Start
                     "~/Scripts/App/Services/UserService.js",
                     "~/Scripts/App/Controllers/GroupCtrl.js",
                     "~/Scripts/App/Controllers/GroupsCtrl.js",
+                    "~/Scripts/App/Controllers/MenuCtrl.js",
                     "~/Scripts/App/App.js"
                 ));
 
