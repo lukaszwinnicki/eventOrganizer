@@ -49,3 +49,11 @@
 .hidden {
     display: none;
 }
+
+.event {
+    position: relative;
+    display: block;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    float: left;
+}

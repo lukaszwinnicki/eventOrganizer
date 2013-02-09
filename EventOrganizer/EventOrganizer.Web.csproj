@@ -177,6 +177,7 @@
     <Content Include="Content\Images\bejdzi.jpg" />
     <Content Include="Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Content\Images\glyphicons-halflings.png" />
+    <Content Include="Content\Images\holder.png" />
     <Content Include="Content\Partials\Group.html" />
     <Content Include="Content\Partials\Groups.html" />
     <Content Include="Content\select2.css" />
@@ -189,7 +190,6 @@
     <Content Include="Scripts\App\App.js" />
     <Content Include="Scripts\App\Controllers\GroupCtrl.js" />
     <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
-    <Content Include="Scripts\App\Controllers\MenuCtrl.js" />
     <Content Include="Scripts\App\Custom\homepage.js" />
     <Content Include="Scripts\App\Services\GroupService.js" />
     <Content Include="Scripts\App\Services\GroupsService.js" />
