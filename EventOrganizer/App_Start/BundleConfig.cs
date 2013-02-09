@@ -13,7 +13,8 @@ namespace EventOrganizer.Web.App_Start
                         "~/Scripts/Libraries/Bootstrap/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/Libraries/JQuery/jquery-1.9.0.js"));
+                        "~/Scripts/Libraries/JQuery/jquery-1.9.0.js",
+                        "~/Scripts/Libraries/JQuery/jquery-ui-1.10.0.custom.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery.val").Include(
                         "~/Scripts/Libraries/JQuery/jquery.validate.js",
