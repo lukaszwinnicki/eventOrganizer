@@ -26,24 +26,38 @@
 
     <div class="media">
         <div class="pull-left">
-            <div style="padding-bottom: 10px; padding-right: 20px;">
-                <img class="media-object img-polaroid" ng-src="{{ user.PhotoUrl }}">
-            </div>
-            <span style="margin-top: 10px;"><strong>{{ user.Name }} {{ user.Surname }}</strong></span>
         </div>
-        <div class="media-body">
-            <h4 class="media-heading">My Groups</h4>
-            <button type="button" class="btn btn-info" ng-click="modalShown=true">Add Group</button>
-            <table class="table table-hover">
-                <tr ng-repeat="group in groups">
-                    <td ng-click="goToGroupDetails(group.Id)">
-                        <dl>
-                            <dt>{{ group.Name }}</dt>
-                            <dd>{{ group.Description }}</dd>
-                        </dl>
-                    </td>
-                </tr>
-            </table>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+                    <div style="padding-bottom: 10px; padding-right: 20px;">
+                        <img class="media-object img-polaroid" alt="user photo" ng-src="{{ user.PhotoUrl }}">
+                    </div>
+                    <span style="margin-top: 10px;"><strong>{{ user.Name }} {{ user.Surname }}</strong></span>
+                </div>
+                <div class="span8">
+                    <div class="row" style="padding-bottom: 20px;">
+                        <div class="span4">
+                            <h4 class="media-heading">My Groups</h4>
+                        </div>
+                        <div class="span8">
+                            <button type="button" class="btn btn-info" ng-click="modalShown=true">Add Group</button>
+                        </div>
+                    </div>
+                    <table class="table table-hover">
+                        <tr ng-repeat="group in groups" style="cursor: pointer;">
+                            <td ng-click="goToGroupDetails(group.Id)">
+                                <dl>
+                                    <dt>{{ group.Name }}</dt>
+                                    <dd>{{ group.Description }}</dd>
+                                </dl>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="span2">
+                </div>
+            </div>
         </div>
     </div>
 </div>
