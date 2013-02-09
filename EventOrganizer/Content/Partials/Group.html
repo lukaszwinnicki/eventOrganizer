@@ -3,24 +3,24 @@
         <h3>New event</h3>
     </div>
     <div class="modal-body" style="max-height: 450px;">
-        <form class="form-horizontal">
+        <form class="form-horizontal event-form">
             <div class="control-group">
                 <label class="control-label" for="eventName">Event name</label>
                 <div class="controls">
-                    <input type="text" id="eventName" ng-model="event.Name">
+                    <input type="text" id="eventName" ng-model="event.Name" style="width: 250px;">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="groupDescription">Where</label>
                 <div class="controls">
                     <input style="float: left; width: 110px" type="text" id="groupDescription" ng-model="group.description">
-                    <input style="margin-left: 15px; width: 100px;" type="text" id="Text1" ng-model="group.description">
+                    <input style="margin-left: 15px; width: 110px;" type="text" id="Text1" ng-model="group.description">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Description</label>
                 <div class="controls">
-                    <textarea style="width: 240px;"></textarea>
+                    <textarea style="width: 250px;"></textarea>
                 </div>
             </div>
             <div class="control-group">
@@ -66,7 +66,7 @@
             <div class="control-group">
                 <label class="control-label">Max Participants</label>
                 <div class="controls">
-                    <select>
+                    <select style="width: 265px;">
                         <option>Unlimited</option>
                     </select>
                 </div>
@@ -74,8 +74,9 @@
             <div class="control-group">
                 <label class="control-label">Archivization</label>
                 <div class="controls">
-                    <select>
+                    <select style="width: 265px;">
                         <option>Automatic</option>
+                        <option>Manual</option>
                     </select>
                 </div>
             </div>
