@@ -93,31 +93,7 @@
                 <h1>{{group.Name}}<small>{{ group.Description }}</small></h1>
             </div>
             <div class="popover event" ng-repeat="event in events">
-                <div class="popover-title">
-                    <h3>{{ event.Name }}</h3>
-                </div>
-                <div class="popover-content">
-                    <div class="row-fluid">
-                        <div class="span5">{{ event.When | date: 'yyyy-mm-dd' }}</div>
-                        <div class="span5">{{ event.Address.Place }}</div>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="span5">{{ event.When | date: 'HH:mm' }} - {{ event.End | date: 'HH:mm' }}</div>
-                        <div class="span5">{{ event.Address.City }}</div>
-                    </div>
-                    <div id="myCarousel">
-                        <img style="padding-left: 5px;" ng-src="{{ event.MainPhotoUrl }}" />
-                    </div>
-
-                    <div style="padding-top: 15px;">
-                        <ul class="inline">
-                            <li ng-repeat="participant in event.Participants">
-                                <a href="#">
-                                    <img ng-src="{{ participant.PhotoUrl }}" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <div eo-event event="event"></div>
             </div>
         </div>
         <div class="span2">

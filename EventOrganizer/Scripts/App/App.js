@@ -3,6 +3,7 @@
         [
             'eventOrganizer.GroupsService',
             'eventOrganizer.GroupService',
+            'eventOrganizer.Directives',
             'ui.directives',
             'eventOrganizer.UserServices',
             'eventOrganizer.LoggedUserServices'])

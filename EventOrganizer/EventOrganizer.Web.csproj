@@ -206,6 +206,7 @@
     <Content Include="Content\JQuery\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Content\JQuery\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\JQuery\jquery-ui-1.10.0.custom.min.css" />
+    <Content Include="Content\Partials\Event.html" />
     <Content Include="Content\Partials\Group.html" />
     <Content Include="Content\Partials\Groups.html" />
     <Content Include="Content\select2.css" />
@@ -219,6 +220,7 @@
     <Content Include="Scripts\App\Controllers\GroupCtrl.js" />
     <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
     <Content Include="Scripts\App\Custom\homepage.js" />
+    <Content Include="Scripts\App\Directives\Event.js" />
     <Content Include="Scripts\App\Services\GroupService.js" />
     <Content Include="Scripts\App\Services\GroupsService.js" />
     <Content Include="Scripts\App\Services\UserService.js" />
@@ -864,7 +866,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Templates\" />
     <Folder Include="Images\" />
-    <Folder Include="Scripts\App\Directives\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
