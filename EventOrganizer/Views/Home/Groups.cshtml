@@ -24,6 +24,14 @@
     </div>
 </div>
 
+<div ng-controller="ViewCtrl" ng-show="isViewLoading">
+    <div class="span2">&nbsp;</div>
+    <div class="span8">
+        <div class="progress progress-striped active">
+            <div class="bar" style="width: 100%;"></div>
+        </div>
+    </div>
+</div>
 <div ng-view class="container-fluid">
 </div>
 

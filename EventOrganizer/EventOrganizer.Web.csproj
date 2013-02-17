@@ -219,6 +219,7 @@
     <Content Include="Scripts\App\App.js" />
     <Content Include="Scripts\App\Controllers\GroupCtrl.js" />
     <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
+    <Content Include="Scripts\App\Controllers\ViewCtrl.js" />
     <Content Include="Scripts\App\Custom\homepage.js" />
     <Content Include="Scripts\App\Directives\Event.js" />
     <Content Include="Scripts\App\Services\GroupService.js" />
