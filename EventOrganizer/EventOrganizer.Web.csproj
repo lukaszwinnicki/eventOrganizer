@@ -176,7 +176,6 @@
     <Compile Include="Services\Abstract\IEventService.cs" />
     <Compile Include="Services\Abstract\IGroupService.cs" />
     <Compile Include="Services\Abstract\IUserService.cs" />
-    <Compile Include="Services\Groupservice.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\GroupService.cs" />
     <Compile Include="Services\UserService.cs" />

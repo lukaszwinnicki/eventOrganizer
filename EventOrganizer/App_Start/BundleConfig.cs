@@ -8,13 +8,13 @@ namespace EventOrganizer.Web.App_Start
         {
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/Libraries/Angular/angular.min.js"));
-                "~/Scripts/Libraries/Angular/angular.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/Libraries/Bootstrap/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/Libraries/JQuery/jquery-1.9.0.js",
+                        "~/Scripts/Libraries/JQuery/jquery-migrate-1.1.0.js",
                         "~/Scripts/Libraries/JQuery/jquery-ui-1.10.0.custom.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery.val").Include(
@@ -31,11 +31,8 @@ namespace EventOrganizer.Web.App_Start
                     "~/Scripts/App/Controllers/MenuCtrl.js",
                     "~/Scripts/App/Controllers/ViewCtrl.js",
                     "~/Scripts/App/App.js"
-<<<<<<< .mine
-
-=======
                 ));
->>>>>>> .theirs
+
 
             bundles.Add(new StyleBundle("~/styles/bootstrap").Include(
                 "~/Content/bootstrap.css",
