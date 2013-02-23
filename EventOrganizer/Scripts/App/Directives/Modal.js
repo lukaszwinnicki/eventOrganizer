@@ -9,9 +9,6 @@ eventOrganizer.directive('eoModal', function () {
             eoSave: '&',
             eoStyle: '@'
         },
-        templateUrl: '/Content/Partials/Modal.html',
-        link: function (scope) {
-            console.log(scope);
-        }
+        templateUrl: '/Content/Partials/Modal.html'
     }
 });
