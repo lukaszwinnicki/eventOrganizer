@@ -1,4 +1,4 @@
-unlogged user = guest
+unlogged user = guest 
 user = logged user (!guest)
 member = group member
 participant = event participant
