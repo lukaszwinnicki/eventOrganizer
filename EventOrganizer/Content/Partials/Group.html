@@ -1,88 +1,84 @@
-﻿<div ui-modal class="fade" ng-model="modalShown" id="addEvent" style="min-width: 800px;">
-    <div class="modal-header">
-        <h3>New event</h3>
-    </div>
-    <div class="modal-body" style="max-height: 450px;">
-        <form class="form-horizontal event-form" name="eventForm">
-            <div class="control-group">
-                <label class="control-label" for="eventName">Event name</label>
-                <div class="controls control-group" ng-class="{error: eventForm.Name.$invalid}">
-                    <input type="text" id="eventName" name="Name" ng-model="newEvent.Name" style="width: 250px;" required>
-                </div>
+﻿<div eo-modal eo-show="modalShown" eo-save="save(newEvent)" eo-style="min-width: 800px;">
+    <form class="form-horizontal event-form" name="eventForm">
+        <div class="control-group">
+            <label class="control-label" for="eventName">Event name</label>
+            <div class="controls control-group" ng-class="{error: eventForm.Name.$invalid}">
+                <input type="text" id="eventName" name="Name" ng-model="newEvent.Name" style="width: 250px;" required>
             </div>
-            <div class="control-group">
-                <label class="control-label" for="City">Where</label>
-                <div class="controls">
-                    <input style="float: left; width: 110px" type="text" id="City" ng-model="newEvent.Address.City" required>
-                    <input style="margin-left: 15px; width: 110px;" type="text" id="Location" ng-model="newEvent.Address.Location" required>
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="City">Where</label>
+            <div class="controls">
+                <input style="float: left; width: 110px" type="text" id="City" ng-model="newEvent.Address.City" required>
+                <input style="margin-left: 15px; width: 110px;" type="text" id="Location" ng-model="newEvent.Address.Location" required>
             </div>
-            <div class="control-group">
-                <label class="control-label">Description</label>
-                <div class="controls">
-                    <textarea name="Description" style="width: 250px;" ng-model="newEvent.Description"></textarea>
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Description</label>
+            <div class="controls">
+                <textarea name="Description" style="width: 250px;" ng-model="newEvent.Description"></textarea>
             </div>
-            <div class="control-group">
-                <label class="control-label">Start Date</label>
-                <div class="controls">
-                    <div class="input-append" id="Div2" data-date-format="dd-mm-yyyy" style="float: left;">
-                        <input class="span2" size="16" type="text" id="StartDate" name="StartDate" ng-model="newEvent.StartDate" ui-date required ng-change="updateEndDate()">
-                        <span class="add-on"><i class="icon-calendar"></i></span>
-                    </div>
-                    <select style="width: 50px; margin-left: 15px;" id="SelectedHourStart" name="SelectedHourStart" ng-model="newEvent.SelectedHourStart" ng-options="hour for hour in newEvent.Hours" ng-change="updateEndHour()">
-                    </select>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Start Date</label>
+            <div class="controls">
+                <div class="input-append" id="Div2" data-date-format="dd-mm-yyyy" style="float: left;">
+                    <input class="span2" size="16" type="text" id="StartDate" name="StartDate" ng-model="newEvent.StartDate" ui-date required ng-change="updateEndDate()">
+                    <span class="add-on"><i class="icon-calendar"></i></span>
                 </div>
+                <select style="width: 50px; margin-left: 15px;" id="SelectedHourStart" name="SelectedHourStart" ng-model="newEvent.SelectedHourStart" ng-options="hour for hour in newEvent.Hours" ng-change="updateEndHour()">
+                </select>
             </div>
-            <div class="control-group">
-                <label class="control-label">End Date</label>
-                <div class="controls">
-                    <div class="input-append control-group" id="Div1" data-date-format="dd-mm-yyyy" style="float: left;">
-                        <input class="span2" size="16" type="text" ng-model="newEvent.EndDate" ui-date name="EndDate">
-                        <span class="add-on"><i class="icon-calendar"></i></span>
-                    </div>
-                    <select class="control-group" style="width: 50px; margin-left: 15px;" ng-model="newEvent.SelectedHourEnd" ng-options="hour for hour in newEvent.Hours">
-                    </select>
+        </div>
+        <div class="control-group">
+            <label class="control-label">End Date</label>
+            <div class="controls">
+                <div class="input-append control-group" id="Div1" data-date-format="dd-mm-yyyy" style="float: left;">
+                    <input class="span2" size="16" type="text" ng-model="newEvent.EndDate" ui-date name="EndDate">
+                    <span class="add-on"><i class="icon-calendar"></i></span>
                 </div>
+                <select class="control-group" style="width: 50px; margin-left: 15px;" ng-model="newEvent.SelectedHourEnd" ng-options="hour for hour in newEvent.Hours">
+                </select>
             </div>
-            <div class="control-group">
-                <label class="control-label">Photo</label>
-                <div class="controls">
-                    <a href="#">Upload image</a>
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Photo</label>
+            <div class="controls">
+                <a href="#">Upload image</a>
             </div>
-            <div class="control-group">
-                <label class="control-label">Max Participants</label>
-                <div class="controls">
-                    <select style="width: 265px;" ng-model="newEvent.SelectedMaxParticipants" ng-options="maxParticipant for maxParticipant in newEvent.MaxParticipants">
-                    </select>
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Max Participants</label>
+            <div class="controls">
+                <select style="width: 265px;" ng-model="newEvent.SelectedMaxParticipants" ng-options="maxParticipant for maxParticipant in newEvent.MaxParticipants">
+                </select>
             </div>
-            <div class="control-group">
-                <label class="control-label">Archivization</label>
-                <div class="controls">
-                    <select style="width: 265px;" ng-model="newEvent.SelectedArchivization" ng-options="selectedArchivization for selectedArchivization in newEvent.Archivization">
-                    </select>
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Archivization</label>
+            <div class="controls">
+                <select style="width: 265px;" ng-model="newEvent.SelectedArchivization" ng-options="selectedArchivization for selectedArchivization in newEvent.Archivization">
+                </select>
             </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-info" ng-click="save(group)">Save</button>
-    </div>
+        </div>
+    </form>
 </div>
 <div class="container-fluid" style="padding-top: 20px;">
     <div class="row-fluid">
         <div class="span10">
-            <div class="page-header">
-                <h1>{{group.Name}}<small>{{ group.Description }}</small></h1>
+            <div class="page-header row">
+                <div class="span8">
+                    <h1>{{group.Name}}<small>{{ group.Description }}</small></h1>
+                </div>
+                <div class="span2">
+                    <button type="button" class="btn btn-info" ng-click="modalShown=true">Add Event</button>
+                </div>
             </div>
             <div class="popover event" ng-repeat="event in events">
                 <div eo-event event="event"></div>
             </div>
         </div>
         <div class="span2">
-            <button type="button" class="btn btn-info" ng-click="modalShown=true">Add New</button>
             <div class="well">
                 <div class="page-header">
                     <h4>Members</h4>

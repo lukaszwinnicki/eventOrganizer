@@ -1,27 +1,19 @@
 ﻿<div>
-    <div ui-modal class="fade" ng-model="modalShown" id="myModal">
-        <div class="modal-header">
-            <h3>Add group</h3>
-        </div>
-        <div class="modal-body">
-            <form class="form-horizontal">
-                <div class="control-group">
-                    <label class="control-label" for="groupName">Name</label>
-                    <div class="controls">
-                        <input type="text" id="groupName" ng-model="group.name">
-                    </div>
+    <div eo-modal eo-show="modalShown" eo-save="save(group)">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="groupName">Name</label>
+                <div class="controls">
+                    <input type="text" id="Text1" ng-model="group.name">
                 </div>
-                <div class="control-group">
-                    <label class="control-label" for="groupDescription">Description</label>
-                    <div class="controls">
-                        <input type="text" id="groupDescription" ng-model="group.description">
-                    </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="groupDescription">Description</label>
+                <div class="controls">
+                    <input type="text" id="Text2" ng-model="group.description">
                 </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-info" ng-click="save(group)">Save</button>
-        </div>
+            </div>
+        </form>
     </div>
 
     <div class="media">

@@ -1,9 +1,10 @@
 ﻿function GroupCtrl($scope, group, events) {
     $scope.group = group;
     $scope.editMode = false;
+    $scope.modalShown = false;
     $scope.events = events;
     $scope.members = [];
-    $scope.newEvent = { };
+    $scope.newEvent = {};
 
     createNewEvent();
 

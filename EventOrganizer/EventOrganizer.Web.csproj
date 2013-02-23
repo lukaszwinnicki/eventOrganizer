@@ -230,6 +230,7 @@
     <Content Include="Content\Partials\Event.html" />
     <Content Include="Content\Partials\Group.html" />
     <Content Include="Content\Partials\Groups.html" />
+    <Content Include="Content\Partials\Modal.html" />
     <Content Include="Content\select2.css" />
     <Content Include="Content\select2.png" />
     <Content Include="Content\select2x2.png" />
@@ -243,6 +244,7 @@
     <Content Include="Scripts\App\Controllers\ViewCtrl.js" />
     <Content Include="Scripts\App\Custom\homepage.js" />
     <Content Include="Scripts\App\Directives\Event.js" />
+    <Content Include="Scripts\App\Directives\Modal.js" />
     <Content Include="Scripts\App\Services\GroupService.js" />
     <Content Include="Scripts\App\Services\GroupsService.js" />
     <Content Include="Scripts\App\Services\UserService.js" />
