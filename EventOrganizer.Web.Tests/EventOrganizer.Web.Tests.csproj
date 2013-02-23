@@ -68,11 +68,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\BaseRepositoryTest.cs" />
+    <Compile Include="DAL\GroupRepositoryTests.cs" />
     <Compile Include="DAL\RedisConnectionTests.cs" />
-    <Compile Include="DAL\RepositoryTest.cs" />
+    <Compile Include="DAL\UserRepositoryTest.cs" />
     <Compile Include="Infrastructure\ContainerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\StaticRepository.cs" />
+    <Compile Include="Services\StaticUserRepository.cs" />
     <Compile Include="Services\UserServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>

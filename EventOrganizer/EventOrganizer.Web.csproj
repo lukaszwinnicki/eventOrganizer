@@ -156,8 +156,12 @@
     <Compile Include="Controllers\LoggedUserController.cs" />
     <Compile Include="Controllers\NotoficationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\Abstract\IGroupRepository.cs" />
     <Compile Include="DAL\Abstract\IRepository.cs" />
-    <Compile Include="DAL\Repository.cs" />
+    <Compile Include="DAL\Abstract\IUserRepository.cs" />
+    <Compile Include="DAL\BaseRepository.cs" />
+    <Compile Include="DAL\GroupRepository.cs" />
+    <Compile Include="DAL\UserRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -38,7 +38,7 @@ namespace EventOrganizer.Web
             var client = container.Resolve<IRedisClient>();
             client.FlushDb();
             client.FlushAll();
-            var repo = container.Resolve<IRepository>();
+            var repo = container.Resolve<IUserRepository>();
             repo.AddUser(new User                 
                     {
                         Email = "bj@gy.com",

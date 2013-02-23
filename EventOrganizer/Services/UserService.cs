@@ -6,37 +6,37 @@ namespace EventOrganizer.Web.Services
 {
     public class UserService : IUserService
     {
-        private readonly IRepository _repository;
+        private readonly IUserRepository _userRepository;
 
-        public UserService(IRepository repository)
+        public UserService(IUserRepository userRepository)
         {
-            _repository = repository;
+            _userRepository = userRepository;
         }
 
         public void AddUser(User user)
         {
-            _repository.AddUser(user);
+            _userRepository.AddUser(user);
         }
 
         public bool CanAuthorize(string email, string password)
         {
-            var user = _repository.GetUserByEmail(email);
+            var user = _userRepository.GetUserByEmail(email);
             return user != null && string.Equals(user.Password, password);
         }
 
         public bool IsEmailAvailable(string email)
         {
-            return _repository.GetUserByEmail(email) == null;
+            return _userRepository.GetUserByEmail(email) == null;
         }
 
         public User GetUserByEmail(string email)
         {
-            return _repository.GetUserByEmail(email);
+            return _userRepository.GetUserByEmail(email);
         }
 
         public User GetUser(long id)
         {
-            return _repository.GetUserById(id);
+            return _userRepository.GetById(id);
         }
     }
 }
