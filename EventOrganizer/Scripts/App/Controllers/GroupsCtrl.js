@@ -1,5 +1,7 @@
 ﻿function GroupsCtrl($scope, $location, loadedGroups, groupResource, loggedInUser) {
     $scope.groups = loadedGroups;
+    $scope.group = {};
+    $scope.modalShown = false;
 
     loggedInUser.getUser().then(function (data) {
         $scope.user = data;

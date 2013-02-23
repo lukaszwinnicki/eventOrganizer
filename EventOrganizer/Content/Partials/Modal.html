@@ -1,0 +1,11 @@
+﻿<div ui-modal class="fade" ng-model="eoShow" style="{{eoStyle}}">
+    <div class="modal-header">
+        <h3>New event</h3>
+        <button type="button" class="close" aria-hidden="true" ng-click="eoShow=false">&times;</button>
+    </div>
+    <div class="modal-body" ng-transclude>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info" ng-click="eoSave()">Save</button>
+    </div>
+</div>

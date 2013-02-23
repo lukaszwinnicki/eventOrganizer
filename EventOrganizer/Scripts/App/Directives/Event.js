@@ -1,4 +1,4 @@
-﻿var eventOrganizer = angular.module('eventOrganizer.Directives', []);
+﻿var eventOrganizer = eventOrganizer || angular.module('eventOrganizer.Directives', []);
 
 eventOrganizer.directive('eoEvent', function () {
     return {

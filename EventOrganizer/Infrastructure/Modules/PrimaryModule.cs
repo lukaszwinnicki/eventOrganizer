@@ -30,8 +30,8 @@ namespace EventOrganizer.Web.Infrastructure.Modules
                 .UsingConstructor(typeof(string), typeof(int))
                    .WithParameters(new List<Parameter>
                                        {
-                                           new TypedParameter(typeof (string), "pub-redis-10685.eu-west-1-1.1.ec2.garantiadata.com"),
-                                           new TypedParameter(typeof (int), 10685)
+                                           new TypedParameter(typeof (string), "127.0.0.1"),
+                                           new TypedParameter(typeof (int), 6379)
                                        });
         }
     }
