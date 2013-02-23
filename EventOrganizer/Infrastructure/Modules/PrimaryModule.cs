@@ -23,8 +23,12 @@ namespace EventOrganizer.Web.Infrastructure.Modules
 
             builder.RegisterType<GroupService>().As<IGroupService>();
             builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<EventService>().As<IEventService>();
 
             builder.RegisterType<UserRepository>().As<IUserRepository>();
+            builder.RegisterType<GroupRepository>().As<IGroupRepository>();
+            builder.RegisterType<EventRepository>().As<IEventRepository>();
+
 
             builder.RegisterType<RedisClient>().As<IRedisClient>()
                 .UsingConstructor(typeof(string), typeof(int))

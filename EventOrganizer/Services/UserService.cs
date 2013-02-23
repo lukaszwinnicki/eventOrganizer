@@ -15,7 +15,7 @@ namespace EventOrganizer.Web.Services
 
         public void AddUser(User user)
         {
-            _userRepository.AddUser(user);
+            _userRepository.Add(user);
         }
 
         public bool CanAuthorize(string email, string password)

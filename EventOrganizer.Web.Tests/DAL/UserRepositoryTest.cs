@@ -26,7 +26,7 @@ namespace EventOrganizer.Web.Tests.DAL
         {
             AddSampleUser();
 
-            var result = _sut.GetAllUers();
+            var result = _sut.GetAll();
 
             Assert.AreEqual(1, result.Count());
         }
@@ -45,7 +45,7 @@ namespace EventOrganizer.Web.Tests.DAL
         public void GetGroupMembers_OneGroupWithOneMemberExist_ReturnOneMember()
         {
             var group = GetGroup();
-            _groupRepository.AddGroup(group);
+            _groupRepository.Add(group);
 
             var groupMembers = _sut.GetMembers(group.Id);
 
@@ -54,7 +54,7 @@ namespace EventOrganizer.Web.Tests.DAL
 
         private void AddSampleUser()
         {
-            _sut.AddUser(new User {Email = Email, Password = "s3cr3t"});
+            _sut.Add(new User {Email = Email, Password = "s3cr3t"});
         }
     }
 }

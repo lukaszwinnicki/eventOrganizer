@@ -154,12 +154,13 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoggedUserController.cs" />
-    <Compile Include="Controllers\NotoficationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\Abstract\IEventRepository.cs" />
     <Compile Include="DAL\Abstract\IGroupRepository.cs" />
     <Compile Include="DAL\Abstract\IRepository.cs" />
     <Compile Include="DAL\Abstract\IUserRepository.cs" />
     <Compile Include="DAL\BaseRepository.cs" />
+    <Compile Include="DAL\EventRepository.cs" />
     <Compile Include="DAL\GroupRepository.cs" />
     <Compile Include="DAL\UserRepository.cs" />
     <Compile Include="Global.asax.cs">
@@ -169,6 +170,7 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\Notifocation.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

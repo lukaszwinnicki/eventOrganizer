@@ -14,7 +14,7 @@ namespace EventOrganizer.Web.Tests.Services
             Users.Add(user);
         }
 
-        public IList<User> GetAllUers()
+        public IList<User> GetAll()
         {
             return Users;
         }
@@ -26,12 +26,18 @@ namespace EventOrganizer.Web.Tests.Services
 
         public IList<User> GetMembers(long id)
         {
-            throw new NotImplementedException();
+            return new List<User>();
         }
 
         public User GetById(long id)
         {
             return Users.SingleOrDefault(x => x.Id == id);
+        }
+
+        public long Add(User entity)
+        {
+            Users.Add(entity);
+            return entity.Id;
         }
     }
 }

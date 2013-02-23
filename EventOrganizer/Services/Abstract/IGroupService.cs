@@ -5,7 +5,7 @@ namespace EventOrganizer.Web.Services.Abstract
 {
     public interface IGroupService
     {
-        IList<Group> GetGropus(string userId);
+        IList<Group> GetGropus(string email);
         Group Save(Group group);
         Group GetGropu(int id);
     }

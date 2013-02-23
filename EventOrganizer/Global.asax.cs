@@ -38,15 +38,23 @@ namespace EventOrganizer.Web
             var client = container.Resolve<IRedisClient>();
             client.FlushDb();
             client.FlushAll();
-            var repo = container.Resolve<IUserRepository>();
-            repo.AddUser(new User                 
-                    {
-                        Email = "bj@gy.com",
-                        Password = "aaa",
-                        PhotoUrl = "/Content/Images/bejdzi.jpg",
-                        Name = "Paweł",
-                        Surname = "Bejger"
-                    });
+            var userRepo = container.Resolve<IUserRepository>();
+            var groupsRepo = container.Resolve<IGroupRepository>();
+            var eventsRepo = container.Resolve<IEventRepository>();
+            var bjId = userRepo.Add(new User
+                                       {
+                                           Email = "bj@gy.com", Password = "aaa", PhotoUrl = "/Content/Images/bejdzi.jpg", Name = "Paweł", Surname = "Bejger"
+                                       });
+            var groupId = groupsRepo.Add(new Group
+                                         {
+                                             Name = "Goyello integration", CreatorId = bjId, Description = "Party hard!!"
+                                         });
+
+            eventsRepo.Add(new Event
+                               {
+                                   GroupId = groupId,
+                                   Name = "Laser-tag nite!",
+                               });
         }
     }
 }

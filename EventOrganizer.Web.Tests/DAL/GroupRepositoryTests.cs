@@ -22,7 +22,7 @@ namespace EventOrganizer.Web.Tests.DAL
         {
             var group = GetGroup();
 
-            _sut.AddGroup(group);
+            _sut.Add(group);
 
             Assert.AreEqual(1, Client.GetAll<Group>().Count);
         }
@@ -31,23 +31,18 @@ namespace EventOrganizer.Web.Tests.DAL
         public void GetGroups_OneGroupForUser_ReturnsOneGorup()
         {
             var group = GetGroup();
-            _sut.AddGroup(group);
+            _sut.Add(group);
 
             var groups = _sut.GetGroups(1);
 
             Assert.AreEqual(1, groups.Count);
         }
 
-        
-
         [Test]
         public void AddGroupMember_NotExistingGroupMember_GroupMembersExists()
         {
-            // TODO 
-            var group = GetGroup();
-            _sut.AddGroup(group);
-
-            
+//            var group = GetGroup();
+//            _sut.AddGroup(group);
         }
 
         private static Group GetGroup()

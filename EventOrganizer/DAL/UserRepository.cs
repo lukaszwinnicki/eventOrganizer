@@ -10,15 +10,11 @@ namespace EventOrganizer.Web.DAL
     {
         public UserRepository(IRedisClient client) : base(client) { }
 
-        public void AddUser(User user)
+        public override long Add(User user)
         {
-            using (var users = Client.As<User>())
-            {
-                var id = users.GetNextSequence();
-                user.Id = id;
-                users.Store(user);
-                Client.Hashes["user-email-id"].Add(user.Email, id.ToString());
-            }
+            var id = base.Add(user);
+            Client.Hashes["user-email-id"].Add(user.Email, id.ToString());
+            return id;
         }
 
         public User GetUserByEmail(string email)

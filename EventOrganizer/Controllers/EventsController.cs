@@ -18,7 +18,7 @@ namespace EventOrganizer.Web.Controllers
         {
             return string.IsNullOrEmpty(User.Identity.Name)
                        ? Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.")
-                       : Request.CreateResponse(HttpStatusCode.OK, _eventService.GetEvents(id, User.Identity.Name));
+                       : Request.CreateResponse(HttpStatusCode.OK, _eventService.GetEvents(id));
         }
     }
 }

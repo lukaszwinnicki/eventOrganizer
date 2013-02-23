@@ -1,6 +1,6 @@
 ﻿namespace EventOrganizer.Web.Models
 {
-    public class Group
+    public class Group : IEntity
     {
         public string Name { get; set; }
         public string Description { get; set; }

@@ -68,7 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContainerTests.cs" />
     <Compile Include="DAL\BaseRepositoryTest.cs" />
+    <Compile Include="DAL\EventRepostitoryTests.cs" />
     <Compile Include="DAL\GroupRepositoryTests.cs" />
     <Compile Include="DAL\RedisConnectionTests.cs" />
     <Compile Include="DAL\UserRepositoryTest.cs" />

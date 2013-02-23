@@ -3,8 +3,8 @@ using EventOrganizer.Web.Models;
 
 namespace EventOrganizer.Web.DAL.Abstract
 {
-    public interface IGroupRepository : IRepository<Group>
+    public interface IEventRepository : IRepository<Event>
     {
-        IList<Group> GetGroups(long userId);
+        IList<Event> GetEvents(long groupId);
     }
 }
