@@ -3,31 +3,23 @@ using EventOrganizer.Web.DAL;
 using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
 using NUnit.Framework;
-using ServiceStack.Redis;
 
 namespace EventOrganizer.Web.Tests.DAL
 {
     [TestFixture]
-    public class RepositoryTest
+    public class UserRepositoryTest : BaseRepositoryTest
     {
+        private IUserRepository _sut;
+        private GroupRepository _groupRepository;
         private const string Email = "sample@email.com";
-        private IRepository _sut;
-        private RedisClient _client;
-
-        [TestFixtureSetUp]
-        public void Clean()
-        {
-            _client = new RedisClient("pub-redis-10685.eu-west-1-1.1.ec2.garantiadata.com", 10685);
-        }
 
         [SetUp]
-        public void Before()
+        public void SetUp()
         {
-            _client.FlushDb();
-            _client.FlushAll();
-            Assert.AreEqual(0, _client.GetAllKeys().Count, "db should be empty");
-            _sut = new Repository(_client);
+            _sut = new UserRepository(Client);
+            _groupRepository = new GroupRepository(Client);
         }
+
 
         [Test]
         public void GetAllUsers_UserExists_ShouldReturnOneUser()
@@ -47,6 +39,17 @@ namespace EventOrganizer.Web.Tests.DAL
             var user = _sut.GetUserByEmail(Email);
 
             Assert.AreEqual(Email, user.Email);
+        }
+
+        [Test]
+        public void GetGroupMembers_OneGroupWithOneMemberExist_ReturnOneMember()
+        {
+            var group = GetGroup();
+            _groupRepository.AddGroup(group);
+
+            var groupMembers = _sut.GetMembers(group.Id);
+
+            Assert.AreEqual(1, groupMembers.Count);
         }
 
         private void AddSampleUser()

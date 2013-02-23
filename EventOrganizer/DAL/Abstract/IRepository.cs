@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
-using EventOrganizer.Web.Models;
 
 namespace EventOrganizer.Web.DAL.Abstract
 {
-    public interface IRepository
+    public interface IRepository<T>
     {
-        void AddUser(User user);
-        IEnumerable<User> GetAllUers();
-        User GetUserByEmail(string email);
-        User GetUserById(long id);
+        IList<T> GetAllUers();
+        T GetById(long id);
     }
 }

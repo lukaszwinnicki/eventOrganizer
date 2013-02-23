@@ -14,7 +14,7 @@ namespace EventOrganizer.Web.Tests.Services
         [SetUp]
         public void Before()
         {
-            _sut = new UserService(new StaticRepository());
+            _sut = new UserService(new StaticUserRepository());
         }
 
         [Test]

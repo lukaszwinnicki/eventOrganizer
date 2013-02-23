@@ -6,7 +6,7 @@ using EventOrganizer.Web.Models;
 
 namespace EventOrganizer.Web.Tests.Services
 {
-    public class StaticRepository : IRepository
+    public class StaticUserRepository : IUserRepository
     {
         private IList<User> Users = new List<User>(); 
         public void AddUser(User user)
@@ -14,7 +14,7 @@ namespace EventOrganizer.Web.Tests.Services
             Users.Add(user);
         }
 
-        public IEnumerable<User> GetAllUers()
+        public IList<User> GetAllUers()
         {
             return Users;
         }
@@ -24,7 +24,12 @@ namespace EventOrganizer.Web.Tests.Services
             return Users.SingleOrDefault(x => string.Equals(email, x.Email, StringComparison.InvariantCultureIgnoreCase));
         }
 
-        public User GetUserById(long id)
+        public IList<User> GetMembers(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User GetById(long id)
         {
             return Users.SingleOrDefault(x => x.Id == id);
         }

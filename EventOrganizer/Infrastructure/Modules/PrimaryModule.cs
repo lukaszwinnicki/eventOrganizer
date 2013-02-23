@@ -24,7 +24,7 @@ namespace EventOrganizer.Web.Infrastructure.Modules
             builder.RegisterType<GroupService>().As<IGroupService>();
             builder.RegisterType<UserService>().As<IUserService>();
 
-            builder.RegisterType<Repository>().As<IRepository>();
+            builder.RegisterType<UserRepository>().As<IUserRepository>();
 
             builder.RegisterType<RedisClient>().As<IRedisClient>()
                 .UsingConstructor(typeof(string), typeof(int))
