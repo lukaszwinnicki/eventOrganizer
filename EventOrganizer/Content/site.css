@@ -1,6 +1,6 @@
 ﻿body
 {
-    padding-top: 20px;
+    padding-top: 60px;
     padding-bottom: 40px;
 }
 
@@ -48,4 +48,12 @@
 
 .hidden {
     display: none;
+}
+
+.event {
+    position: relative;
+    display: block;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    float: left;
 }
