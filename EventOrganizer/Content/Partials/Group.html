@@ -66,15 +66,19 @@
 <div class="container-fluid" style="padding-top: 20px;">
     <div class="row-fluid">
         <div class="span10">
-            <div class="page-header">
-                <h1>{{group.Name}}<small>{{ group.Description }}</small></h1>
+            <div class="page-header row">
+                <div class="span8">
+                    <h1>{{group.Name}}<small>{{ group.Description }}</small></h1>
+                </div>
+                <div class="span2">
+                    <button type="button" class="btn btn-info" ng-click="modalShown=true">Add Event</button>
+                </div>
             </div>
             <div class="popover event" ng-repeat="event in events">
                 <div eo-event event="event"></div>
             </div>
         </div>
         <div class="span2">
-            <button type="button" class="btn btn-info" ng-click="modalShown=true">Add New</button>
             <div class="well">
                 <div class="page-header">
                     <h4>Members</h4>
