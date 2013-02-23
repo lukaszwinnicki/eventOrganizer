@@ -16,25 +16,9 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-<body>
-    <div class="container-narrow">
-        <div>
-            @Html.Partial("_Menu")
-            <h3 class="muted">Event organizer</h3>
-        </div>
-        <hr>
-        <div id="body">
-            @RenderBody()
-        </div>
-        <hr>
-
-        <div>
-            <p>&copy; Work4Food @DateTime.Now.Date.Year</p>
-        </div>
-        
+    <body>
+        @RenderBody()
         @Scripts.Render("~/bundles/app")
         @RenderSection("scripts", required: false)
-    </div>
-
-</body>
+    </body>
 </html>

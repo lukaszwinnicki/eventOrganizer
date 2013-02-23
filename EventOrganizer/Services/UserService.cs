@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using EventOrganizer.Web.DAL;
-using EventOrganizer.Web.DAL.Abstract;
+﻿using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
 using EventOrganizer.Web.Services.Abstract;
 

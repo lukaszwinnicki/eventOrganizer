@@ -1,7 +1,13 @@
 ﻿angular
-    .module('eventOrganizer', ['eventOrganizer.Services', 'ui.directives', 'eventOrganizer.UserServices', 'eventOrganizer.LoggedUserServices'])
+    .module('eventOrganizer',
+        [
+            'eventOrganizer.GroupsService',
+            'eventOrganizer.GroupService',
+            'ui.directives',
+            'eventOrganizer.UserServices',
+            'eventOrganizer.LoggedUserServices'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', { templateUrl: '/Content/Partials/Groups.html', controller: GroupsCtrl });
-        $routeProvider.when('/group/:id', { templateUrl: '', controller: GroupCtrl });
+        $routeProvider.when('/group/:id', { templateUrl: '/Content/Partials/Group.html', controller: GroupCtrl });
         $routeProvider.otherwise({ redirectTo: '/' });
     }]);
