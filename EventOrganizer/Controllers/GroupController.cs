@@ -24,9 +24,9 @@ namespace EventOrganizer.Web.Controllers
 
         public HttpResponseMessage Post(Group group)
         {
-            var newGroup = _groupService.Save(group);
-
-            return Request.CreateResponse(HttpStatusCode.OK, newGroup);
+            return !User.Identity.IsAuthenticated ?
+                Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.") :
+                Request.CreateResponse(HttpStatusCode.OK, _groupService.Save(group, User.Identity.Name));
         }
     }
 }

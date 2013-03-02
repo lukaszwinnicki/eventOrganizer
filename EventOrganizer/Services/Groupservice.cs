@@ -23,8 +23,10 @@ namespace EventOrganizer.Web.Services
             return _groupRepository.GetGroups(userId);
         }
 
-        public Group Save(Group group)
+        public Group Save(Group group, string email)
         {
+            var userId = _userRepository.GetUserByEmail(email).Id;
+            group.CreatorId = userId;
             _groupRepository.Add(group);
 
             return group;
