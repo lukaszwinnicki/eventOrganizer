@@ -53,9 +53,9 @@ GroupCtrl.loadGroup = function ($q, $route, groupResource) {
     }
 
     return defer.promise;
-}
+};
 
-GroupCtrl.loadEvents = function ($q) {
+GroupCtrl.loadEvents = function($q) {
     var defer = $q.defer(),
         events = [];
 
@@ -86,7 +86,7 @@ GroupCtrl.loadEvents = function ($q) {
     defer.resolve(events);
 
     return defer.promise;
-}
+};
 
 GroupCtrl.$inject = ['$scope', 'loadedGroup', 'loadedEvents'];
 GroupCtrl.loadGroup.$inject = ['$q', '$route', 'GroupResource'];

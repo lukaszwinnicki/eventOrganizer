@@ -241,6 +241,7 @@
     <Content Include="Scripts\App\App.js" />
     <Content Include="Scripts\App\Controllers\GroupCtrl.js" />
     <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
+    <Content Include="Scripts\App\Controllers\MenuCtrl.js" />
     <Content Include="Scripts\App\Controllers\ViewCtrl.js" />
     <Content Include="Scripts\App\Custom\homepage.js" />
     <Content Include="Scripts\App\Directives\Event.js" />
@@ -248,10 +249,17 @@
     <Content Include="Scripts\App\Services\GroupService.js" />
     <Content Include="Scripts\App\Services\GroupsService.js" />
     <Content Include="Scripts\App\Services\UserService.js" />
+    <Content Include="Scripts\Libraries\AngularUI\UserService.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-migrate-1.1.0.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-migrate-1.1.0.min.js" />
     <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.min.js.map">
       <DependentUpon>angular-bootstrap-prettify.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Libraries\Angular\angular.min.js.map">
+      <DependentUpon>angular.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Libraries\AngularUI\angular.min.js.map">
+      <DependentUpon>angular.js</DependentUpon>
     </Content>
     <None Include="Scripts\Libraries\JQuery\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.js" />

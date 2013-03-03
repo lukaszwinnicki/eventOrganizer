@@ -28,7 +28,7 @@ GroupsCtrl.loadData = function ($q, groupsResource) {
     });
 
     return defer.promise;
-}
+};
 
 GroupsCtrl.$inject = ['$scope', '$location', 'loadedGroups', 'GroupResource', 'LoggedInUser'];
 GroupsCtrl.loadData.$inject = ['$q', 'GroupsResource'];

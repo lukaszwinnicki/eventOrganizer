@@ -22,7 +22,9 @@ namespace EventOrganizer.Web.Controllers
 
         public ActionResult Index()
         {
-            return View(new IndexViewModel());
+            return System.Web.HttpContext.Current.User.Identity.IsAuthenticated
+                       ? (ActionResult) RedirectToAction("Groups")
+                       : View(new IndexViewModel());
         }
 
         [HttpPost]
