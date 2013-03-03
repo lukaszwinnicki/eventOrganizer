@@ -3,6 +3,8 @@
         [
             'eventOrganizer.GroupsService',
             'eventOrganizer.GroupService',
+            'eventOrganizer.GroupMembersService',
+            'eventOrganizer.EventsService',
             'eventOrganizer.Directives',
             'ui.directives',
             'eventOrganizer.UserServices',
@@ -20,7 +22,8 @@
             controller: GroupCtrl,
             resolve: {
                 loadedGroup: GroupCtrl.loadGroup,
-                loadedEvents: GroupCtrl.loadEvents
+                loadedEvents: GroupCtrl.loadEvents,
+                loadGroupMembers: GroupCtrl.loadGroupMembers
             }
         });
         $routeProvider.otherwise({ redirectTo: '/' });

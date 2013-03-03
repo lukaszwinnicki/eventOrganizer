@@ -1,16 +1,16 @@
-﻿function GroupCtrl($scope, group, events) {
+﻿function GroupCtrl($scope, group, events, members) {
     $scope.group = group;
     $scope.editMode = false;
     $scope.modalShown = false;
     $scope.events = events;
-    $scope.members = [];
+    $scope.members = members;
     $scope.newEvent = {};
 
     createNewEvent();
 
-    for (var i = 0; i < 30; i++) {
-        $scope.members.push({ Name: 'Name', Surname: 'Surname', PhotoUrl: '/Content/Images/holder.png' });
-    }
+    //for (var i = 0; i < 30; i++) {
+    //    $scope.members.push({ Name: 'Name', Surname: 'Surname', PhotoUrl: '/Content/Images/holder.png' });
+    //}
 
     $scope.updateEndDate = function() {
         $scope.newEvent.EndDate = $scope.newEvent.StartDate;
@@ -55,39 +55,33 @@ GroupCtrl.loadGroup = function ($q, $route, groupResource) {
     return defer.promise;
 };
 
-GroupCtrl.loadEvents = function($q) {
+GroupCtrl.loadGroupMembers = function ($q, $route, groupMembersResource) {
     var defer = $q.defer(),
-        events = [];
+        params = $route.current.params;
 
-    for (var j = 0; j < 30; j++) {
-        var participants = [];
-        for (var k = 0; k < 5; k++) {
-            participants.push({
-                Id: k,
-                PhotoUrl: '/Content/Images/holder.png',
-                Name: 'Name',
-                Surname: 'Surname'
-            });
-        }
-        events.push({
-            Name: 'Integration party',
-            When: new Date(2013, 2, 9, 21, 30),
-            Address: {
-                City: 'Sopot',
-                Steet: 'Sopocka',
-                Place: 'Club Sphinx'
-            },
-            End: new Date(2013, 2, 9, 23, 30),
-            MainPhotoUrl: '/Content/Images/event-main-photo.png',
-            Participants: participants
+    if (params.id) {
+        groupMembersResource.query({ id: params.id }, function (data) {
+            defer.resolve(data);
         });
     }
-
-    defer.resolve(events);
 
     return defer.promise;
 };
 
-GroupCtrl.$inject = ['$scope', 'loadedGroup', 'loadedEvents'];
+GroupCtrl.loadEvents = function($q, $route, eventsResource) {
+    var defer = $q.defer(),
+        params = $route.current.params;
+
+    if (params.id) {
+        eventsResource.query({ id: params.id }, function (data) {
+            defer.resolve(data);
+        });
+    }
+
+    return defer.promise;
+};
+
+GroupCtrl.$inject = ['$scope', 'loadedGroup', 'loadedEvents', 'loadGroupMembers'];
 GroupCtrl.loadGroup.$inject = ['$q', '$route', 'GroupResource'];
-GroupCtrl.loadEvents.$inject = ['$q'];
+GroupCtrl.loadGroupMembers.$inject = ['$q', '$route', 'GroupMembersResource'];
+GroupCtrl.loadEvents.$inject = ['$q', '$route', 'EventsResource'];

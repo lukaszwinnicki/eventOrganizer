@@ -7,5 +7,5 @@ eventOrganizer.directive('eoEvent', function () {
             event: '='
         },
         templateUrl: '/Content/Partials/Event.html'
-    }
+    };
 });
