@@ -4,8 +4,9 @@ eventOrganizer.directive('eoEvent', function () {
     return {
         rectrict: 'A',
         scope: {
-            event: '='
+            event: '=',
+            eoClick: '&'
         },
-        templateUrl: '/Content/Partials/Event.html'
+        templateUrl: '/Content/Partials/EventDirective.html'
     };
 });

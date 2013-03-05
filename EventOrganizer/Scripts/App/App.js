@@ -23,7 +23,14 @@
             resolve: {
                 loadedGroup: GroupCtrl.loadGroup,
                 loadedEvents: GroupCtrl.loadEvents,
-                loadGroupMembers: GroupCtrl.loadGroupMembers
+                loadedGroupMembers: GroupCtrl.loadGroupMembers
+            }
+        });
+        $routeProvider.when('/event/:id', {
+            templateUrl: '/Content/Partials/Event.html',
+            controller: EventCtrl,
+            resolve: {
+                loadedEvent: EventCtrl.loadEvent
             }
         });
         $routeProvider.otherwise({ redirectTo: '/' });

@@ -1,4 +1,4 @@
-﻿function GroupCtrl($scope, group, events, members) {
+﻿function GroupCtrl($scope, $location, group, events, members, EventsResource) {
     $scope.group = group;
     $scope.editMode = false;
     $scope.modalShown = false;
@@ -7,6 +7,10 @@
     $scope.newEvent = {};
 
     createNewEvent();
+
+    $scope.goToEventDetails = function(event) {
+        $location.url('/event/' + event.Id);
+    };
 
     //for (var i = 0; i < 30; i++) {
     //    $scope.members.push({ Name: 'Name', Surname: 'Surname', PhotoUrl: '/Content/Images/holder.png' });
@@ -20,10 +24,11 @@
         $scope.newEvent.SelectedHourEnd = $scope.newEvent.SelectedHourStart;
     };
 
-    $scope.toggleEditMode = function (enableEditMode) {
-        $scope.editMode = enableEditMode;
-
-        createNewEvent();
+    $scope.save = function(event) {
+        var eventItem = new EventsResource(event);
+        eventItem.$save(function(response, responseHeader) {
+            $scope.modalShown = false;
+        });
     };
 
     function createNewEvent() {
@@ -81,7 +86,7 @@ GroupCtrl.loadEvents = function($q, $route, eventsResource) {
     return defer.promise;
 };
 
-GroupCtrl.$inject = ['$scope', 'loadedGroup', 'loadedEvents', 'loadGroupMembers'];
+GroupCtrl.$inject = ['$scope', '$location', 'loadedGroup', 'loadedEvents', 'loadedGroupMembers', 'EventsResource'];
 GroupCtrl.loadGroup.$inject = ['$q', '$route', 'GroupResource'];
 GroupCtrl.loadGroupMembers.$inject = ['$q', '$route', 'GroupMembersResource'];
 GroupCtrl.loadEvents.$inject = ['$q', '$route', 'EventsResource'];
