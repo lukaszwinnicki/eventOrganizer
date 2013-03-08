@@ -6,5 +6,6 @@ namespace EventOrganizer.Web.Services.Abstract
     public interface IEventService
     {
         IList<Event> GetEvents(int groupId);
+        Event GetEvent(int id);
     }
 }

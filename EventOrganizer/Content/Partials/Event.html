@@ -1,1 +1,84 @@
-﻿Event partial
+﻿<div class="container-fluid" style="margin: 20px;">
+    <div class="row-fluid">
+        <div class="span10">
+            <div class="page-header row">
+                <div class="span8">
+                    <h1>{{event.Name}}</h1>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="span6">Start</div>
+                    <div class="span6">{{ event.Start }}</div>
+                </div>
+                <div class="row">
+                    <div class="span6">Duration</div>
+                    <div class="span6">{{ event.Duration }}</div>
+                </div>
+                <div class="row">
+                    <div class="span6">Where</div>
+                    <div class="span6">{{ event.When | date: 'HH:mm' }} - {{ event.End | date: 'HH:mm' }} {{ event.Address.City }}</div>
+                </div>
+                <div class="row">
+                    <div class="span6">Description</div>
+                </div>
+                <div class="row">
+                    <div class="span6">{{ event.Description }}</div>
+                </div>
+            </div>
+
+            <div id="myCarousel">
+                <img style="padding-left: 5px;" ng-src="{{ event.MainPhotoUrl }}" />
+            </div>
+
+            <div class="page-header row">
+                <h2>Comments</h2>
+            </div>
+
+            <form class="form-horizontal" name="comment-form">
+                <div class="row">
+                    <span style="margin-right: 10px;">
+                        <img src="/Content/Images/envelope.png" />
+                    </span>
+                    <span>
+                        <textarea type="text" id="comment-message" name="message" placeholder="Write a comment..." ng-focus="commentActionDisplay=true" ng-blur="commentActionDisplay=false" /></span>
+
+                </div>
+                <div class="row" id="comment-actions" ng-show="commentActionDisplay" style="margin-top: 10px;">
+                    <span style="width:48px; height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <button type="button" class="btn">Comment</button>
+                    <i class="icon-remove" style="margin-left: 10px;"></i>
+                </div>
+            </form>
+            <div ng-repeat="comment in event.Comments" class="row">
+                <div style="margin-top: 10px;">
+                    <span style="margin-right: 10px;">
+                        <img src="/Content/Images/envelope.png" popover="On the Top!" popover-placement="top"/>
+                    </span>
+                    <span>{{ comment.Message }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="span2">
+            <div class="well">
+                <div class="page-header">
+                    <h4>Participants</h4>
+                </div>
+                <ul ng-repeat="participant in event.Participants" class="nav">
+                    <li>
+                        <div class="media" style="vertical-align: middle;">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" ng-src="{{ participant.PhotoUrl }}">
+                            </a>
+                            <div class="media-body">
+                                {{ participant.Name }} {{ participant.Surname }}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button type="button" class="btn">Join / Leave</button>
+        </div>
+    </div>
+</div>

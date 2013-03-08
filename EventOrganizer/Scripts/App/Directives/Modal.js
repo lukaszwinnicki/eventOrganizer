@@ -10,5 +10,5 @@ eventOrganizer.directive('eoModal', function () {
             eoStyle: '@'
         },
         templateUrl: '/Content/Partials/Modal.html'
-    }
+    };
 });

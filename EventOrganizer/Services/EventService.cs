@@ -18,5 +18,10 @@ namespace EventOrganizer.Web.Services
         {
             return _eventRepository.GetEvents(groupId);
         }
+
+        public Event GetEvent(int id)
+        {
+            return _eventRepository.GetById(id);
+        }
     }
 }

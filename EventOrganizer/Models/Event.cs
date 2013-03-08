@@ -12,7 +12,7 @@ namespace EventOrganizer.Web.Models
         public Address Address { get; set; }
         public List<string> EventPhotos { get; set; }
         public List<User> Participants { get; set; }
-
+        public List<Comment> Comments { get; set; }
         public long GroupId { get; set; }
     }
 }

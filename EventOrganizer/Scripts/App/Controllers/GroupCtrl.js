@@ -1,4 +1,4 @@
-﻿function GroupCtrl($scope, $location, group, events, members, EventsResource) {
+﻿function GroupCtrl($scope, $location, group, events, members, eventsResource) {
     $scope.group = group;
     $scope.editMode = false;
     $scope.modalShown = false;
@@ -12,10 +12,6 @@
         $location.url('/event/' + event.Id);
     };
 
-    //for (var i = 0; i < 30; i++) {
-    //    $scope.members.push({ Name: 'Name', Surname: 'Surname', PhotoUrl: '/Content/Images/holder.png' });
-    //}
-
     $scope.updateEndDate = function() {
         $scope.newEvent.EndDate = $scope.newEvent.StartDate;
     };
@@ -25,7 +21,7 @@
     };
 
     $scope.save = function(event) {
-        var eventItem = new EventsResource(event);
+        var eventItem = new eventsResource(event);
         eventItem.$save(function(response, responseHeader) {
             $scope.modalShown = false;
         });

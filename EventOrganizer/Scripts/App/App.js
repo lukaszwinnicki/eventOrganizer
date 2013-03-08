@@ -5,6 +5,7 @@
             'eventOrganizer.GroupService',
             'eventOrganizer.GroupMembersService',
             'eventOrganizer.EventsService',
+            'eventOrganizer.EventService',
             'eventOrganizer.Directives',
             'ui.directives',
             'eventOrganizer.UserServices',

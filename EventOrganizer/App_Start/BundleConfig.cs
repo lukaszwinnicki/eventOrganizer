@@ -24,7 +24,8 @@ namespace EventOrganizer.Web.App_Start
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                     "~/Scripts/App/Services/GroupService.js",
                     "~/Scripts/App/Services/GroupsService.js",
-                     "~/Scripts/App/Services/EventsService.js",
+                    "~/Scripts/App/Services/EventsService.js",
+                    "~/Scripts/App/Services/EventService.js",
                     "~/Scripts/App/Services/GroupMembersService.js",
                     "~/Scripts/App/Services/UserService.js",
                     "~/Scripts/App/Directives/Event.js",
