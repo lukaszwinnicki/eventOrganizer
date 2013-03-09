@@ -9,7 +9,7 @@
             <div>
                 <div class="row">
                     <div class="span6">Start</div>
-                    <div class="span6">{{ event.Start }}</div>
+                    <div class="span6">{{ event.When | date: 'dd.MM.yyyy HH:mm' }}</div>
                 </div>
                 <div class="row">
                     <div class="span6">Duration</div>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="row">
                     <div class="span6">Where</div>
-                    <div class="span6">{{ event.When | date: 'HH:mm' }} - {{ event.End | date: 'HH:mm' }} {{ event.Address.City }}</div>
+                    <div class="span6">{{ event.Address.City }}, {{ event.Address.Street }}</div>
                 </div>
                 <div class="row">
                     <div class="span6">Description</div>
@@ -41,13 +41,13 @@
                         <img src="/Content/Images/envelope.png" />
                     </span>
                     <span>
-                        <textarea type="text" id="comment-message" name="message" placeholder="Write a comment..." ng-focus="commentActionDisplay=true" ng-blur="commentActionDisplay=false" /></span>
-
+                        <textarea type="text" id="comment-message" name="message" placeholder="Write a comment..." eo-focus="showCommentButtons()" />
+                    </span>
                 </div>
                 <div class="row" id="comment-actions" ng-show="commentActionDisplay" style="margin-top: 10px;">
                     <span style="width:48px; height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <button type="button" class="btn">Comment</button>
-                    <i class="icon-remove" style="margin-left: 10px;"></i>
+                    <i class="icon-remove" style="margin-left: 10px;" ng-click="hideCommentButtons()"></i>
                 </div>
             </form>
             <div ng-repeat="comment in event.Comments" class="row">

@@ -2,19 +2,13 @@
     $scope.event = event;
     $scope.commentActionDisplay = false;
 
-    $('#comment-message').focus(function () {
-        // expand input box
-        $scope.$apply(function() {
-            $scope.commentActionDisplay = true;
-        });
-    });
-    
-    $('#comment-message').blur(function () {
-        // shrink input box
-        $scope.$apply(function () {
-            $scope.commentActionDisplay = false;
-        });
-    });
+    $scope.showCommentButtons = function () {
+        $scope.commentActionDisplay = true;
+    };
+
+    $scope.hideCommentButtons = function () {
+        $scope.commentActionDisplay = false;
+    };
 }
 
 EventCtrl.loadEvent = function($q, $route, eventResource) {

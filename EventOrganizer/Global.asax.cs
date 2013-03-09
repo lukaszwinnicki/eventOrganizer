@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -54,6 +55,9 @@ namespace EventOrganizer.Web
                                {
                                    GroupId = groupId,
                                    Name = "Laser-tag nite!",
+                                   When = DateTime.Now.AddDays(2),
+                                   Duration = new TimeSpan(4, 4, 0, 0),
+                                   Address = new Address { City = "Gdańsk", Street = "Some street" }
                                });
         }
     }
