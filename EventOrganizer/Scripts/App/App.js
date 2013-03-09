@@ -1,6 +1,7 @@
 ﻿angular
     .module('eventOrganizer',
         [
+            'eventOrganizer.CommentsService',
             'eventOrganizer.GroupsService',
             'eventOrganizer.GroupService',
             'eventOrganizer.GroupMembersService',
