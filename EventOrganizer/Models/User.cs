@@ -1,4 +1,6 @@
-﻿namespace EventOrganizer.Web.Models
+﻿using System.Collections.Generic;
+
+namespace EventOrganizer.Web.Models
 {
     public class User : IEntity
     {
@@ -8,5 +10,11 @@
         public string Name { get; set; }
         public string Surname { get; set; }
         public long Id { get; set; }
+        public List<Group> Groups { get; set; }
+
+        public User()
+        {
+            Groups = new List<Group>();
+        }
     }
 }

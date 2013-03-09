@@ -9,5 +9,6 @@ namespace EventOrganizer.Web.Services.Abstract
         bool IsEmailAvailable(string email);
         User GetUserByEmail(string email);
         User GetUser(long id);
+        long Update(User member);
     }
 }

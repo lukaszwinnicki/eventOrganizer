@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
@@ -13,7 +14,7 @@ namespace EventOrganizer.Web.DAL
         public override long Add(User user)
         {
             var id = base.Add(user);
-            Client.Hashes["user-email-id"].Add(user.Email, id.ToString());
+            Client.Hashes["user-email-id"].Add(user.Email, id.ToString(CultureInfo.InvariantCulture));
             return id;
         }
 
@@ -30,6 +31,13 @@ namespace EventOrganizer.Web.DAL
         {
             var membersIds = Client.Lists["group-users-" + id];
             return membersIds.GetAll().Select(x => GetById(long.Parse(x))).ToList();
+        }
+
+        public long Update(User member)
+        {
+            // TODO: add logic
+
+            return member.Id;
         }
     }
 }

@@ -1,6 +1,6 @@
 namespace EventOrganizer.Web.Models
 {
-    public class Comment
+    public class Comment : IEntity
     {
         public long Id { get; set; }
         public User Member { get; set; }

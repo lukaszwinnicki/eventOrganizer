@@ -38,5 +38,10 @@ namespace EventOrganizer.Web.Services
         {
             return _userRepository.GetById(id);
         }
+
+        public long Update(User member)
+        {
+            return _userRepository.Update(member);
+        }
     }
 }

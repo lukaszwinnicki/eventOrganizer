@@ -147,6 +147,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
@@ -155,11 +156,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoggedUserController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\Abstract\ICommentRepository.cs" />
     <Compile Include="DAL\Abstract\IEventRepository.cs" />
     <Compile Include="DAL\Abstract\IGroupRepository.cs" />
     <Compile Include="DAL\Abstract\IRepository.cs" />
     <Compile Include="DAL\Abstract\IUserRepository.cs" />
     <Compile Include="DAL\BaseRepository.cs" />
+    <Compile Include="DAL\CommentRepository.cs" />
     <Compile Include="DAL\EventRepository.cs" />
     <Compile Include="DAL\GroupRepository.cs" />
     <Compile Include="DAL\UserRepository.cs" />
@@ -180,9 +183,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ValidationMessages.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\Abstract\ICommentService.cs" />
     <Compile Include="Services\Abstract\IEventService.cs" />
     <Compile Include="Services\Abstract\IGroupService.cs" />
     <Compile Include="Services\Abstract\IUserService.cs" />
+    <Compile Include="Services\CommentService.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\GroupService.cs" />
     <Compile Include="Services\UserService.cs" />

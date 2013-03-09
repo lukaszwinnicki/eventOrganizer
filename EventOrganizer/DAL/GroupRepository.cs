@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
@@ -23,8 +24,8 @@ namespace EventOrganizer.Web.DAL
         public override long Add(Group @group)
         {
             var id = base.Add(group);
-            Client.Lists["group-users-" + id].Add(@group.CreatorId.ToString());
-            Client.Lists["user-groups-" + @group.CreatorId].Add(id.ToString());
+            Client.Lists["group-users-" + id].Add(@group.CreatorId.ToString(CultureInfo.InvariantCulture));
+            Client.Lists["user-groups-" + @group.CreatorId].Add(id.ToString(CultureInfo.InvariantCulture));
             return id;
         }
     }

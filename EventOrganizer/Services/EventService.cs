@@ -23,5 +23,10 @@ namespace EventOrganizer.Web.Services
         {
             return _eventRepository.GetById(id);
         }
+
+        public long Save(Event eventToSave)
+        {
+            return _eventRepository.Add(eventToSave);
+        }
     }
 }

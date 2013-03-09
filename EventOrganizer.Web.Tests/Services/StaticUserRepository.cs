@@ -29,6 +29,11 @@ namespace EventOrganizer.Web.Tests.Services
             return new List<User>();
         }
 
+        public long Update(User member)
+        {
+            return member.Id;
+        }
+
         public User GetById(long id)
         {
             return Users.SingleOrDefault(x => x.Id == id);

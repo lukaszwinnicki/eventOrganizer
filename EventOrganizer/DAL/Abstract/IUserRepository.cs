@@ -7,5 +7,6 @@ namespace EventOrganizer.Web.DAL.Abstract
     {
         User GetUserByEmail(string email);
         IList<User> GetMembers(long id);
+        long Update(User member);
     }
 }
