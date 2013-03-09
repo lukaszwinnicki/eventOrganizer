@@ -1,17 +1,11 @@
 ﻿var eventOrganizer = eventOrganizer || angular.module('eventOrganizer.Directives', []);
 
-eventOrganizer.directive('eoFocus', function ($document) {
+eventOrganizer.directive('eoFocus', function () {
     return {
         rectrict: 'A',
-        transclude: true,
-        scope: {
-            eoFocus: '&'
-        },
-        link: function (scope, element) {
-            element.on('focus', function () {
-                scope.$apply(function () {
-                    scope.eoFocus();
-                });
+        link: function (scope, element, attr) {
+            element.bind('focus', function () {
+                scope.$apply(attr.eoFocus);
             });
         }
     };
