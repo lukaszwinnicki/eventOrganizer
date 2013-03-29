@@ -45,7 +45,7 @@ namespace EventOrganizer.Web.Tests.DAL
 //            _sut.AddGroup(group);
         }
 
-        private static Group GetGroup()
+        private new static Group GetGroup()
         {
             return new Group
                        {

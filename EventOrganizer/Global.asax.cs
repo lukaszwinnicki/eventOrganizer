@@ -20,12 +20,11 @@ namespace EventOrganizer.Web
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule<PrimaryModule>();
-            
+
             var container = builder.Build();
 
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-
 
             AreaRegistration.RegisterAllAreas();
 
@@ -34,31 +33,42 @@ namespace EventOrganizer.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-
-            // REDIS
             var client = container.Resolve<IRedisClient>();
             client.FlushDb();
             client.FlushAll();
+            
+            PopulateWithSampleData(container);
+        }
+
+        private void PopulateWithSampleData(IContainer container)
+        {
             var userRepo = container.Resolve<IUserRepository>();
             var groupsRepo = container.Resolve<IGroupRepository>();
             var eventsRepo = container.Resolve<IEventRepository>();
+
             var bjId = userRepo.Add(new User
-                                       {
-                                           Email = "bj@gy.com", Password = "aaa", PhotoUrl = "/Content/Images/bejdzi.jpg", Name = "Paweł", Surname = "Bejger"
-                                       });
+                {
+                    Email = "bj@gy.com",
+                    Password = "aaa",
+                    PhotoUrl = "/Content/Images/bejdzi.jpg",
+                    Name = "Paweł",
+                    Surname = "Bejger"
+                });
             var groupId = groupsRepo.Add(new Group
-                                         {
-                                             Name = "Goyello integration", CreatorId = bjId, Description = "Party hard!!"
-                                         });
+                {
+                    Name = "Goyello integration",
+                    CreatorId = bjId,
+                    Description = "Party hard!!"
+                });
 
             eventsRepo.Add(new Event
-                               {
-                                   GroupId = groupId,
-                                   Name = "Laser-tag nite!",
-                                   When = DateTime.Now.AddDays(2),
-                                   Duration = new TimeSpan(4, 4, 0, 0),
-                                   Address = new Address { City = "Gdańsk", Street = "Some street" }
-                               });
+                {
+                    GroupId = groupId,
+                    Name = "Laser-tag nite!",
+                    When = DateTime.Now.AddDays(2),
+                    Duration = new TimeSpan(4, 4, 0, 0),
+                    Address = new Address {City = "Gdańsk", Street = "Some street"}
+                });
         }
     }
 }

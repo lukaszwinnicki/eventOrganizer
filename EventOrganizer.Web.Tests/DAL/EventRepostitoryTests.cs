@@ -11,7 +11,7 @@ namespace EventOrganizer.Web.Tests.DAL
         private IEventRepository _sut;
 
         [SetUp]
-        public void Before()
+        public new void Before()
         {
             _sut = new EventRepository(Client);
         }

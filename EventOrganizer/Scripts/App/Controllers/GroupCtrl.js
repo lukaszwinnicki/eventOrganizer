@@ -27,11 +27,20 @@
         });
     };
 
+    $scope.addFile = function() {
+        $('#event-image').click();
+    };
+
+    $scope.addPicture = function() {
+        $scope.newEvent.Photo = $('#event-image').val();
+    };
+
     function createNewEvent() {
         $scope.newEvent = {
             SelectedHourStart: '',
             SelectedHourEnd: '',
             Hours: [],
+            Photo: 'Upload image',
             MaxParticipants: ['Unlimited'],
             Archivization: ['Automatic', 'Manual']
         };

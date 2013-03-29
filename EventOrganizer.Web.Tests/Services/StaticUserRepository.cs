@@ -8,20 +8,21 @@ namespace EventOrganizer.Web.Tests.Services
 {
     public class StaticUserRepository : IUserRepository
     {
-        private IList<User> Users = new List<User>(); 
+        private readonly IList<User> _users = new List<User>(); 
+
         public void AddUser(User user)
         {
-            Users.Add(user);
+            _users.Add(user);
         }
 
         public IList<User> GetAll()
         {
-            return Users;
+            return _users;
         }
 
         public User GetUserByEmail(string email)
         {
-            return Users.SingleOrDefault(x => string.Equals(email, x.Email, StringComparison.InvariantCultureIgnoreCase));
+            return _users.SingleOrDefault(x => string.Equals(email, x.Email, StringComparison.InvariantCultureIgnoreCase));
         }
 
         public IList<User> GetMembers(long id)
@@ -36,12 +37,12 @@ namespace EventOrganizer.Web.Tests.Services
 
         public User GetById(long id)
         {
-            return Users.SingleOrDefault(x => x.Id == id);
+            return _users.SingleOrDefault(x => x.Id == id);
         }
 
         public long Add(User entity)
         {
-            Users.Add(entity);
+            _users.Add(entity);
             return entity.Id;
         }
     }
