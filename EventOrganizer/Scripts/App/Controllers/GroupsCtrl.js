@@ -24,7 +24,7 @@
         }
     };
     
-    $scope.uploadPhoto = function() {
+    $scope.choosePhoto = function() {
         $('#user-photo-input').click();
     };
 
