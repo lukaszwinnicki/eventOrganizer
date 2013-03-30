@@ -55,6 +55,9 @@
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\packages\Autofac.WebApi.2.6.2.859\lib\NET40\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.12.1\lib\net40\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="ServiceStack.Common">
       <HintPath>..\packages\ServiceStack.Common.3.9.35\lib\net35\ServiceStack.Common.dll</HintPath>
@@ -154,6 +157,7 @@
     <Compile Include="Controllers\GroupMembersController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageUploaderController.cs" />
     <Compile Include="Controllers\LoggedUserController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\Abstract\ICommentRepository.cs" />
@@ -201,12 +205,16 @@
     <Content Include="Content\angular-ui.min.css" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\css\images\glyphicons-halflings.png" />
     <Content Include="Content\Images\bejdzi.jpg" />
     <Content Include="Content\Images\envelope.png" />
     <Content Include="Content\Images\event-main-photo.png" />
     <Content Include="Content\Images\glyphicons-halflings-white.png" />
     <Content Include="Content\Images\glyphicons-halflings.png" />
     <Content Include="Content\Images\holder.png" />
+    <Content Include="Content\Images\upload-image.png" />
     <Content Include="Content\JQuery\images\animated-overlay.gif" />
     <Content Include="Content\JQuery\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\JQuery\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -246,6 +254,23 @@
     <Content Include="Content\spinner.gif" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="ng-upload-sample.html" />
+    <Content Include="Scripts\angular-bootstrap-prettify.js" />
+    <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
+    <Content Include="Scripts\angular-bootstrap.js" />
+    <Content Include="Scripts\angular-bootstrap.min.js" />
+    <Content Include="Scripts\angular-cookies.js" />
+    <Content Include="Scripts\angular-cookies.min.js" />
+    <Content Include="Scripts\angular-loader.js" />
+    <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
+    <Content Include="Scripts\angular-sanitize.js" />
+    <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular-scenario.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\App\App.js" />
     <Content Include="Scripts\App\Controllers\EventCtrl.js" />
     <Content Include="Scripts\App\Controllers\GroupCtrl.js" />
@@ -263,6 +288,11 @@
     <Content Include="Scripts\App\Services\GroupService.js" />
     <Content Include="Scripts\App\Services\GroupsService.js" />
     <Content Include="Scripts\App\Services\UserService.js" />
+    <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jstd-scenario-adapter-config.js" />
+    <Content Include="Scripts\jstd-scenario-adapter.js" />
     <Content Include="Scripts\Libraries\AngularUI\UserService.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-migrate-1.1.0.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-migrate-1.1.0.min.js" />
@@ -275,6 +305,7 @@
     <Content Include="Scripts\Libraries\AngularUI\angular.min.js.map">
       <DependentUpon>angular.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\Libraries\JQuery\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.min.js" />
@@ -633,6 +664,8 @@
     <Content Include="Scripts\Libraries\Angular\jstd-scenario-adapter.js" />
     <Content Include="Scripts\Libraries\AngularUI\select2.js" />
     <Content Include="Scripts\Libraries\AngularUI\select2.min.js" />
+    <Content Include="Scripts\ng-upload.js" />
+    <Content Include="Scripts\ng-upload.min.js" />
     <Content Include="Scripts\Tests\Unit\Controllers\GroupsCtrlTest.js" />
     <Content Include="Scripts\tinymce\langs\en.js" />
     <Content Include="Scripts\tinymce\license.txt" />
@@ -911,7 +944,7 @@
     <Content Include="Scripts\Tests\testacular.conf.js" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\UserImages\" />
     <Folder Include="Content\Templates\" />
     <Folder Include="Images\" />
   </ItemGroup>

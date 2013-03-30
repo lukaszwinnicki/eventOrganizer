@@ -9,6 +9,7 @@
             'eventOrganizer.EventService',
             'eventOrganizer.Directives',
             'ui.directives',
+            'ngUpload',
             'eventOrganizer.UserServices',
             'eventOrganizer.LoggedUserServices'])
     .config(['$routeProvider', function ($routeProvider) {

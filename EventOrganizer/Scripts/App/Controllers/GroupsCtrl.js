@@ -2,9 +2,11 @@
     $scope.groups = loadedGroups;
     $scope.group = {};
     $scope.modalShown = false;
+    $scope.hasImage = false;
 
     loggedInUser.getUser().then(function (data) {
         $scope.user = data;
+        $scope.hasImage = $scope.user.PhotoUrl != '';
     });
     
     $scope.save = function (group) {
@@ -13,6 +15,21 @@
             $scope.groups.push(response);
             $scope.modalShown = false;
         });
+    };
+
+    $scope.uploadedUserPhoto = function (content, completed) {
+        if(completed){
+            $scope.hasImage = true;
+            $scope.user.PhotoUrl = content;
+        }
+    };
+    
+    $scope.uploadPhoto = function() {
+        $('#user-photo-input').click();
+    };
+
+    $scope.sendPicture = function() {
+        $('#user-image-form-submitter').click();
     };
 
     $scope.goToGroupDetails = function (groupId) {

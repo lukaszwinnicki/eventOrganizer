@@ -20,8 +20,16 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span2">
-                    <div style="padding-bottom: 10px; padding-right: 20px;">
+                    <div style="padding-bottom: 10px; padding-right: 20px;" ng-show="hasImage">
+                        <!--TODO: add file uploader when user doesn't have image-->
                         <img class="media-object img-polaroid" alt="user photo" ng-src="{{ user.PhotoUrl }}">
+                    </div>
+                    <div style="padding-bottom: 10px; padding-right: 20px;" ng-show="!hasImage">
+                        <form ng-upload="uploadedUserPhoto" action="/ImageUploader/UploadImage?userId={{ user.Id }}" style="visibility: hidden;">
+                            <input type="file" name="file" id="user-photo-input" ui-event="{change:'sendPicture()'}"></input>
+                            <input id="user-image-form-submitter" type="submit" class="btn upload-submit" value="Submit" />
+                        </form>
+                        <img class="media-object img-polaroid" alt="user photo" src="/Content/Images/upload-image.png" ng-click="uploadPhoto()">
                     </div>
                     <span style="margin-top: 10px;"><strong>{{ user.Name }} {{ user.Surname }}</strong></span>
                 </div>

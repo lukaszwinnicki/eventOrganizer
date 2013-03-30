@@ -7,7 +7,7 @@ namespace EventOrganizer.Web.App_Start
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                        "~/Scripts/Libraries/Angular/angular.min.js"));
+                        "~/Scripts/Libraries/Angular/angular.min.js", "~/Scripts/ng-upload.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/Libraries/Bootstrap/bootstrap.js"));
