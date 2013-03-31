@@ -10,7 +10,6 @@ using EventOrganizer.Web.App_Start;
 using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Infrastructure.Modules;
 using EventOrganizer.Web.Models;
-using ServiceStack.Redis;
 
 namespace EventOrganizer.Web
 {
@@ -33,10 +32,6 @@ namespace EventOrganizer.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var client = container.Resolve<IRedisClient>();
-            client.FlushDb();
-            client.FlushAll();
-            
             PopulateWithSampleData(container);
         }
 
@@ -46,28 +41,28 @@ namespace EventOrganizer.Web
             var groupsRepo = container.Resolve<IGroupRepository>();
             var eventsRepo = container.Resolve<IEventRepository>();
 
-            var bjId = userRepo.Add(new User
+            var bjId = userRepo.Save(new User
                 {
                     Email = "bj@gy.com",
                     Password = "aaa",
-                    PhotoUrl = "/Content/Images/bejdzi.jpg",
                     Name = "Paweł",
                     Surname = "Bejger"
                 });
-            var groupId = groupsRepo.Add(new Group
+            var groupId = groupsRepo.Save(new Group
                 {
                     Name = "Goyello integration",
-                    CreatorId = bjId,
+                    OwnerId = bjId,
                     Description = "Party hard!!"
                 });
 
-            eventsRepo.Add(new Event
+            eventsRepo.Save(new Event
                 {
                     GroupId = groupId,
                     Name = "Laser-tag nite!",
                     When = DateTime.Now.AddDays(2),
-                    Duration = new TimeSpan(4, 4, 0, 0),
-                    Address = new Address {City = "Gdańsk", Street = "Some street"}
+                    Duration = new TimeSpan(0, 4, 0, 0),
+                    City = "Gdańsk",
+                    Street = "Some street"
                 });
         }
     }

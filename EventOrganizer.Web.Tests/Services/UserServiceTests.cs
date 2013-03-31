@@ -1,8 +1,8 @@
-﻿using EventOrganizer.Web.DAL.Abstract;
+﻿using System.Configuration;
+using EventOrganizer.Web.DAL;
 using EventOrganizer.Web.Models;
 using EventOrganizer.Web.Services;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace EventOrganizer.Web.Tests.Services
 {
@@ -14,7 +14,7 @@ namespace EventOrganizer.Web.Tests.Services
         [SetUp]
         public void Before()
         {
-            _sut = new UserService(new StaticUserRepository());
+            _sut = new UserService(new UserRepository(ConfigurationManager.ConnectionStrings[Constants.ConnectionStringKey].ConnectionString));
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace EventOrganizer.Web.Tests.Services
         {
             // arrange
             const string email = "ExistingEmail";
-            _sut.AddUser(new User { Email = email});
+            _sut.Save(new User { Email = email});
             // act
             var result = _sut.IsEmailAvailable(email);
             // assert
@@ -50,7 +50,7 @@ namespace EventOrganizer.Web.Tests.Services
         {
             const string password = "s3cr3t";
             const string email = "Email";
-            _sut.AddUser(new User {Email = email, Password = password});
+            _sut.Save(new User {Email = email, Password = password});
 
             var result = _sut.CanAuthorize(email, "Wrong" + password);
             
@@ -62,7 +62,7 @@ namespace EventOrganizer.Web.Tests.Services
         {
             const string password = "s3cr3t";
             const string email = "Email";
-            _sut.AddUser(new User { Email = email, Password = password });
+            _sut.Save(new User { Email = email, Password = password });
 
             var result = _sut.CanAuthorize(email, password);
 

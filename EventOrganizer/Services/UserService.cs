@@ -13,9 +13,9 @@ namespace EventOrganizer.Web.Services
             _userRepository = userRepository;
         }
 
-        public void AddUser(User user)
+        public void Save(User user)
         {
-            _userRepository.Add(user);
+            _userRepository.Save(user);
         }
 
         public bool CanAuthorize(string email, string password)
@@ -39,7 +39,7 @@ namespace EventOrganizer.Web.Services
             return _userRepository.GetById(id);
         }
 
-        public long Update(User member)
+        public bool Update(User member)
         {
             return _userRepository.Update(member);
         }

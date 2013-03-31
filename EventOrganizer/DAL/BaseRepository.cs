@@ -1,44 +1,34 @@
-﻿using System.Collections.Generic;
-using EventOrganizer.Web.DAL.Abstract;
-using EventOrganizer.Web.Models;
-using ServiceStack.Redis;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using Dapper;
 
 namespace EventOrganizer.Web.DAL
 {
-    public abstract class BaseRepository<T> : IRepository<T> where T : IEntity
+    public abstract class BaseRepository
     {
-        protected readonly IRedisClient Client;
+        private readonly string _connectionString;
 
-        protected BaseRepository(IRedisClient client)
+        protected BaseRepository(string connectionString)
         {
-            Client = client;
+            _connectionString = connectionString;
         }
 
-        public T GetById(long id)
+        protected static void SetIdentity<T>(IDbConnection connection, Action<T> setId)
         {
-            using (var users = Client.As<T>())
-            {
-                return users.GetById(id);
-            }
+            dynamic identity = connection.Query("SELECT @@IDENTITY AS Id").Single();
+            var newId = (T)identity.Id;
+
+            setId(newId);
         }
 
-        public IList<T> GetAll()
+        protected IDbConnection OpenConnection()
         {
-            using (var users = Client.As<T>())
-            {
-                return users.GetAll();
-            }
-        }
+            IDbConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
 
-        public virtual long Add(T entity)
-        {
-            using (var groups = Client.As<T>())
-            {
-                var id = groups.GetNextSequence();
-                entity.Id = id;
-                groups.Store(entity);
-                return id;
-            }
+            return connection;
         }
     }
 }

@@ -1,43 +1,93 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
+using System.Data;
 using System.Linq;
+using Dapper;
 using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
-using ServiceStack.Redis;
 
 namespace EventOrganizer.Web.DAL
 {
-    public class UserRepository : BaseRepository<User>, IUserRepository
+    public class UserRepository : BaseRepository, IUserRepository
     {
-        public UserRepository(IRedisClient client) : base(client) { }
-
-        public override long Add(User user)
+        public UserRepository(string connectionString)
+            : base(connectionString)
         {
-            var id = base.Add(user);
-            Client.Hashes["user-email-id"].Add(user.Email, id.ToString(CultureInfo.InvariantCulture));
-            return id;
+
+        }
+
+        public long Save(User user)
+        {
+            using (IDbConnection connection = OpenConnection())
+            {
+                // TODO: check if user already exist
+
+                const string query =
+                    "INSERT INTO [Users] (Email, Name, Password, PhotoUrl, Surname)" +
+                    "VALUES (@Email, @Name, @Password, @PhotoUrl, @Surname);" +
+                    "SELECT cast(scope_identity() as int)";
+
+                return connection.Query<int>(query, new
+                {
+                    user.Email,
+                    user.Name,
+                    user.Password,
+                    user.PhotoUrl,
+                    user.Surname
+                }).First();
+            }
+        }
+
+        public User GetById(long userId)
+        {
+            using (var connection = OpenConnection())
+            {
+                const string sql = "SELECT * FROM [Users] WHERE Id = @UserId";
+
+                return connection.Query<User>(sql, new { UserId = userId }).FirstOrDefault();
+            }
+        }
+
+        public IList<User> GetAll()
+        {
+            using (var connection = OpenConnection())
+            {
+                const string query =
+                    "SELECT * FROM [Users]";
+
+                return connection.Query<User>(query).ToList();
+            }
         }
 
         public User GetUserByEmail(string email)
         {
-            using (var users = Client.As<User>())
+            using (var connection = OpenConnection())
             {
-                var id = Client.Hashes["user-email-id"][email];
-                return users.GetById(id); 
+                const string query =
+                    "SELECT * FROM [Users] WHERE Email = @Email";
+
+                return connection.Query<User>(query, new { Email = email }).FirstOrDefault();
             }
         }
 
-        public IList<User> GetMembers(long id)
+        public IList<User> GetGroupMembers(long groupId)
         {
-            var membersIds = Client.Lists["group-users-" + id];
-            return membersIds.GetAll().Select(x => GetById(long.Parse(x))).ToList();
+            using (var connection = OpenConnection())
+            {
+                const string query =
+                    "SELECT u.Id, u.Email, u.Password, u.Name, u.Surname, u.Password, u.PhotoUrl FROM [Users] u LEFT JOIN [UsersGroups] ug ON ug.UserId = u.Id WHERE GroupId = @GroupId";
+
+                return connection.Query<User>(query, new { GroupId = groupId }).ToList();
+            }
         }
 
-        public long Update(User member)
+        public bool Update(User user)
         {
-            // TODO: add logic
+            using (var connection = OpenConnection())
+            {
+                const string sql = "UPDATE [Users] SET Email = @Email, Password = @Password, Name = @Name, Surname = @Surname, PhotoUrl = @PhotoUrl WHERE Id = @Id";
 
-            return member.Id;
+                return connection.Execute(sql, new { user.Id, user.Email, user.Name, user.Password, user.PhotoUrl, user.Surname }) == 1;
+            }
         }
     }
 }

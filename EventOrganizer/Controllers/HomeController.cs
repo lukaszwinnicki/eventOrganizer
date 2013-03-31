@@ -43,7 +43,7 @@ namespace EventOrganizer.Web.Controllers
                 return View("Index", new IndexViewModel { RegistrationViewModel = viewModel });
             }
 
-            _userService.AddUser(new User { Email = viewModel.Email, Password = viewModel.Password });
+            _userService.Save(new User { Email = viewModel.Email, Password = viewModel.Password });
 
             if (_userService.CanAuthorize(viewModel.Email, viewModel.Password))
             {

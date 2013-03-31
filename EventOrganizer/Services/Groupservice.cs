@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
 using EventOrganizer.Web.Services.Abstract;
@@ -20,14 +19,14 @@ namespace EventOrganizer.Web.Services
         public IList<Group> GetGropus(string email)
         {
             var userId = _userRepository.GetUserByEmail(email).Id;
-            return _groupRepository.GetGroups(userId);
+            return _groupRepository.GetGroup(userId);
         }
 
         public Group Save(Group group, string email)
         {
             var userId = _userRepository.GetUserByEmail(email).Id;
-            group.CreatorId = userId;
-            _groupRepository.Add(group);
+            group.OwnerId = userId;
+            _groupRepository.Save(group);
 
             return group;
         }

@@ -4,6 +4,6 @@ namespace EventOrganizer.Web.DAL.Abstract
 {
     public interface ICommentRepository
     {
-        long Add(Comment comment);    
+        long Save(Comment comment);    
     }
 }

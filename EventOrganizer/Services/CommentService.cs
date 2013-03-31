@@ -15,7 +15,7 @@ namespace EventOrganizer.Web.Services
 
         public long Save(Comment comment)
         {
-            return _commentRepository.Add(comment);
+            return _commentRepository.Save(comment);
         }
     }
 }

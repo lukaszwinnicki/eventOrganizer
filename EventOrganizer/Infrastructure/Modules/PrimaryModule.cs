@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using Autofac;
 using Autofac.Core;
 using Autofac.Integration.Mvc;
@@ -14,6 +15,8 @@ namespace EventOrganizer.Web.Infrastructure.Modules
 {
     public class PrimaryModule : Module
     {
+        private static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["EventOrganizerDb"].ConnectionString;
+
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterApiControllers(typeof(WebApiApplication).Assembly);
@@ -26,10 +29,10 @@ namespace EventOrganizer.Web.Infrastructure.Modules
             builder.RegisterType<EventService>().As<IEventService>();
             builder.RegisterType<CommentService>().As<ICommentService>();
 
-            builder.RegisterType<UserRepository>().As<IUserRepository>();
-            builder.RegisterType<GroupRepository>().As<IGroupRepository>();
-            builder.RegisterType<EventRepository>().As<IEventRepository>();
-            builder.RegisterType<CommentRepository>().As<ICommentRepository>();
+            builder.Register(s => new UserRepository(ConnectionString)).As<IUserRepository>();
+            builder.Register(s => new GroupRepository(ConnectionString)).As<IGroupRepository>();
+            builder.Register(s => new EventRepository(ConnectionString)).As<IEventRepository>();
+            builder.Register(s => new CommentRepository(ConnectionString)).As<ICommentRepository>();
 
             builder.RegisterType<RedisClient>().As<IRedisClient>()
                 .UsingConstructor(typeof(string), typeof(int))

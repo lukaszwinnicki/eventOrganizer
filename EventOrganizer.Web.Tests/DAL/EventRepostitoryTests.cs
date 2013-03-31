@@ -1,4 +1,7 @@
-﻿using EventOrganizer.Web.DAL;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using EventOrganizer.Web.DAL;
 using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
 using NUnit.Framework;
@@ -6,28 +9,35 @@ using NUnit.Framework;
 namespace EventOrganizer.Web.Tests.DAL
 {
     [TestFixture]
-    public class EventRepostitoryTests : BaseRepositoryTest
+    public class EventRepostitoryTests
     {
-        private IEventRepository _sut;
+        private IEventRepository _eventRepository;
 
         [SetUp]
-        public new void Before()
+        public void Before()
         {
-            _sut = new EventRepository(Client);
+            _eventRepository = new EventRepository(ConfigurationManager.ConnectionStrings[Constants.ConnectionStringKey].ConnectionString);
         }
-
         
         [Test]
         public void AddEvent_EmptyDB_ShouldReturnOneEvent()
         {
-            var @event = new Event
+            var eventToSave = new Event
                              {
-                                 Name = "sadlaskd"
+                                 Name = "sadlaskd",
+                                 When = DateTime.Now,
+                                 Duration = TimeSpan.FromHours(4),
+                                 Country = "Country",
+                                 City = "City",
+                                 Street = "Street",
+                                 HouseNumber = "HouseNumberSub",
+                                 GroupId = 1
                              };
-            // act
-            _sut.Add(@event);
-            
-            Assert.AreEqual(1, _sut.GetAll().Count);
+
+            _eventRepository.Save(eventToSave);
+            IList<Event> events = _eventRepository.GetAll();
+
+            Assert.Greater(events.Count, 0);
         }
 
         [Test]
@@ -35,20 +45,27 @@ namespace EventOrganizer.Web.Tests.DAL
         {
             var @event = AddEvent();
 
-            var events = _sut.GetEvents(@event.GroupId);
+            var events = _eventRepository.GetEvents(@event.GroupId);
 
-            Assert.AreEqual(1, events.Count);
+            Assert.Greater(events.Count, 0);
         }
 
         public Event AddEvent()
         {
             var @event = new Event
-            {
-                Name = "sadlaskd",
-                GroupId = 1
-            };
+                {
+                    Name = "sadlaskd",
+                    When = DateTime.Now,
+                    Duration = TimeSpan.FromHours(4),
+                    Country = "Country",
+                    City = "City",
+                    Street = "Street",
+                    HouseNumber = "HouseNumberSub",
+                    GroupId = 1
+                };
 
-            _sut.Add(@event);
+            long eventId = _eventRepository.Save(@event);
+            @event.Id = eventId;
 
             return @event;
         }
