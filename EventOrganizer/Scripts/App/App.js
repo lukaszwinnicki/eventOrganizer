@@ -1,12 +1,14 @@
 ﻿angular
     .module('eventOrganizer',
         [
-            'eventOrganizer.CommentsService',
+            'eventOrganizer.EventCommentsService',
             'eventOrganizer.GroupsService',
             'eventOrganizer.GroupService',
             'eventOrganizer.GroupMembersService',
+            'eventOrganizer.EventMembersService',
             'eventOrganizer.EventsService',
             'eventOrganizer.EventService',
+            'eventOrganizer.JoinEventService',
             'eventOrganizer.Directives',
             'ui.directives',
             'ngUpload',
@@ -33,7 +35,9 @@
             templateUrl: '/Content/Partials/Event.html',
             controller: EventCtrl,
             resolve: {
-                loadedEvent: EventCtrl.loadEvent
+                loadedEvent: EventCtrl.loadEvent,
+                loadedMembers: EventCtrl.loadMembers,
+                loadedComments: EventCtrl.loadComments
             }
         });
         $routeProvider.otherwise({ redirectTo: '/' });

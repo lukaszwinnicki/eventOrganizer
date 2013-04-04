@@ -48,6 +48,15 @@ namespace EventOrganizer.Web
                     Name = "Paweł",
                     Surname = "Bejger"
                 });
+
+            var eventMemberId = userRepo.Save(new User
+                {
+                    Email = "bj@gy.com",
+                    Password = "aaa",
+                    Name = "Paweł",
+                    Surname = "Bejger"
+                });
+
             var groupId = groupsRepo.Save(new Group
                 {
                     Name = "Goyello integration",
@@ -55,7 +64,7 @@ namespace EventOrganizer.Web
                     Description = "Party hard!!"
                 });
 
-            eventsRepo.Save(new Event
+            var eventToSave = new Event
                 {
                     GroupId = groupId,
                     Name = "Laser-tag nite!",
@@ -63,7 +72,9 @@ namespace EventOrganizer.Web
                     Duration = new TimeSpan(0, 4, 0, 0),
                     City = "Gdańsk",
                     Street = "Some street"
-                });
+                };
+            eventToSave.Id = eventsRepo.Save(eventToSave);
+            userRepo.AddEventMember(eventToSave.Id, eventMemberId);
         }
     }
 }

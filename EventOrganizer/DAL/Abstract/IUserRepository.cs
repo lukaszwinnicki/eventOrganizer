@@ -11,5 +11,7 @@ namespace EventOrganizer.Web.DAL.Abstract
         long Save(User user);
         User GetById(long userId);
         IList<User> GetAll();
+        List<EventMember> GetEventMembers(int eventId);
+        bool AddEventMember(long userId, long eventId);
     }
 }

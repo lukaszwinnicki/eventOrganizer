@@ -1,4 +1,5 @@
-﻿using EventOrganizer.Web.Models;
+﻿using System.Collections.Generic;
+using EventOrganizer.Web.Models;
 
 namespace EventOrganizer.Web.Services.Abstract
 {
@@ -10,5 +11,7 @@ namespace EventOrganizer.Web.Services.Abstract
         User GetUserByEmail(string email);
         User GetUser(long id);
         bool Update(User member);
+        List<EventMember> GetEventMembers(int eventId);
+        bool AddEventMember(long userId, long eventId);
     }
 }

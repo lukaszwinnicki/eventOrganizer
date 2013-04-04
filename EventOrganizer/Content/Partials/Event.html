@@ -45,15 +45,15 @@
                     </span>
                 </div>
                 <div class="row" id="comment-actions" ng-show="commentActionDisplay" style="margin-top: 10px;">
-                    <span style="width:48px; height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span style="width: 48px; height: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <button type="button" class="btn" ng-click="saveComment(newComment)">Comment</button>
                     <i class="icon-remove" style="margin-left: 10px;" ng-click="hideCommentButtonsAndClearNewMessage()"></i>
                 </div>
             </form>
-            <div ng-repeat="comment in event.Comments" class="row">
+            <div ng-repeat="comment in comments" class="row">
                 <div style="margin-top: 10px;">
                     <span style="margin-right: 10px;">
-                        <img src="/Content/Images/envelope.png" popover="On the Top!" popover-placement="top"/>
+                        <img src="/Content/Images/envelope.png" popover="On the Top!" popover-placement="top" />
                     </span>
                     <span>{{ comment.Message }}</span>
                 </div>
@@ -65,20 +65,20 @@
                 <div class="page-header">
                     <h4>Participants</h4>
                 </div>
-                <ul ng-repeat="participant in event.Participants" class="nav">
+                <ul ng-repeat="member in members" class="nav">
                     <li>
-                        <div class="media" style="vertical-align: middle;">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" ng-src="{{ participant.PhotoUrl }}">
-                            </a>
+                        <div>
                             <div class="media-body">
-                                {{ participant.Name }} {{ participant.Surname }}
+                                {{ member.Name }} {{ member.Surname}}
+                            </div>
+                            <div class="media" style="vertical-align: middle;">
+                                <img class="media-object" ng-src="{{ member.PhotoUrl }}">
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
-            <button type="button" class="btn">Join / Leave</button>
+            <button type="button" class="btn" ng-click="join()">Join / Leave</button>
         </div>
     </div>
 </div>

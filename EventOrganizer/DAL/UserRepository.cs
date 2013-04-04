@@ -58,6 +58,31 @@ namespace EventOrganizer.Web.DAL
             }
         }
 
+        public List<EventMember> GetEventMembers(int eventId)
+        {
+            using (var connection = OpenConnection())
+            {
+                const string query =
+                    "SELECT u.Id, u.Name, u.Surname, u.PhotoUrl FROM [Users] u LEFT JOIN [UsersEvents] ug ON ug.UserId = u.Id WHERE EventId = @EventId";
+
+                return connection.Query<EventMember>(query, new { EventId = eventId }).ToList();
+            }
+        }
+
+        public bool AddEventMember(long userId, long eventId)
+        {
+            using (var connection = OpenConnection())
+            {
+                const string query = "INSERT INTO [UsersEvents](UserId, EventId) VALUES(@UserId, @EventId)";
+
+                return connection.Execute(query, new
+                {
+                    UserId = userId,
+                    EventId = eventId,
+                }) > 0;
+            }
+        }
+
         public User GetUserByEmail(string email)
         {
             using (var connection = OpenConnection())
@@ -74,7 +99,7 @@ namespace EventOrganizer.Web.DAL
             using (var connection = OpenConnection())
             {
                 const string query =
-                    "SELECT u.Id, u.Email, u.Password, u.Name, u.Surname, u.Password, u.PhotoUrl FROM [Users] u LEFT JOIN [UsersGroups] ug ON ug.UserId = u.Id WHERE GroupId = @GroupId";
+                    "SELECT u.Id, u.Email, u.Password, u.Name, u.Surname, u.PhotoUrl FROM [Users] u LEFT JOIN [UsersGroups] ug ON ug.UserId = u.Id WHERE GroupId = @GroupId";
 
                 return connection.Query<User>(query, new { GroupId = groupId }).ToList();
             }

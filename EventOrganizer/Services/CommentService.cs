@@ -1,4 +1,5 @@
-﻿using EventOrganizer.Web.DAL.Abstract;
+﻿using System.Collections.Generic;
+using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
 using EventOrganizer.Web.Services.Abstract;
 
@@ -16,6 +17,11 @@ namespace EventOrganizer.Web.Services
         public long Save(Comment comment)
         {
             return _commentRepository.Save(comment);
+        }
+
+        public List<EventComment> GetEventComments(int id)
+        {
+            return _commentRepository.GetEventComments(id);
         }
     }
 }

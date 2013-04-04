@@ -1,4 +1,5 @@
-﻿using EventOrganizer.Web.DAL.Abstract;
+﻿using System.Collections.Generic;
+using EventOrganizer.Web.DAL.Abstract;
 using EventOrganizer.Web.Models;
 using EventOrganizer.Web.Services.Abstract;
 
@@ -42,6 +43,16 @@ namespace EventOrganizer.Web.Services
         public bool Update(User member)
         {
             return _userRepository.Update(member);
+        }
+
+        public List<EventMember> GetEventMembers(int eventId)
+        {
+            return _userRepository.GetEventMembers(eventId);
+        }
+
+        public bool AddEventMember(long userId, long eventId)
+        {
+            return _userRepository.AddEventMember(userId, eventId);
         }
     }
 }

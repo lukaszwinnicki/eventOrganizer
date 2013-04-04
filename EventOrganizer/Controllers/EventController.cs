@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -17,31 +16,44 @@ namespace EventOrganizer.Web.Controllers
             _eventService = eventService;
         }
 
+        public static void CopyStream(Stream input, Stream output)
+        {
+            var buffer = new byte[8 * 1024];
+            int len;
+            while ((len = input.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                output.Write(buffer, 0, len);
+            }
+        }
+
+        [System.Web.Http.HttpPost]
+        public HttpResponseMessage Put(Event eventToSave)
+        {
+            long eventId = _eventService.Save(eventToSave);
+            eventToSave.Id = eventId;
+
+            //string userImageDirectory = string.Format("{0}/UserImages/{1}", root, userId);
+            //if (!Directory.Exists(userImageDirectory))
+            //{
+            //    Directory.CreateDirectory(userImageDirectory);
+            //}
+
+            //string imagePath = string.Format("{0}/{1}", userImageDirectory, file.FileName);
+            //using (FileStream output = System.IO.File.OpenWrite(imagePath))
+            //{
+            //    CopyStream(file.InputStream, output);
+            //}
+
+            //string relativeImagePath = string.Format("/Content/UserImages/{0}/{1}", userId, file.FileName);
+            //user.PhotoUrl = relativeImagePath;
+            //_userService.Update(user);
+
+            return Request.CreateResponse(HttpStatusCode.OK, eventToSave);
+        }
+
         public HttpResponseMessage Get(int id)
         {
             Event groupEvent = _eventService.GetEvent(id);
-            groupEvent.Participants = new List<User>
-                {
-                    new User
-                        {
-                            Email = "aaa@aa.a",
-                            Id = 1,
-                            Name = "Name",
-                            Password = "Password",
-                            PhotoUrl = "/Content/Images/bejdzi.jpg",
-                            Surname = "bbb"
-                        }
-                };
-            groupEvent.Comments = new List<Comment>
-                {
-                    new Comment
-                        {
-                            Id = 1, 
-                            EventId = groupEvent.Id, 
-                            Message = "Lalalala", 
-                            Member = groupEvent.Participants.First()
-                        }
-                };
 
             return string.IsNullOrEmpty(User.Identity.Name)
                        ? Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.")
