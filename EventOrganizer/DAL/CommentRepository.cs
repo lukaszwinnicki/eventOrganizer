@@ -24,7 +24,7 @@ namespace EventOrganizer.Web.DAL
 
                 int rowsAffected = connection.Execute(query, new
                 {
-                    UserId = comment.Member.Id,
+                    UserId = comment.User.Id,
                     comment.Message,
                     comment.EventId
                 });
@@ -37,9 +37,12 @@ namespace EventOrganizer.Web.DAL
         {
             using (var connection = OpenConnection())
             {
-                const string sql = "SELECT c.Id, c.UserId, c.Message FROM Comments c WHERE c.EventId = @EventId";
+                const string sql = "SELECT * FROM Comments c LEFT JOIN [Users] u ON u.Id = c.UserId WHERE c.EventId = @EventId";
 
-                return connection.Query<EventComment>(sql, new { EventId = id }).ToList();
+                return connection.Query<EventComment, User, EventComment>(sql, (eventComment, user) =>
+                    { eventComment.User = user;
+                        return eventComment;
+                    }, new { EventId = id }).ToList();
             }
         }
     }

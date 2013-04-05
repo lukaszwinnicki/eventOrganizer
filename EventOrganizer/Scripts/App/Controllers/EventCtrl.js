@@ -10,7 +10,6 @@
         
         loggedInUser.getUser().then(function (response) {
             $scope.user = response;
-            // TODO: probably we should move this logic to server to reduce calls
             $scope.loggedUserIsMemberOfEvent = isMemberOfEvent($scope.user, $scope.members);
         });
     });
@@ -35,6 +34,7 @@
     };
 
     $scope.saveComment = function (comment) {
+        comment.User = $scope.user;
         var commentItem = new eventCommentsResource(comment);
         commentItem.$save(function (response, responseHeader) {
             $scope.comments.push(response);

@@ -43,3 +43,11 @@
         });
         $routeProvider.otherwise({ redirectTo: '/' });
     }]);
+
+angular.module.value('ui.config', {
+    jq: {
+        tooltip: {
+            placement: 'top'
+        }
+    }
+});

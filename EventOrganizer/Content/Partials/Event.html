@@ -53,7 +53,7 @@
             <div ng-repeat="comment in comments" class="row">
                 <div style="margin-top: 10px;">
                     <span style="margin-right: 10px;">
-                        <img src="/Content/Images/envelope.png" popover="On the Top!" popover-placement="top" />
+                        <img ng-src="{{ comment.User.PhotoUrl }}" data-original-title="{{ comment.User.Name }} {{ comment.User.Surname }}" ui-jq="tooltip" style="width: 44px; height: 26px;" />
                     </span>
                     <span>{{ comment.Message }}</span>
                 </div>
