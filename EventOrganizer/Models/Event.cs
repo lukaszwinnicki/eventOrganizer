@@ -13,6 +13,7 @@ namespace EventOrganizer.Web.Models
         public string City { get; set; }
         public string Street { get; set; }
         public string HouseNumber { get; set; }
+        public string Description { get; set; }
         public List<string> EventPhotos { get; set; }
         public List<User> Participants { get; set; }
         public List<Comment> Comments { get; set; }
