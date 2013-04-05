@@ -54,5 +54,10 @@ namespace EventOrganizer.Web.Services
         {
             return _userRepository.AddEventMember(userId, eventId);
         }
+
+        public bool RemoveEventMember(long userId, long eventId)
+        {
+            return _userRepository.RemoveEventMember(userId, eventId);
+        }
     }
 }

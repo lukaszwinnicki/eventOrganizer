@@ -8,8 +8,8 @@ loggedUserServices.factory('LoggedUserResource', function ($resource) {
     return $resource('/api/LoggedUser');
 });
 
-loggedUserServices.factory('LoggedInUser', function ($resource, $q, LoggedUserResource) {
-    var data = {user: null};
+loggedUserServices.factory('LoggedInUser', ['$resource', '$q', 'LoggedUserResource', function ($resource, $q, loggedUserResource) {
+    var data = { user: null };
 
     return {
         getUser: function () {
@@ -19,7 +19,7 @@ loggedUserServices.factory('LoggedInUser', function ($resource, $q, LoggedUserRe
                 deferred.resolve(data.user);
             }
             else {
-                LoggedUserResource.get({}, function (response) {
+                loggedUserResource.get({}, function (response) {
                     data.user = response;
                     deferred.resolve(data.user);
                 });
@@ -28,4 +28,4 @@ loggedUserServices.factory('LoggedInUser', function ($resource, $q, LoggedUserRe
             return deferred.promise;
         }
     };
-});
+}]);

@@ -160,6 +160,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageUploaderController.cs" />
     <Compile Include="Controllers\JoinEventController.cs" />
+    <Compile Include="Controllers\LeaveEventController.cs" />
     <Compile Include="Controllers\LoggedUserController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\Abstract\ICommentRepository.cs" />
@@ -182,6 +183,8 @@
     <Compile Include="Models\EventMember.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\IEntity.cs" />
+    <Compile Include="Models\JoinEvent.cs" />
+    <Compile Include="Models\LeaveEvent.cs" />
     <Compile Include="Models\Notifocation.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -292,6 +295,7 @@
     <Content Include="Scripts\App\Services\GroupService.js" />
     <Content Include="Scripts\App\Services\GroupsService.js" />
     <Content Include="Scripts\App\Services\JoinEventService.js" />
+    <Content Include="Scripts\App\Services\LeaveEventService.js" />
     <Content Include="Scripts\App\Services\UserService.js" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />

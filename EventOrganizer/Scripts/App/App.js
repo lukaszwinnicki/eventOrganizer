@@ -9,6 +9,7 @@
             'eventOrganizer.EventsService',
             'eventOrganizer.EventService',
             'eventOrganizer.JoinEventService',
+            'eventOrganizer.LeaveEventService',
             'eventOrganizer.Directives',
             'ui.directives',
             'ngUpload',
@@ -36,7 +37,7 @@
             controller: EventCtrl,
             resolve: {
                 loadedEvent: EventCtrl.loadEvent,
-                loadedMembers: EventCtrl.loadMembers,
+                eventMembers: EventCtrl.eventMembers,
                 loadedComments: EventCtrl.loadComments
             }
         });

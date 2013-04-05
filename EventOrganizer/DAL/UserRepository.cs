@@ -83,6 +83,20 @@ namespace EventOrganizer.Web.DAL
             }
         }
 
+        public bool RemoveEventMember(long userId, long eventId)
+        {
+            using (var connection = OpenConnection())
+            {
+                const string query = "DELETE FROM [UsersEvents] WHERE UserId = @UserId AND EventId = @EventId";
+
+                return connection.Execute(query, new
+                {
+                    UserId = userId,
+                    EventId = eventId,
+                }) > 0;
+            }
+        }
+
         public User GetUserByEmail(string email)
         {
             using (var connection = OpenConnection())

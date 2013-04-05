@@ -28,6 +28,7 @@ namespace EventOrganizer.Web.App_Start
                     "~/Scripts/App/Services/EventsService.js",
                     "~/Scripts/App/Services/EventService.js",
                     "~/Scripts/App/Services/JoinEventService.js",
+                    "~/Scripts/App/Services/LeaveEventService.js",
                     "~/Scripts/App/Services/GroupMembersService.js",
                     "~/Scripts/App/Services/EventMembersService.js",
                     "~/Scripts/App/Services/UserService.js",

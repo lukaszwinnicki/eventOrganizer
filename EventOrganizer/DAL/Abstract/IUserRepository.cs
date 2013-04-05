@@ -13,5 +13,6 @@ namespace EventOrganizer.Web.DAL.Abstract
         IList<User> GetAll();
         List<EventMember> GetEventMembers(int eventId);
         bool AddEventMember(long userId, long eventId);
+        bool RemoveEventMember(long userId, long eventId);
     }
 }

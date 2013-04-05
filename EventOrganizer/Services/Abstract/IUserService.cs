@@ -13,5 +13,6 @@ namespace EventOrganizer.Web.Services.Abstract
         bool Update(User member);
         List<EventMember> GetEventMembers(int eventId);
         bool AddEventMember(long userId, long eventId);
+        bool RemoveEventMember(long userId, long eventId);
     }
 }

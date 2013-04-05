@@ -6,26 +6,26 @@ using EventOrganizer.Web.Services.Abstract;
 
 namespace EventOrganizer.Web.Controllers
 {
-    public class JoinEventController : ApiController
+    public class LeaveEventController : ApiController
     {
         private readonly IUserService _userService;
 
-        public JoinEventController(IUserService userService)
+        public LeaveEventController(IUserService userService)
         {
             _userService = userService;
         }
 
         [HttpPost]
-        public HttpResponseMessage Post(JoinEvent joinEvent)
+        public HttpResponseMessage Post(LeaveEvent leaveEvent)
         {
             if (!User.Identity.IsAuthenticated)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.");
             }
 
-            _userService.AddEventMember(joinEvent.User.Id, joinEvent.EventId);
-
-            return Request.CreateResponse(HttpStatusCode.OK, new EventMember(joinEvent.User));
+            return _userService.RemoveEventMember(leaveEvent.User.Id, leaveEvent.EventId)
+                       ? Request.CreateResponse(HttpStatusCode.OK, new EventMember(leaveEvent.User))
+                       : Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "Something went wrong");
         }
     }
 }

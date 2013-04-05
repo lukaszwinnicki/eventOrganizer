@@ -78,7 +78,8 @@
                     </li>
                 </ul>
             </div>
-            <button type="button" class="btn" ng-click="join()">Join / Leave</button>
+            <button type="button" class="btn" ng-click="join()" ng-show="!loggedUserIsMemberOfEvent">Join</button>
+            <button type="button" class="btn" ng-click="leave()" ng-show="loggedUserIsMemberOfEvent">Leave</button>
         </div>
     </div>
 </div>
