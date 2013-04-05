@@ -182,6 +182,7 @@
     <Compile Include="Models\EventComment.cs" />
     <Compile Include="Models\EventMember.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\GroupMember.cs" />
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\JoinEvent.cs" />
     <Compile Include="Models\LeaveEvent.cs" />

@@ -59,5 +59,10 @@ namespace EventOrganizer.Web.Services
         {
             return _userRepository.RemoveEventMember(userId, eventId);
         }
+
+        public List<GroupMember> GetGroupMembers(int groupId)
+        {
+            return _userRepository.GetGroupMembers(groupId);
+        }
     }
 }

@@ -108,14 +108,14 @@ namespace EventOrganizer.Web.DAL
             }
         }
 
-        public IList<User> GetGroupMembers(long groupId)
+        public List<GroupMember> GetGroupMembers(long groupId)
         {
             using (var connection = OpenConnection())
             {
                 const string query =
-                    "SELECT u.Id, u.Email, u.Password, u.Name, u.Surname, u.PhotoUrl FROM [Users] u LEFT JOIN [UsersGroups] ug ON ug.UserId = u.Id WHERE GroupId = @GroupId";
+                    "SELECT u.Id, u.Name, u.Surname, u.PhotoUrl FROM [Users] u LEFT JOIN [UsersGroups] ug ON ug.UserId = u.Id WHERE GroupId = @GroupId";
 
-                return connection.Query<User>(query, new { GroupId = groupId }).ToList();
+                return connection.Query<GroupMember>(query, new { GroupId = groupId }).ToList();
             }
         }
 

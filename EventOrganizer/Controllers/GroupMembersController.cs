@@ -21,19 +21,18 @@ namespace EventOrganizer.Web.Controllers
 
         public HttpResponseMessage Get(int id)
         {
+            if (string.IsNullOrEmpty(User.Identity.Name))
+            {
+                Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.");
+            }
+
+            
             return string.IsNullOrEmpty(User.Identity.Name)
                        ? Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.")
-                       : Request.CreateResponse(HttpStatusCode.OK, new List<User>
-                           {
-                               new User
-                                   {
-                                       Name = "Name",
-                                       Surname = "Surname",
-                                       PhotoUrl = "/Content/Images/holder.png"
-                                   }
-                           });
+                       : Request.CreateResponse(HttpStatusCode.OK, _userService.GetGroupMembers(id));
         }
 
+        // TODO: blocked oO
         public HttpResponseMessage JoinGroup(User member, int groupId)
         {
             Group group = _groupService.GetGropu(groupId);

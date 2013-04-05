@@ -86,12 +86,12 @@
                 </div>
                 <ul ng-repeat="member in members" class="nav">
                     <li>
-                        <div class="media" style="vertical-align: middle;">
-                            <a class="pull-left" href="#">
-                                <img class="media-object" ng-src="{{ member.PhotoUrl }}">
-                            </a>
+                        <div>
                             <div class="media-body">
-                                {{ member.Name }} {{ memeber.Surname }}
+                                {{ member.Name }} {{ member.Surname}}
+                            </div>
+                            <div class="media" style="vertical-align: middle;">
+                                <img class="media-object" ng-src="{{ member.PhotoUrl }}">
                             </div>
                         </div>
                     </li>
