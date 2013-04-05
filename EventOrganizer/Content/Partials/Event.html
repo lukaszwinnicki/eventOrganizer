@@ -56,6 +56,7 @@
                         <img ng-src="{{ comment.User.PhotoUrl }}" data-original-title="{{ comment.User.Name }} {{ comment.User.Surname }}" ui-jq="tooltip" style="width: 44px; height: 26px;" />
                     </span>
                     <span>{{ comment.Message }}</span>
+                    <span>{{ comment.UpdatedAt | date: 'dd.MM.yyyy HH:mm'}}</span>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Dapper;
@@ -19,14 +20,15 @@ namespace EventOrganizer.Web.DAL
             using (IDbConnection connection = OpenConnection())
             {
                 const string query =
-                    "INSERT INTO Comments(UserId, Message, EventId)" +
-                    "VALUES (@UserId, @Message, @EventId)";
+                    "INSERT INTO Comments(UserId, Message, EventId, UpdatedAt)" +
+                    "VALUES (@UserId, @Message, @EventId, @UpdatedAt)";
 
-                int rowsAffected = connection.Execute(query, new
+                var rowsAffected = connection.Execute(query, new
                 {
                     UserId = comment.User.Id,
                     comment.Message,
-                    comment.EventId
+                    comment.EventId,
+                    UpdatedAt = DateTime.Now
                 });
 
                 return rowsAffected;
