@@ -44,7 +44,7 @@
         $routeProvider.otherwise({ redirectTo: '/' });
     }]);
 
-angular.module.value('ui.config', {
+angular.module('eventOrganizer').value('ui.config', {
     jq: {
         tooltip: {
             placement: 'top'
