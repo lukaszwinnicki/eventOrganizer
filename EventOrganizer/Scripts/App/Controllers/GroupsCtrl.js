@@ -1,8 +1,9 @@
-﻿function GroupsCtrl($scope, $location, loadedGroups, groupResource, loggedInUser) {
+﻿function GroupsCtrl($scope, $location, loadedGroups, groupResource, loggedInUser, eoConfig) {
     $scope.groups = loadedGroups;
     $scope.group = {};
     $scope.modalShown = false;
     $scope.hasImage = false;
+    $scope.defaultUserImage = eoConfig.images.userPlaceholder;
 
     loggedInUser.getUser().then(function (data) {
         $scope.user = data;
@@ -47,5 +48,5 @@ GroupsCtrl.loadData = function ($q, groupsResource) {
     return defer.promise;
 };
 
-GroupsCtrl.$inject = ['$scope', '$location', 'loadedGroups', 'GroupResource', 'LoggedInUser'];
+GroupsCtrl.$inject = ['$scope', '$location', 'loadedGroups', 'GroupResource', 'LoggedInUser', 'eo.config'];
 GroupsCtrl.loadData.$inject = ['$q', 'GroupsResource'];
