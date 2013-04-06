@@ -11,7 +11,7 @@
             'eventOrganizer.JoinEventService',
             'eventOrganizer.LeaveEventService',
             'eventOrganizer.Directives',
-            'ui.directives',
+            'ui',
             'ngUpload',
             'eventOrganizer.UserServices',
             'eventOrganizer.LoggedUserServices'])

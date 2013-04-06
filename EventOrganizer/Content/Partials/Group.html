@@ -21,9 +21,8 @@
         <div class="control-group">
             <label class="control-label">Start Date</label>
             <div class="controls">
-                <div class="input-append" id="Div2" data-date-format="dd-mm-yyyy" style="float: left;">
+                <div id="Div2" data-date-format="dd-mm-yyyy" style="float: left;">
                     <input class="span2" size="16" type="text" id="StartDate" name="StartDate" ng-model="newEvent.StartDate" ui-date required ng-change="updateEndDate()">
-                    <span class="add-on"><i class="icon-calendar"></i></span>
                 </div>
                 <select style="width: 50px; margin-left: 15px;" id="SelectedHourStart" name="SelectedHourStart" ng-model="newEvent.SelectedHourStart" ng-options="hour for hour in newEvent.Hours" ng-change="updateEndHour()">
                 </select>
@@ -32,9 +31,8 @@
         <div class="control-group">
             <label class="control-label">End Date</label>
             <div class="controls">
-                <div class="input-append control-group" id="Div1" data-date-format="dd-mm-yyyy" style="float: left;">
+                <div class="control-group" id="Div1" data-date-format="dd-mm-yyyy" style="float: left;">
                     <input class="span2" size="16" type="text" ng-model="newEvent.EndDate" ui-date name="EndDate">
-                    <span class="add-on"><i class="icon-calendar"></i></span>
                 </div>
                 <select class="control-group" style="width: 50px; margin-left: 15px;" ng-model="newEvent.SelectedHourEnd" ng-options="hour for hour in newEvent.Hours">
                 </select>
