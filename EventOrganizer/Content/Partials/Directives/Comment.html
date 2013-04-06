@@ -1,1 +1,13 @@
-<div>Sorry Guys. I've forgotten to commit new files</div>
+<div class="row">
+    <div class="span2"></div>
+    <div class="span6 row" style="background-color: #e1e1e8; margin: 3px 0; padding: 3px;">
+        <div class="span2">
+            <img ng-src="{{ comment.User.PhotoUrl }}" data-original-title="{{ comment.User.Name }} {{ comment.User.Surname }}" ui-jq="tooltip" style="width: 55px; height: 55px;" />
+        </div>
+        <div class="span10">
+            <div style="font-weight: bold;">{{ comment.User.Name }} {{ comment.User.Surname }}</div>
+            <div>{{ comment.Message }}</div>
+            <div style="font-size: 0.8em;">{{ comment.UpdatedAt | date: 'dd.MM.yyyy HH:mm' }}</div>
+        </div>
+    </div>
+</div>
