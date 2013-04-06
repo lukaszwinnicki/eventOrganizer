@@ -6,7 +6,7 @@
 
     loggedInUser.getUser().then(function (data) {
         $scope.user = data;
-        $scope.hasImage = $scope.user.PhotoUrl != '';
+        $scope.hasImage = $scope.user.PhotoUrl != null;
     });
     
     $scope.save = function (group) {
