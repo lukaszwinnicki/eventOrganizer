@@ -28,7 +28,7 @@ namespace EventOrganizer.Web.DAL
                     UserId = comment.User.Id,
                     comment.Message,
                     comment.EventId,
-                    UpdatedAt = DateTime.Now
+                    UpdatedAt = comment.UpdatedAt
                 });
 
                 return rowsAffected;

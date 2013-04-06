@@ -26,10 +26,11 @@ namespace EventOrganizer.Web.Controllers
             }
         }
 
-        [System.Web.Http.HttpPost]
-        public HttpResponseMessage Put(Event eventToSave)
+        public HttpResponseMessage Post(Event eventToSave)
         {
+
             long eventId = _eventService.Save(eventToSave);
+
             eventToSave.Id = eventId;
 
             //string userImageDirectory = string.Format("{0}/UserImages/{1}", root, userId);

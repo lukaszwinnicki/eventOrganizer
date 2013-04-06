@@ -22,7 +22,9 @@ namespace EventOrganizer.Web.DAL
                           "SELECT Id, Name, 'Groups' as Type FROM [Groups] WHERE Name like '%' + @Pattern + '%'" +
                           "UNION " +
                           "SELECT Id, Name, 'Users' as Type FROM [Users] WHERE Name like '%' + @Pattern + '%'";
+
                 var items = connection.Query(sql, new {Pattern = pattern}).ToList();
+
                 result.Events = items.Where(x => x.Type == "Events")
                     .Select(x => new SearchResultItem { Id = x.Id, Name = x.Name}).ToList();
                 result.Groups = items.Where(x => x.Type == "Groups")

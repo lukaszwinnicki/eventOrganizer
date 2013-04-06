@@ -1,5 +1,5 @@
 ﻿<div eo-modal eo-show="modalShown" eo-save="save(newEvent)" eo-style="min-width: 800px;">
-    <form class="form-horizontal event-form" name="eventForm">
+    <form class="form-horizontal event-form" name="eventForm" enctype="multipart/form-data">
         <div class="control-group">
             <label class="control-label" for="eventName">Event name</label>
             <div class="controls control-group" ng-class="{error: eventForm.Name.$invalid}">
@@ -41,8 +41,8 @@
         <div class="control-group">
             <label class="control-label">Photo</label>
             <div class="controls">
-                <span ng-click="addFile()" ng-init="newEvent.Photo" class="btn btn-link">{{ newEvent.Photo }}</span>
-                <input type="file" id="event-image" ui-event="{change:'addPicture()'}" style="visibility: hidden;"/>
+<!--                <span ng-click="addFile()" ng-init="newEvent.Photo" class="btn btn-link">{{ newEvent.Photo }}</span>-->
+                <input type="file" ng-model="newEvent.Photo" id="event-image" />
             </div>
         </div>
         <div class="control-group">

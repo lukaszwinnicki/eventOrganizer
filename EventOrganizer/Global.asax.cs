@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -37,10 +40,20 @@ namespace EventOrganizer.Web
 
         private void PopulateWithSampleData(IContainer container)
         {
+            using (var connection =
+                    new SqlConnection(ConfigurationManager.ConnectionStrings["EventOrganizerDb"].ConnectionString))
+            {
+                var sql = "DELETE FROM [Events]; DELETE FROM [Users]; DELETE FROM [Groups]";
+                var command = connection.CreateCommand();
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+
             var userRepo = container.Resolve<IUserRepository>();
             var groupsRepo = container.Resolve<IGroupRepository>();
             var eventsRepo = container.Resolve<IEventRepository>();
-
             var bjId = userRepo.Save(new User
                 {
                     Email = "bj@gy.com",

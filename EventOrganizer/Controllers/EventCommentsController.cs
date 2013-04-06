@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -23,7 +24,7 @@ namespace EventOrganizer.Web.Controllers
             {
                 return Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Please log in.");
             }
-
+            comment.UpdatedAt = DateTime.Now;
             comment.Id = _commentService.Save(comment);
 
             return Request.CreateResponse(HttpStatusCode.OK, comment);
