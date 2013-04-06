@@ -52,6 +52,16 @@ namespace EventOrganizer.Web.DAL
             }
         }
 
+        public void UpdatePhoto(int id, string photoUrl)
+        {
+            using (var connection = OpenConnection())
+            {
+                var sql = "UPDATE [Events] SET PhotoUrl = @Photo WHERE Id = @Id";
+
+                connection.Execute(sql, new {Id = id, Photo = photoUrl});
+            }
+        }
+
         public Event GetById(int eventId)
         {
             using (var connection = OpenConnection())

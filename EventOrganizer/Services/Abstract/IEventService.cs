@@ -8,5 +8,6 @@ namespace EventOrganizer.Web.Services.Abstract
         IList<Event> GetEvents(int groupId);
         Event GetEvent(int id);
         long Save(Event eventToSave);
+        void UpdatePhoto(int id, string photoUrl);
     }
 }

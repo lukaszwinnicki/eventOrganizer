@@ -12,7 +12,7 @@ namespace EventOrganizer.Web.Models
         public DateTime? EndDate { get; set; }
         public string Address { get; set; }
         public string Description { get; set; }
-        public HttpPostedFileBase Photo { get; set; }
+        public string Photo { get; set; }
         public List<User> Participants { get; set; }
         public List<Comment> Comments { get; set; }
         public long GroupId { get; set; }

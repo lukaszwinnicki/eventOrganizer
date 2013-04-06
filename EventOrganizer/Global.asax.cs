@@ -43,7 +43,7 @@ namespace EventOrganizer.Web
             using (var connection =
                     new SqlConnection(ConfigurationManager.ConnectionStrings["EventOrganizerDb"].ConnectionString))
             {
-                var sql = "DELETE FROM [Events]; DELETE FROM [Users]; DELETE FROM [Groups]";
+                var sql = "DELETE FROM [Events]; DELETE FROM [Users]; DELETE FROM [Groups]; DELETE FROM [UsersEvents]; DELETE FROM [UsersGroups]";
                 var command = connection.CreateCommand();
                 command.CommandText = sql;
                 command.CommandType = CommandType.Text;
@@ -54,13 +54,6 @@ namespace EventOrganizer.Web
             var userRepo = container.Resolve<IUserRepository>();
             var groupsRepo = container.Resolve<IGroupRepository>();
             var eventsRepo = container.Resolve<IEventRepository>();
-            var bjId = userRepo.Save(new User
-                {
-                    Email = "bj@gy.com",
-                    Password = "aaa",
-                    Name = "Paweł",
-                    Surname = "Bejger"
-                });
 
             var eventMemberId = userRepo.Save(new User
                 {
@@ -73,7 +66,7 @@ namespace EventOrganizer.Web
             var groupId = groupsRepo.Save(new Group
                 {
                     Name = "Goyello integration",
-                    OwnerId = bjId,
+                    OwnerId = eventMemberId,
                     Description = "Party hard!!"
                 });
 
@@ -86,8 +79,8 @@ namespace EventOrganizer.Web
                     EndDate = DateTime.Now.AddDays(2).AddHours(2),
                     Address = "Gdańsk",
                 };
-            eventToSave.Id = eventsRepo.Save(eventToSave);
-            userRepo.AddEventMember(eventToSave.Id, eventMemberId);
+            var eventId = eventsRepo.Save(eventToSave);
+            userRepo.AddEventMember(eventId, eventMemberId);
         }
     }
 }

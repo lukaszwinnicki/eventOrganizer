@@ -28,26 +28,7 @@ namespace EventOrganizer.Web.Controllers
 
         public HttpResponseMessage Post(Event eventToSave)
         {
-
-            long eventId = _eventService.Save(eventToSave);
-
-            eventToSave.Id = eventId;
-
-            //string userImageDirectory = string.Format("{0}/UserImages/{1}", root, userId);
-            //if (!Directory.Exists(userImageDirectory))
-            //{
-            //    Directory.CreateDirectory(userImageDirectory);
-            //}
-
-            //string imagePath = string.Format("{0}/{1}", userImageDirectory, file.FileName);
-            //using (FileStream output = System.IO.File.OpenWrite(imagePath))
-            //{
-            //    CopyStream(file.InputStream, output);
-            //}
-
-            //string relativeImagePath = string.Format("/Content/UserImages/{0}/{1}", userId, file.FileName);
-            //user.PhotoUrl = relativeImagePath;
-            //_userService.Update(user);
+            eventToSave.Id = _eventService.Save(eventToSave);
 
             return Request.CreateResponse(HttpStatusCode.OK, eventToSave);
         }
