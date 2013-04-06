@@ -28,11 +28,14 @@ namespace EventOrganizer.Web.Infrastructure.Modules
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<EventService>().As<IEventService>();
             builder.RegisterType<CommentService>().As<ICommentService>();
+            builder.RegisterType<SearchService>().As<ISearchService>();
+            
 
             builder.Register(s => new UserRepository(ConnectionString)).As<IUserRepository>();
             builder.Register(s => new GroupRepository(ConnectionString)).As<IGroupRepository>();
             builder.Register(s => new EventRepository(ConnectionString)).As<IEventRepository>();
             builder.Register(s => new CommentRepository(ConnectionString)).As<ICommentRepository>();
+            builder.Register(s => new SearchRepository(ConnectionString)).As<ISearchRepository>();
 
             builder.RegisterType<RedisClient>().As<IRedisClient>()
                 .UsingConstructor(typeof(string), typeof(int))
