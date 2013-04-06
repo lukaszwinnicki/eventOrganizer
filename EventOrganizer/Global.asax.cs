@@ -67,11 +67,11 @@ namespace EventOrganizer.Web
             var eventToSave = new Event
                 {
                     GroupId = groupId,
+                    
                     Name = "Laser-tag nite!",
-                    When = DateTime.Now.AddDays(2),
-                    Duration = new TimeSpan(0, 4, 0, 0),
-                    City = "Gdańsk",
-                    Street = "Some street"
+                    StartDate = DateTime.Now.AddDays(2),
+                    EndDate = DateTime.Now.AddDays(2).AddHours(2),
+                    Address = "Gdańsk",
                 };
             eventToSave.Id = eventsRepo.Save(eventToSave);
             userRepo.AddEventMember(eventToSave.Id, eventMemberId);

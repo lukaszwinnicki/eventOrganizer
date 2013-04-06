@@ -25,12 +25,9 @@ namespace EventOrganizer.Web.Tests.DAL
             var eventToSave = new Event
                              {
                                  Name = "sadlaskd",
-                                 When = DateTime.Now,
-                                 Duration = TimeSpan.FromHours(4),
-                                 Country = "Country",
-                                 City = "City",
-                                 Street = "Street",
-                                 HouseNumber = "HouseNumberSub",
+                                 StartDate = DateTime.Now,
+                                 EndDate = DateTime.Now.AddHours(4),
+                                 Address = "City",
                                  GroupId = 1
                              };
 
@@ -55,12 +52,9 @@ namespace EventOrganizer.Web.Tests.DAL
             var @event = new Event
                 {
                     Name = "sadlaskd",
-                    When = DateTime.Now,
-                    Duration = TimeSpan.FromHours(4),
-                    Country = "Country",
-                    City = "City",
-                    Street = "Street",
-                    HouseNumber = "HouseNumberSub",
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddHours(1),
+                    Address = "City",
                     GroupId = 1
                 };
 
