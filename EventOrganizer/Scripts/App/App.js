@@ -53,6 +53,7 @@ angular.module('eventOrganizer').value('ui.config', {
 });
 angular.module('eventOrganizer').value('eo.config', {
     images: {
-        userPlaceholder: '/Content/Images/upload-image.png'
+        userPlaceholder: '/Content/Images/upload-image.png',
+        userSmallPlaceholder: '/Content/Images/upload-image.png'
     }
 });

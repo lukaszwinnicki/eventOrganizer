@@ -7,6 +7,6 @@ eventOrganizer.directive('eoEvent', function () {
             event: '=',
             eoClick: '&'
         },
-        templateUrl: '/Content/Partials/EventDirective.html'
+        templateUrl: '/Content/Partials/Directives/Event.html'
     };
 });
