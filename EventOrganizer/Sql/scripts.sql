@@ -1,4 +1,12 @@
-﻿CREATE TABLE [dbo].[Comments] (
+﻿DROP TABLE [dbo].[UsersEvents]
+DROP TABLE [dbo].[UsersGroups]
+DROP TABLE [dbo].[Comments]
+DROP TABLE [dbo].[Events]
+DROP TABLE [dbo].[Groups]
+DROP TABLE [dbo].[Users]
+
+
+CREATE TABLE [dbo].[Comments] (
     [Id]      INT            IDENTITY (1, 1) NOT NULL,
     [Message] NVARCHAR (MAX) NULL,
     [EventId] INT            NULL,
@@ -9,15 +17,11 @@
 
 CREATE TABLE [dbo].[Events] (
     [Id]          INT            IDENTITY (1, 1) NOT NULL,
-    [Name]        NVARCHAR (500) NULL,
-    [When]        DATETIME       NULL,
-    [Duration]    TIME (7)       NULL,
-    [Country]     NVARCHAR (250) NULL,
-    [City]        NVARCHAR (250) NULL,
-    [Street]      NVARCHAR (250) NULL,
-    [HouseNumber] NVARCHAR (50)  NULL,
-    [GroupId]     INT            NULL,
-    [UserId]      INT            NULL,
+    [Name]        NVARCHAR (64)  NOT NULL,
+    [StartDate]   DATETIME       NOT NULL,
+    [EndDate]     DATETIME       NULL,
+    [Address]     NVARCHAR (255) NULL,
+    [GroupId]     INT            NOT NULL,
     [Description] TEXT           NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );

@@ -37,20 +37,16 @@ namespace EventOrganizer.Web.DAL
         {
             using (var connection = OpenConnection())
             {
-                const string sql = "INSERT INTO [Events] ([Name], [When], Duration, Country, City, Street, HouseNumber, GroupId) VALUES (@Name, @When, @Duration, @Country, @City, @Street, @HouseNumber, @GroupId);" +
+                const string sql = "INSERT INTO [Events] ([Name], StartDate, EndDate, Address, GroupId) VALUES (@Name, @StartDate, @EndDate, @Address, @GroupId);" +
                     "SELECT cast(scope_identity() as int)";
 
                 return connection.Execute(sql,
                                    new
                                        {
-                                           eventToSave.Id,
                                            eventToSave.Name,
-                                           eventToSave.When,
-                                           eventToSave.Duration,
-                                           eventToSave.Country,
-                                           eventToSave.City,
-                                           eventToSave.Street,
-                                           eventToSave.HouseNumber,
+                                           eventToSave.StartDate,
+                                           eventToSave.EndDate,
+                                           eventToSave.Address,
                                            eventToSave.GroupId
                                        });
             }

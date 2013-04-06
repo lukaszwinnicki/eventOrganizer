@@ -7,12 +7,9 @@ namespace EventOrganizer.Web.Models
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public DateTime When { get; set; }
-        public TimeSpan Duration { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
-        public string Street { get; set; }
-        public string HouseNumber { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public string Address { get; set; }
         public string Description { get; set; }
         public List<string> EventPhotos { get; set; }
         public List<User> Participants { get; set; }
