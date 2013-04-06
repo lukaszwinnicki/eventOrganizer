@@ -21,6 +21,7 @@
     };
 
     $scope.save = function(event) {
+        event.GroupId = $scope.group.Id;
         var eventItem = new eventsResource(event);
         eventItem.$save(function(response, responseHeader) {
             $scope.modalShown = false;
