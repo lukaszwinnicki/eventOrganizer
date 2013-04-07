@@ -11,6 +11,7 @@ function SearchCtrl($scope, $location, searchService) {
                 if (searchResults.length > 0) {
                     $scope.searchResults = searchResults;
                     $('.dropdown-toggle').dropdown('toggle');
+                    $('#search-input').focus();
                 }
             });
 
