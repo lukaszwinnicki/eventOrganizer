@@ -12,9 +12,11 @@
                 <p class="navbar-text pull-right">
                     Logged in as <a href="#" class="navbar-link">{{user.Name}}</a>
                 </p>
-                <form class="navbar-search pull-left">
-                    <input type="text" class="search-query" placeholder="Search">
-                </form>
+                <span ng-controller="SearchCtrl">
+                    <form class="navbar-search pull-left">
+                        <input type="text" class="search-query" placeholder="Search" ng-model="pattern" ng-change="search(pattern)">
+                    </form>
+                </span>
                 <ul class="nav  pull-right">
                     <li><a href="#about"><i class="icon-envelope" style="padding-right: 5px;"></i>Notifications</a></li>
                     <li><a href="#"><i class="icon-user" style="padding-right: 5px;" ng-click="goToGroups()"></i>Groups</a></li>

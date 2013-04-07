@@ -31,6 +31,7 @@ namespace EventOrganizer.Web.App_Start
                     "~/Scripts/App/Services/LeaveEventService.js",
                     "~/Scripts/App/Services/GroupMembersService.js",
                     "~/Scripts/App/Services/EventMembersService.js",
+                    "~/Scripts/App/Services/SearchService.js",
                     "~/Scripts/App/Services/UserService.js",
                     "~/Scripts/App/Directives/Comment.js",
                     "~/Scripts/App/Directives/Event.js",
@@ -41,6 +42,7 @@ namespace EventOrganizer.Web.App_Start
                     "~/Scripts/App/Controllers/GroupsCtrl.js",
                     "~/Scripts/App/Controllers/MenuCtrl.js",
                     "~/Scripts/App/Controllers/ViewCtrl.js",
+                    "~/Scripts/App/Controllers/SearchCtrl.js",
                     "~/Scripts/App/App.js"
                 ));
 

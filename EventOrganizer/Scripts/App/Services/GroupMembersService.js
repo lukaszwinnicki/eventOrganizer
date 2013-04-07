@@ -1,3 +1,5 @@
-﻿angular.module('eventOrganizer.GroupMembersService', ['ngResource']).factory('GroupMembersResource', function ($resource) {
+﻿var eventOrganizerServices = eventOrganizerServices || angular.module('eventOrganizer.Services', ['ngResource', 'ng']);
+
+eventOrganizerServices.factory('GroupMembersResource', function ($resource) {
     return $resource('/api/GroupMembers/:id', { id: '@Id' });
 });

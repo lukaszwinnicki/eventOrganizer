@@ -1,20 +1,10 @@
 ﻿angular
     .module('eventOrganizer',
         [
-            'eventOrganizer.EventCommentsService',
-            'eventOrganizer.GroupsService',
-            'eventOrganizer.GroupService',
-            'eventOrganizer.GroupMembersService',
-            'eventOrganizer.EventMembersService',
-            'eventOrganizer.EventsService',
-            'eventOrganizer.EventService',
-            'eventOrganizer.JoinEventService',
-            'eventOrganizer.LeaveEventService',
-            'eventOrganizer.Directives',
             'ui',
             'ngUpload',
-            'eventOrganizer.UserServices',
-            'eventOrganizer.LoggedUserServices'])
+            'eventOrganizer.Services',
+            'eventOrganizer.Directives'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {
             templateUrl: '/Content/Partials/Groups.html',

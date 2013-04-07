@@ -1,3 +1,5 @@
-﻿angular.module('eventOrganizer.EventCommentsService', ['ngResource']).factory('EventCommentsResource', function ($resource) {
+﻿var eventOrganizerServices = eventOrganizerServices || angular.module('eventOrganizer.Services', ['ngResource', 'ng']);
+
+eventOrganizerServices.factory('EventCommentsResource', function ($resource) {
     return $resource('/api/EventComments/:id', { id: '@Id' });
 });
