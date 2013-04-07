@@ -84,7 +84,7 @@ namespace EventOrganizer.Web.Controllers
                     CopyStream(file.InputStream, output);
                 }
 
-                string relativeImagePath = string.Format("/Content/UserImages/{0}/{1}", eventId, file.FileName);
+                string relativeImagePath = string.Format("/Content/EventImages/{0}/{1}", eventId, file.FileName);
                 _eventService.UpdatePhoto(eventId, relativeImagePath);
 
                 return new ContentResult { Content = relativeImagePath };

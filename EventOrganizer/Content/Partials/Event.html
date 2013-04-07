@@ -2,7 +2,19 @@
     <div class="row-fluid">
         <div class="span10">
             <div class="page-header row">
-                <div class="span8">
+                <div class="span2">
+                    <div ng-show="hasImage">
+                        <img class="media-object img-polaroid" alt="user photo" ng-src="{{ event.PhotoUrl }}">
+                    </div>
+                    <div ng-show="!hasImage">
+                        <form ng-upload="uploadedPhoto" action="/ImageUploader/UploadEventImage?eventId={{ event.Id }}" style="visibility: hidden;">
+                            <input type="file" name="file" id="event-photo-input" ui-event="{change:'sendPicture()'}" />
+                            <input id="event-image-form-submitter" type="submit" class="btn upload-submit" value="Submit" />
+                        </form>
+                        <img class="media-object img-polaroid" alt="user photo" ng-src="{{ defaultEventImage }}" ng-click="choosePhoto()">
+                    </div>
+                </div>
+                <div class="span10">
                     <h1>{{event.Name}}</h1>
                 </div>
             </div>

@@ -1,9 +1,11 @@
-﻿function EventCtrl($scope, $route, event, members, comments, eventCommentsResource, joinEventResource, leaveEventResource, loggedInUser) {
+﻿function EventCtrl($scope, $route, event, members, comments, eventCommentsResource, joinEventResource, leaveEventResource, loggedInUser, eoConfig) {
     $scope.loggedUserIsMemberOfEvent = false;
     $scope.event = event;
     $scope.comments = comments;
     $scope.commentActionDisplay = false;
     $scope.newComment = { EventId: $route.current.params.id };
+    $scope.defaultEventImage = eoConfig.images.eventPlaceholder;
+    $scope.hasImage = event.PhotoUrl != null;
 
     members.getMembers().then(function(data) {
         $scope.members = data;
@@ -23,6 +25,21 @@
 
         return false;
     }
+
+    $scope.uploadedPhoto = function (content, completed) {
+        if(completed){
+            $scope.hasImage = true;
+            $scope.event.PhotoUrl = content;
+        }
+    };
+
+    $scope.sendPicture = function() {
+        $('#event-image-form-submitter').click();
+    };
+
+    $scope.choosePhoto = function() {
+        $('#event-photo-input').click();
+    };
 
     $scope.showCommentButtons = function () {
         $scope.commentActionDisplay = true;
@@ -115,7 +132,7 @@ EventCtrl.loadComments = function ($q, $route, eventCommentsResource) {
     return defer.promise;
 };
 
-EventCtrl.$inject = ['$scope', '$route', 'loadedEvent', 'eventMembers', 'loadedComments', 'EventCommentsResource', 'JoinEventResource', 'LeaveEventResource', 'LoggedInUser'];
+EventCtrl.$inject = ['$scope', '$route', 'loadedEvent', 'eventMembers', 'loadedComments', 'EventCommentsResource', 'JoinEventResource', 'LeaveEventResource', 'LoggedInUser', 'eo.config'];
 EventCtrl.loadEvent.$inject = ['$q', '$route', 'EventResource'];
 EventCtrl.eventMembers.$inject = ['$q', '$route', 'EventMembersResource'];
 EventCtrl.loadComments.$inject = ['$q', '$route', 'EventCommentsResource'];

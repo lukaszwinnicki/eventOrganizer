@@ -23,6 +23,7 @@ CREATE TABLE [dbo].[Events] (
     [Address]     NVARCHAR (255) NULL,
     [GroupId]     INT            NOT NULL,
     [Description] TEXT           NULL,
+    [PhotoUrl]    NVARCHAR (350) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
