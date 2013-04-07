@@ -9,15 +9,11 @@
             <div>
                 <div class="row">
                     <div class="span6">Start</div>
-                    <div class="span6">{{ event.When | date: 'dd.MM.yyyy HH:mm' }}</div>
-                </div>
-                <div class="row">
-                    <div class="span6">Duration</div>
-                    <div class="span6">{{ event.Duration }}</div>
+                    <div class="span6">{{ event.StartDate | date: 'dd.MM.yyyy HH:mm' }}</div>
                 </div>
                 <div class="row">
                     <div class="span6">Where</div>
-                    <div class="span6">{{ event.Address.City }}, {{ event.Address.Street }}</div>
+                    <div class="span6">{{ event.Address }}</div>
                 </div>
                 <div class="row">
                     <div class="span6">Description</div>
