@@ -1,12 +1,12 @@
 ﻿var eventOrganizerServices = eventOrganizerServices || angular.module('eventOrganizer.Services', ['ngResource', 'ng']);
 
-eventOrganizerServices.factory('UserResource', function ($resource) {
+eventOrganizerServices.factory('UserResource', ['$resource', function ($resource) {
     return $resource('/api/User/:id', { id: '@Id' });
-});
+}]);
 
-eventOrganizerServices.factory('LoggedUserResource', function ($resource) {
+eventOrganizerServices.factory('LoggedUserResource', ['$resource', function ($resource) {
     return $resource('/api/LoggedUser');
-});
+}]);
 
 eventOrganizerServices.factory('LoggedInUser', ['$resource', '$q', 'LoggedUserResource', function ($resource, $q, loggedUserResource) {
     var data = { user: null };

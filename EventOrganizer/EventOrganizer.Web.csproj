@@ -502,8 +502,8 @@
     <Content Include="Scripts\Libraries\AngularUI\jstd-scenario-adapter-config.js" />
     <Content Include="Scripts\Libraries\AngularUI\jstd-scenario-adapter.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-ui-1.10.0.custom.js" />
-    <Content Include="Scripts\Libraries\JQuery\jquery.validate.js" />
-    <Content Include="Scripts\Libraries\JQuery\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Libraries\JQuery\jquery-validate.js" />
+    <Content Include="Scripts\Libraries\JQuery\jquery-validate-unobtrusive.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-1.9.0.js" />
     <Content Include="Scripts\Libraries\Bootstrap\bootstrap.js" />
     <Content Include="Scripts\Libraries\Angular\angular-bootstrap-prettify.js" />
