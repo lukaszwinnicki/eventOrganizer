@@ -24,6 +24,18 @@
         return false;
     });
 
+
+    $("#register-button").submit(function () {
+        $.ajax("/RegisterUser/Put", {
+            data: $(this).serializeArray(),
+            method: "PUT"
+        }).done(function (data) {
+            // redirect
+        });
+
+        return false;
+    });
+    
     function showErrorMessage(errorMessage) {
         $('#js-login-error').text(errorMessage);
     }

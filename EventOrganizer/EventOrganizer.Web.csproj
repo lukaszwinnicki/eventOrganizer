@@ -162,6 +162,7 @@
     <Compile Include="Controllers\JoinEventController.cs" />
     <Compile Include="Controllers\LeaveEventController.cs" />
     <Compile Include="Controllers\LoggedUserController.cs" />
+    <Compile Include="Controllers\RegisterUserController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\Abstract\ICommentRepository.cs" />
