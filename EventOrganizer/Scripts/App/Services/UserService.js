@@ -26,6 +26,20 @@ eventOrganizerServices.factory('LoggedInUser', ['$resource', '$q', 'LoggedUserRe
             }
 
             return deferred.promise;
+        },
+        logOut: function () {
+            var deferred = $q.defer();
+
+            if (data.user !== null) {
+                loggedUserResource.delete(data.user, function (response) {
+                    deferred.resolve(response);
+                });
+            }
+            else {
+                deferred.resolve(false);
+            }
+
+            return deferred.promise;
         }
     };
 }]);

@@ -1,6 +1,8 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Security;
+using EventOrganizer.Web.Models;
 using EventOrganizer.Web.Services.Abstract;
 
 namespace EventOrganizer.Web.Controllers
@@ -15,8 +17,16 @@ namespace EventOrganizer.Web.Controllers
         }
 
         public HttpResponseMessage Get()
-         {
-             return Request.CreateResponse(HttpStatusCode.OK, _userService.GetUserByEmail(User.Identity.Name));
-         }
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, _userService.GetUserByEmail(User.Identity.Name));
+        }
+
+        [HttpDelete]
+        public HttpResponseMessage Delete(User user)
+        {
+            FormsAuthentication.SignOut();
+
+            return Request.CreateResponse(HttpStatusCode.OK, true);
+        }
     }
 }
