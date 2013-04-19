@@ -10,3 +10,21 @@ eventOrganizer.directive('eoFocus', function () {
         }
     };
 });
+
+eventOrganizer.directive('focusable', function () {
+    return {
+        restrict: 'A',
+        scope: {
+            focusable: '@'
+        },
+        link: function (scope, elm, attrs) {
+            scope.$watch('focusable', function (value) {
+                if (value == 'true') {
+                    setTimeout(function () {
+                        elm[0].focus();
+                    }, 500);
+                }
+            });
+        }
+    };
+});
