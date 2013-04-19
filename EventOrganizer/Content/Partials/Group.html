@@ -39,13 +39,6 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">Photo</label>
-            <div class="controls">
-<!--                <span ng-click="addFile()" ng-init="newEvent.Photo" class="btn btn-link">{{ newEvent.Photo }}</span>-->
-                <input type="file" ng-model="newEvent.Photo" id="event-image" />
-            </div>
-        </div>
-        <div class="control-group">
             <label class="control-label">Max Participants</label>
             <div class="controls">
                 <select style="width: 265px;" ng-model="newEvent.SelectedMaxParticipants" ng-options="maxParticipant for maxParticipant in newEvent.MaxParticipants">
