@@ -77,12 +77,8 @@
                 <ul ng-repeat="member in members" class="nav">
                     <li>
                         <div>
-                            <div class="media-body">
-                                {{ member.Name }} {{ member.Surname}}
-                            </div>
-                            <div class="media" style="vertical-align: middle;">
-                                <img class="media-object" ng-src="{{ member.PhotoUrl }}">
-                            </div>
+                            <div style="float:left; margin-right: 5px;"><img class="media-object" ng-src="{{ member.ThumbnailUrl }}"></div>
+                            <div>{{ member.Name }} {{ member.Surname}}</div>
                         </div>
                     </li>
                 </ul>

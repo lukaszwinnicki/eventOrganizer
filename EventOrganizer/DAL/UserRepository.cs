@@ -22,8 +22,8 @@ namespace EventOrganizer.Web.DAL
                 // TODO: check if user already exist
 
                 const string query =
-                    "INSERT INTO [Users] (Email, Name, Password, PhotoUrl, Surname)" +
-                    "VALUES (@Email, @Name, @Password, @PhotoUrl, @Surname);" +
+                    "INSERT INTO [Users] (Email, Name, Password, PhotoUrl, Surname, ThumbnailUrl)" +
+                    "VALUES (@Email, @Name, @Password, @PhotoUrl, @Surname, @ThumbnailUrl);" +
                     "SELECT cast(scope_identity() as int)";
 
                 return connection.Query<int>(query, new
@@ -32,7 +32,8 @@ namespace EventOrganizer.Web.DAL
                     user.Name,
                     user.Password,
                     user.PhotoUrl,
-                    user.Surname
+                    user.Surname,
+                    user.ThumbnailUrl
                 }).First();
             }
         }
@@ -63,7 +64,7 @@ namespace EventOrganizer.Web.DAL
             using (var connection = OpenConnection())
             {
                 const string query =
-                    "SELECT u.Id, u.Name, u.Surname, u.PhotoUrl FROM [Users] u LEFT JOIN [UsersEvents] ug ON ug.UserId = u.Id WHERE EventId = @EventId";
+                    "SELECT u.Id, u.Name, u.Surname, u.ThumbnailUrl FROM [Users] u LEFT JOIN [UsersEvents] ug ON ug.UserId = u.Id WHERE EventId = @EventId";
 
                 return connection.Query<EventMember>(query, new { EventId = eventId }).ToList();
             }
@@ -113,7 +114,7 @@ namespace EventOrganizer.Web.DAL
             using (var connection = OpenConnection())
             {
                 const string query =
-                    "SELECT u.Id, u.Name, u.Surname, u.PhotoUrl FROM [Users] u LEFT JOIN [UsersGroups] ug ON ug.UserId = u.Id WHERE GroupId = @GroupId";
+                    "SELECT u.Id, u.Name, u.Surname, u.ThumbnailUrl FROM [Users] u LEFT JOIN [UsersGroups] ug ON ug.UserId = u.Id WHERE GroupId = @GroupId";
 
                 return connection.Query<GroupMember>(query, new { GroupId = groupId }).ToList();
             }
@@ -123,9 +124,9 @@ namespace EventOrganizer.Web.DAL
         {
             using (var connection = OpenConnection())
             {
-                const string sql = "UPDATE [Users] SET Email = @Email, Password = @Password, Name = @Name, Surname = @Surname, PhotoUrl = @PhotoUrl WHERE Id = @Id";
+                const string sql = "UPDATE [Users] SET Email = @Email, Password = @Password, Name = @Name, Surname = @Surname, PhotoUrl = @PhotoUrl, ThumbnailUrl = @ThumbnailUrl WHERE Id = @Id";
 
-                return connection.Execute(sql, new { user.Id, user.Email, user.Name, user.Password, user.PhotoUrl, user.Surname }) == 1;
+                return connection.Execute(sql, new { user.Id, user.Email, user.Name, user.Password, user.PhotoUrl, user.Surname, user.ThumbnailUrl }) == 1;
             }
         }
     }

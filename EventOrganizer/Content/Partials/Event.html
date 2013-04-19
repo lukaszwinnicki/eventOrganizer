@@ -4,7 +4,7 @@
             <div class="page-header row">
                 <div class="span2">
                     <div ng-show="hasImage">
-                        <img class="media-object img-polaroid" alt="user photo" ng-src="{{ event.PhotoUrl }}">
+                        <img class="media-object img-polaroid" alt="user photo" ng-src="{{ event.ThumbnailUrl }}">
                     </div>
                     <div ng-show="!hasImage">
                         <form ng-upload="uploadedPhoto" action="/ImageUploader/UploadEventImage?eventId={{ event.Id }}" style="visibility: hidden;">
@@ -75,7 +75,7 @@
                                 {{ member.Name }} {{ member.Surname}}
                             </div>
                             <div class="media" style="vertical-align: middle;">
-                                <img class="media-object" ng-src="{{ member.PhotoUrl }}">
+                                <img class="media-object" ng-src="{{ member.ThumbnailUrl }}">
                             </div>
                         </div>
                     </li>

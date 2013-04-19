@@ -11,6 +11,7 @@ namespace EventOrganizer.Web.Models
         public string Surname { get; set; }
         public long Id { get; set; }
         public List<Group> Groups { get; set; }
+        public string ThumbnailUrl { get; set; }
 
         public User()
         {

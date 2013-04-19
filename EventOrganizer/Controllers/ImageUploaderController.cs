@@ -1,8 +1,6 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Mvc;
 using EventOrganizer.Web.Models;
@@ -52,7 +50,23 @@ namespace EventOrganizer.Web.Controllers
                 }
 
                 string relativeImagePath = string.Format("/Content/UserImages/{0}/{1}", userId, file.FileName);
+                string relativeThumbnailPath = string.Format("/Content/UserImages/{0}/thumbnail/{1}", userId, file.FileName);
+                var myBitmap = new Bitmap(imagePath);
+                Image myThumbnail = myBitmap.GetThumbnailImage(40, 40, null, IntPtr.Zero);
+
+                string thumbnailDirectory = string.Format("{0}/thumbnail", userImageDirectory);
+                string thumbnailUrl = string.Format("{0}/{1}", thumbnailDirectory, file.FileName);
+
+                if (!Directory.Exists(thumbnailDirectory))
+                {
+                    Directory.CreateDirectory(thumbnailDirectory);
+                }
+
+                myThumbnail.Save(thumbnailUrl);
+
                 user.PhotoUrl = relativeImagePath;
+                user.ThumbnailUrl = relativeThumbnailPath;
+
                 _userService.Update(user);
 
                 return new ContentResult { Content = relativeImagePath };

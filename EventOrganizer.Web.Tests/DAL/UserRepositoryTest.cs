@@ -28,7 +28,7 @@ namespace EventOrganizer.Web.Tests.DAL
                     Email = "test@test.pl",
                     Name = "Name",
                     Password = "Password",
-                    PhotoUrl = "PhotoUrl",
+                    PhotoUrl = "ThumbnailUrl",
                     Surname = "Surname"
                 });
 
@@ -76,7 +76,7 @@ namespace EventOrganizer.Web.Tests.DAL
                     Email = Email,
                     Name = "Name",
                     Password = "Password",
-                    PhotoUrl = "PhotoUrl",
+                    PhotoUrl = "ThumbnailUrl",
                     Surname = "Surname"
                 };
             user.Id = _userRepository.Save(user);
@@ -93,7 +93,7 @@ namespace EventOrganizer.Web.Tests.DAL
                 Email = Email,
                 Name = "Name",
                 Password = "Password",
-                PhotoUrl = "PhotoUrl",
+                PhotoUrl = "ThumbnailUrl",
                 Surname = "Surname"
             });
         }

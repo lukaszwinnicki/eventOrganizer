@@ -54,3 +54,7 @@ CREATE TABLE [dbo].[UsersGroups] (
     [UserId]  INT NOT NULL,
     [GroupId] INT NOT NULL
 );
+
+GO
+ALTER TABLE [dbo].[Users]
+    ADD [ThumbnailUrl] NVARCHAR (350) NULL;

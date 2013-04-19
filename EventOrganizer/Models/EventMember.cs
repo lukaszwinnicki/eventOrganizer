@@ -12,12 +12,12 @@ namespace EventOrganizer.Web.Models
             Id = user.Id;
             Name = user.Name;
             Surname = user.Surname;
-            PhotoUrl = user.PhotoUrl;
+            ThumbnailUrl = user.PhotoUrl;
         }
 
         public long Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string PhotoUrl { get; set; }
+        public string ThumbnailUrl { get; set; }
     }
 }
