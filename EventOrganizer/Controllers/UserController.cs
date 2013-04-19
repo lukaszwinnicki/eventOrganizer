@@ -2,7 +2,6 @@
 using System.Net.Http;
 using System.Web.Http;
 using EventOrganizer.Web.Models;
-using EventOrganizer.Web.Services;
 using EventOrganizer.Web.Services.Abstract;
 
 namespace EventOrganizer.Web.Controllers

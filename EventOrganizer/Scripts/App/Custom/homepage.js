@@ -24,6 +24,20 @@
         return false;
     });
 
+    $("#js-register-form").submit(function () {
+        $.ajax("/Api/Register/Save", {
+            data: $(this).serializeArray(),
+            method: "PUT"
+        }).done(function (data) {
+            if (data.IsValid) {
+                window.location = data.Url;
+            } else {
+                $('#js-register-error').text(data.ErrorMessage);
+            }
+        });
+
+        return false;
+    });
     function showErrorMessage(errorMessage) {
         $('#js-login-error').text(errorMessage);
     }

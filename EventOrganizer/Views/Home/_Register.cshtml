@@ -1,8 +1,8 @@
 ﻿@model EventOrganizer.Web.ViewModels.RegisterViewModel
 
-@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
-{
+<form method="POST" class="form-horizontal" id="js-register-form">
     <div class="modal-body">
+        <span class="text-error" id="js-register-error"></span>
         <div class="control-group">
             @Html.LabelFor(m => m.Email, new { @class = "control-label" })
             <div class="controls">
@@ -27,7 +27,7 @@
         <div class="control-group">
             <div class="controls">
                 <label class="checkbox">
-                    <input type="checkbox">
+                    @Html.CheckBoxFor(m => m.Remember)
                     Remember me
                 </label>
             </div>
@@ -37,4 +37,4 @@
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         <button class="btn btn-primary">Register</button>
     </div>
-}
+</form>
