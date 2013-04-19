@@ -31,6 +31,11 @@ namespace EventOrganizer.Web.Controllers
 
         public ActionResult UploadImage(long userId, HttpPostedFileBase file)
         {
+            if(file == null)
+            {
+                return null;
+            }
+
             User user = _userService.GetUser(userId);
 
             string root = HttpContext.Server.MapPath("~/Content");
@@ -69,7 +74,7 @@ namespace EventOrganizer.Web.Controllers
 
                 _userService.Update(user);
 
-                return new ContentResult { Content = relativeImagePath };
+                return new ContentResult { Content = relativeThumbnailPath };
             }
             catch (Exception e)
             {

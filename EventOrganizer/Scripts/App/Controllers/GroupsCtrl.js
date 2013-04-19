@@ -21,7 +21,7 @@
     $scope.uploadedUserPhoto = function (content, completed) {
         if(completed){
             $scope.hasImage = true;
-            $scope.user.PhotoUrl = content;
+            $scope.user.ThumbnailUrl = content;
         }
     };
     

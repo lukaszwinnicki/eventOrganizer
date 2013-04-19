@@ -22,7 +22,7 @@
                 <div class="span2">
                     <div style="padding-bottom: 10px; padding-right: 20px;" ng-show="hasImage">
                         <!--TODO: add file uploader when user doesn't have image-->
-                        <img class="media-object img-polaroid" alt="user photo" ng-src="{{ user.ThumbnailUrl }}">
+                        <img class="media-object img-polaroid" alt="user photo" ng-src="{{ user.ThumbnailUrl }}" ng-click="choosePhoto()">
                     </div>
                     <div style="padding-bottom: 10px; padding-right: 20px;" ng-show="!hasImage">
                         <form ng-upload="uploadedUserPhoto" action="/ImageUploader/UploadImage?userId={{ user.Id }}" style="visibility: hidden;">
