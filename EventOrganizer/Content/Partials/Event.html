@@ -4,7 +4,7 @@
             <div class="page-header row">
                 <div class="span2">
                     <div ng-show="hasImage">
-                        <img class="media-object img-polaroid" alt="user photo" ng-src="{{ event.ThumbnailUrl }}">
+                        <img class="media-object img-polaroid" alt="user photo" ng-src="{{ event.PhotoUrl }}" ng-click="choosePhoto()">
                     </div>
                     <div ng-show="!hasImage">
                         <form ng-upload="uploadedPhoto" action="/ImageUploader/UploadEventImage?eventId={{ event.Id }}" style="visibility: hidden;">

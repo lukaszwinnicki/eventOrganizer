@@ -58,3 +58,7 @@ CREATE TABLE [dbo].[UsersGroups] (
 GO
 ALTER TABLE [dbo].[Users]
     ADD [ThumbnailUrl] NVARCHAR (350) NULL;
+
+GO
+ALTER TABLE [dbo].[Events]
+    ADD [PhotoUrl] NVARCHAR (350) NULL;
