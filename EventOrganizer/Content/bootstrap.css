@@ -5014,7 +5014,7 @@ input[type="submit"].btn {
     }
 
 .modal-body {
-    max-height: 400px;
+    max-height: 410px;
     padding: 15px;
     overflow-y: auto;
 }

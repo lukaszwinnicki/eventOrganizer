@@ -3,7 +3,7 @@
         <div class="control-group">
             <label class="control-label" for="eventName">Event name</label>
             <div class="controls control-group" ng-class="{error: eventForm.Name.$invalid}">
-                <input type="text" id="eventName" name="Name" ng-model="newEvent.Name" style="width: 250px;" required>
+                <input type="text" id="eventName" name="Name" ng-model="newEvent.Name" style="width: 250px;" focusable="{{ modalShown }}" required>
             </div>
         </div>
         <div class="control-group">
