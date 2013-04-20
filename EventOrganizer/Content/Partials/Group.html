@@ -1,4 +1,4 @@
-﻿<div eo-modal eo-show="modalShown" eo-save="save(newEvent)" eo-style="min-width: 800px;">
+﻿<div eo-modal eo-show="modalShown" eo-save="save(newEvent)" eo-style="min-width: 800px;" eo-title="Add Event" eo-save-button="Save">
     <form class="form-horizontal event-form" name="eventForm" enctype="multipart/form-data">
         <div class="control-group">
             <label class="control-label" for="eventName">Event name</label>
@@ -54,6 +54,16 @@
         </div>
     </form>
 </div>
+<div eo-modal eo-show="showAddMemberDialog" eo-style="" eo-title="Add Member" eo-save-button="Add" eo-save="addMember()">
+    <form class="form-horizontal" name="addMemberForm">
+        <div class="control-group">
+            <label class="control-label" for="eventName">Member</label>
+            <div class="controls control-group">
+                <input type="text" id="member" name="member" ng-model="addMember" style="width: 250px;" focusable="{{ showAddMemberDialog }}">
+            </div>
+        </div>
+    </form>
+</div>
 <div class="container-fluid" style="padding-top: 20px;">
     <div class="row-fluid">
         <div class="span10">
@@ -77,12 +87,16 @@
                 <ul ng-repeat="member in members" class="nav">
                     <li>
                         <div>
-                            <div style="float:left; margin-right: 5px;"><img class="media-object" ng-src="{{ member.ThumbnailUrl }}"></div>
+                            <div style="float: left; margin-right: 5px;">
+                                <img class="media-object" ng-src="{{ member.ThumbnailUrl }}">
+                            </div>
                             <div>{{ member.Name }} {{ member.Surname}}</div>
                         </div>
                     </li>
                 </ul>
-
+                <div>
+                    <button type="button" class="btn" ng-click="showAddMemberDialog=true">Add member</button>
+                </div>
             </div>
         </div>
     </div>

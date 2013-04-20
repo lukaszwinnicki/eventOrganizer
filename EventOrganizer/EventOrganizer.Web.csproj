@@ -293,8 +293,10 @@
     <Content Include="Scripts\App\Controllers\GroupCtrl.js" />
     <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
     <Content Include="Scripts\App\Controllers\MenuCtrl.js" />
+    <Content Include="Scripts\App\Controllers\SearchCtrl.js" />
     <Content Include="Scripts\App\Controllers\ViewCtrl.js" />
     <Content Include="Scripts\App\Custom\homepage.js" />
+    <Content Include="Scripts\App\Directives\Comment.js" />
     <Content Include="Scripts\App\Directives\Event.js" />
     <Content Include="Scripts\App\Directives\Focus.js" />
     <Content Include="Scripts\App\Directives\Modal.js" />
@@ -313,40 +315,45 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jstd-scenario-adapter-config.js" />
     <Content Include="Scripts\jstd-scenario-adapter.js" />
-    <Content Include="Scripts\Libraries\AngularUI\UserService.js" />
+    <Content Include="Scripts\Libraries\AngularUI\.gitignore" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\app.js" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\bootstrap-responsive.css" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\bootstrap.css" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\demo.css" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\github-16px.png" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\plunker.js" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\rainbow-generic.js" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\rainbow-html.js" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\rainbow-javascript.js" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\rainbow.css" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\rainbow.js" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\select2.css" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\select2.js" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\select2.png" />
+    <Content Include="Scripts\Libraries\AngularUI\assets\ui-select2.js" />
+    <Content Include="Scripts\Libraries\AngularUI\img\glyphicons-halflings-white.png" />
+    <Content Include="Scripts\Libraries\AngularUI\img\glyphicons-halflings.png" />
+    <Content Include="Scripts\Libraries\AngularUI\index.html" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-0.1.0-SNAPSHOT.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-0.1.0-SNAPSHOT.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-0.1.0.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-0.1.0.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-0.2.0.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-0.2.0.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-tpls-0.1.0-SNAPSHOT.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-tpls-0.1.0-SNAPSHOT.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-tpls-0.1.0.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-tpls-0.1.0.min.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-tpls-0.2.0.js" />
+    <Content Include="Scripts\Libraries\AngularUI\ui-bootstrap-tpls-0.2.0.min.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-migrate-1.1.0.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-migrate-1.1.0.min.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.min.js.map">
-      <DependentUpon>angular-bootstrap-prettify.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\Libraries\Angular\angular.min.js.map">
       <DependentUpon>angular.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\Libraries\AngularUI\angular.min.js.map">
-      <DependentUpon>angular.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\Libraries\AngularUI\README.md" />
     <None Include="Scripts\Libraries\JQuery\jquery-1.9.0.intellisense.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap-prettify.min.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-bootstrap.min.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-cookies.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-cookies.min.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-loader.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-loader.min.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-mocks.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-resource.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-resource.min.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-sanitize.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-sanitize.min.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-scenario.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-ui-ieshiv.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-ui-ieshiv.min.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-ui.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular-ui.min.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular.js" />
-    <Content Include="Scripts\Libraries\AngularUI\angular.min.js" />
     <Content Include="Scripts\i18n\angular-locale_am-et.js" />
     <Content Include="Scripts\i18n\angular-locale_am.js" />
     <Content Include="Scripts\i18n\angular-locale_ar-eg.js" />
@@ -502,8 +509,6 @@
     <Content Include="Scripts\i18n\angular-locale_zh-hk.js" />
     <Content Include="Scripts\i18n\angular-locale_zh-tw.js" />
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
-    <Content Include="Scripts\Libraries\AngularUI\jstd-scenario-adapter-config.js" />
-    <Content Include="Scripts\Libraries\AngularUI\jstd-scenario-adapter.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-ui-1.10.0.custom.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-validate.js" />
     <Content Include="Scripts\Libraries\JQuery\jquery-validate-unobtrusive.js" />
@@ -682,8 +687,6 @@
     <Content Include="Scripts\Libraries\Angular\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\Libraries\Angular\jstd-scenario-adapter-config.js" />
     <Content Include="Scripts\Libraries\Angular\jstd-scenario-adapter.js" />
-    <Content Include="Scripts\Libraries\AngularUI\select2.js" />
-    <Content Include="Scripts\Libraries\AngularUI\select2.min.js" />
     <Content Include="Scripts\ng-upload.js" />
     <Content Include="Scripts\ng-upload.min.js" />
     <Content Include="Scripts\Tests\Unit\Controllers\GroupsCtrlTest.js" />
