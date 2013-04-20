@@ -25,8 +25,9 @@ namespace EventOrganizer.Web.Services
         public Group Save(Group group, string email)
         {
             var userId = _userRepository.GetUserByEmail(email).Id;
+
             group.OwnerId = userId;
-            _groupRepository.Save(group);
+            group.Id = _groupRepository.Save(group);
 
             return group;
         }

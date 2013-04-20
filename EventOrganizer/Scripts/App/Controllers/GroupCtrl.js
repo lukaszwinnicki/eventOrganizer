@@ -2,6 +2,7 @@
     $scope.group = group;
     $scope.editMode = false;
     $scope.modalShown = false;
+    $scope.showAddMemberDialog = false;
     $scope.events = events;
     $scope.members = members;
     $scope.newEvent = {};

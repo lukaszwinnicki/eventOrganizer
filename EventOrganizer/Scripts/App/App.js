@@ -1,7 +1,7 @@
 ﻿angular
     .module('eventOrganizer',
         [
-            'ui',
+            'ui.bootstrap',
             'ngUpload',
             'eventOrganizer.Services',
             'eventOrganizer.Directives'])

@@ -1,19 +1,28 @@
 ﻿<div>
-    <div eo-modal eo-show="modalShown" eo-save="save(group)">
-        <form class="form-horizontal">
-            <div class="control-group">
-                <label class="control-label" for="groupName">Name</label>
-                <div class="controls">
-                    <input type="text" id="Text1" ng-model="group.name" focusable="{{ modalShown }}">
+    <div modal="modalShown">
+        <div class="modal-header">
+            <button type="button" class="close">&times;</button>
+            <h3>Add Group</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="groupName">Name</label>
+                    <div class="controls">
+                        <input type="text" id="Text1" ng-model="group.name" focusable="{{ modalShown }}">
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="groupDescription">Description</label>
-                <div class="controls">
-                    <input type="text" id="Text2" ng-model="group.description">
+                <div class="control-group">
+                    <label class="control-label" for="groupDescription">Description</label>
+                    <div class="controls">
+                        <input type="text" id="Text2" ng-model="group.description">
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" ng-click="save(group)">Add</button>
+        </div>
     </div>
 
     <div class="media">

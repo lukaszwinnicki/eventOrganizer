@@ -7,7 +7,9 @@ eventOrganizer.directive('eoModal', function () {
         scope: {
             eoShow: '=',
             eoSave: '&',
-            eoStyle: '@'
+            eoStyle: '@',
+            eoTitle: '@',
+            eoSaveButton: '@'
         },
         templateUrl: '/Content/Partials/Modal.html'
     };
