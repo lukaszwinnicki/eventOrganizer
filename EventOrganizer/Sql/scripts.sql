@@ -41,7 +41,8 @@ CREATE TABLE [dbo].[Users] (
     [Password] NVARCHAR (50)  NULL,
     [Name]     NVARCHAR (50)  NULL,
     [Surname]  NVARCHAR (50)  NULL,
-    [PhotoUrl] NVARCHAR (350) NULL,
+    [PhotoUrl]  NVARCHAR (350) NULL,
+    [ThumbnailUrl] NVARCHAR (350) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
