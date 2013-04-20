@@ -293,8 +293,10 @@
     <Content Include="Scripts\App\Controllers\GroupCtrl.js" />
     <Content Include="Scripts\App\Controllers\GroupsCtrl.js" />
     <Content Include="Scripts\App\Controllers\MenuCtrl.js" />
+    <Content Include="Scripts\App\Controllers\SearchCtrl.js" />
     <Content Include="Scripts\App\Controllers\ViewCtrl.js" />
     <Content Include="Scripts\App\Custom\homepage.js" />
+    <Content Include="Scripts\App\Directives\Comment.js" />
     <Content Include="Scripts\App\Directives\Event.js" />
     <Content Include="Scripts\App\Directives\Focus.js" />
     <Content Include="Scripts\App\Directives\Modal.js" />
@@ -307,6 +309,7 @@
     <Content Include="Scripts\App\Services\GroupsService.js" />
     <Content Include="Scripts\App\Services\JoinEventService.js" />
     <Content Include="Scripts\App\Services\LeaveEventService.js" />
+    <Content Include="Scripts\App\Services\SearchService.js" />
     <Content Include="Scripts\App\Services\UserService.js" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
