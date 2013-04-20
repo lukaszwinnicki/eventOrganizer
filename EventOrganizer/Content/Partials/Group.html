@@ -2,14 +2,14 @@
     <form class="form-horizontal event-form" name="eventForm" enctype="multipart/form-data">
         <div class="control-group">
             <label class="control-label" for="eventName">Event name</label>
-            <div class="controls control-group" ng-class="{error: eventForm.Name.$invalid}">
-                <input type="text" id="eventName" name="Name" ng-model="newEvent.Name" style="width: 250px;" focusable="{{ modalShown }}" required>
+            <div class="controls" ng-class="{error: eventForm.Name.$invalid}">
+                <input type="text" id="eventName" name="Name" ng-model="newEvent.Name" focusable="{{ modalShown }}" required>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="City">Address</label>
             <div class="controls">
-                <input style="float: left; width: 110px" type="text" id="Address" ng-model="newEvent.Address" required>
+                <input type="text" id="Address" ng-model="newEvent.Address" required>
             </div>
         </div>
         <div class="control-group">
