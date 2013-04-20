@@ -1,58 +1,67 @@
-﻿<div eo-modal eo-show="modalShown" eo-save="save(newEvent)" eo-style="min-width: 800px;" eo-title="Add Event" eo-save-button="Save">
-    <form class="form-horizontal event-form" name="eventForm" enctype="multipart/form-data">
-        <div class="control-group">
-            <label class="control-label" for="eventName">Event name</label>
-            <div class="controls control-group" ng-class="{error: eventForm.Name.$invalid}">
-                <input type="text" id="eventName" name="Name" ng-model="newEvent.Name" style="width: 250px;" focusable="{{ modalShown }}" required>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="City">Address</label>
-            <div class="controls">
-                <input style="float: left; width: 110px" type="text" id="Address" ng-model="newEvent.Address" required>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">Description</label>
-            <div class="controls">
-                <textarea name="Description" style="width: 250px;" ng-model="newEvent.Description"></textarea>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">Start Date</label>
-            <div class="controls">
-                <div id="Div2" data-date-format="dd-mm-yyyy" style="float: left;">
-                    <input class="span2" size="16" type="text" id="StartDate" name="StartDate" ng-model="newEvent.StartDate" ui-date required ng-change="updateEndDate()">
+﻿<div modal="modalShown" style="min-width: 800px;">
+    <div class="modal-header">
+        <button type="button" class="close">&times;</button>
+        <h3>Add Event</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal event-form" name="eventForm" enctype="multipart/form-data">
+            <div class="control-group">
+                <label class="control-label" for="eventName">Event name</label>
+                <div class="controls control-group" ng-class="{error: eventForm.Name.$invalid}">
+                    <input type="text" id="eventName" name="Name" ng-model="newEvent.Name" style="width: 250px;" focusable="{{ modalShown }}" required>
                 </div>
-                <select style="width: 50px; margin-left: 15px;" id="SelectedHourStart" name="SelectedHourStart" ng-model="newEvent.SelectedHourStart" ng-options="hour for hour in newEvent.Hours" ng-change="updateEndHour()">
-                </select>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">End Date</label>
-            <div class="controls">
-                <div class="control-group" id="Div1" data-date-format="dd-mm-yyyy" style="float: left;">
-                    <input class="span2" size="16" type="text" ng-model="newEvent.EndDate" ui-date name="EndDate">
+            <div class="control-group">
+                <label class="control-label" for="City">Address</label>
+                <div class="controls">
+                    <input style="float: left; width: 110px" type="text" id="Address" ng-model="newEvent.Address" required>
                 </div>
-                <select class="control-group" style="width: 50px; margin-left: 15px;" ng-model="newEvent.SelectedHourEnd" ng-options="hour for hour in newEvent.Hours">
-                </select>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">Max Participants</label>
-            <div class="controls">
-                <select style="width: 265px;" ng-model="newEvent.SelectedMaxParticipants" ng-options="maxParticipant for maxParticipant in newEvent.MaxParticipants">
-                </select>
+            <div class="control-group">
+                <label class="control-label">Description</label>
+                <div class="controls">
+                    <textarea name="Description" style="width: 250px;" ng-model="newEvent.Description"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">Archivization</label>
-            <div class="controls">
-                <select style="width: 265px;" ng-model="newEvent.SelectedArchivization" ng-options="selectedArchivization for selectedArchivization in newEvent.Archivization">
-                </select>
+            <div class="control-group">
+                <label class="control-label">Start Date</label>
+                <div class="controls">
+                    <div id="Div2" data-date-format="dd-mm-yyyy" style="float: left;">
+                        <input class="span2" size="16" type="text" id="StartDate" name="StartDate" ng-model="newEvent.StartDate" ui-date required ng-change="updateEndDate()">
+                    </div>
+                    <select style="width: 50px; margin-left: 15px;" id="SelectedHourStart" name="SelectedHourStart" ng-model="newEvent.SelectedHourStart" ng-options="hour for hour in newEvent.Hours" ng-change="updateEndHour()">
+                    </select>
+                </div>
             </div>
-        </div>
-    </form>
+            <div class="control-group">
+                <label class="control-label">End Date</label>
+                <div class="controls">
+                    <div class="control-group" id="Div1" data-date-format="dd-mm-yyyy" style="float: left;">
+                        <input class="span2" size="16" type="text" ng-model="newEvent.EndDate" ui-date name="EndDate">
+                    </div>
+                    <select class="control-group" style="width: 50px; margin-left: 15px;" ng-model="newEvent.SelectedHourEnd" ng-options="hour for hour in newEvent.Hours">
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Max Participants</label>
+                <div class="controls">
+                    <select style="width: 265px;" ng-model="newEvent.SelectedMaxParticipants" ng-options="maxParticipant for maxParticipant in newEvent.MaxParticipants">
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Archivization</label>
+                <div class="controls">
+                    <select style="width: 265px;" ng-model="newEvent.SelectedArchivization" ng-options="selectedArchivization for selectedArchivization in newEvent.Archivization">
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info" ng-click="save(newEvent)">Add</button>
+    </div>
 </div>
 <div eo-modal eo-show="showAddMemberDialog" eo-style="" eo-title="Add Member" eo-save-button="Add" eo-save="addMember()">
     <form class="form-horizontal" name="addMemberForm">
