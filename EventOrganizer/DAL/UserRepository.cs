@@ -48,7 +48,7 @@ namespace EventOrganizer.Web.DAL
             }
         }
 
-        public IList<User> GetAll()
+        public List<User> GetAll()
         {
             using (var connection = OpenConnection())
             {
@@ -56,6 +56,32 @@ namespace EventOrganizer.Web.DAL
                     "SELECT * FROM [Users]";
 
                 return connection.Query<User>(query).ToList();
+            }
+        }
+
+        public List<User> GetAll(string pattern)
+        {
+            using (var connection = OpenConnection())
+            {
+                string query =
+                    "SELECT * FROM [Users] u WHERE u.Name like '%" + pattern + "%' OR u.Surname like '%" + pattern +
+                    "%'";
+
+                return connection.Query<User>(query, new { Pattern = pattern }).ToList();
+            }
+        }
+
+        public bool AddGroupMember(long userId, long groupId)
+        {
+            using (var connection = OpenConnection())
+            {
+                const string query = "INSERT INTO [UsersGroups](UserId, GroupId) VALUES(@UserId, @GroupId)";
+
+                return connection.Execute(query, new
+                {
+                    UserId = userId,
+                    GroupId = groupId,
+                }) > 0;
             }
         }
 

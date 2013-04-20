@@ -160,11 +160,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageUploaderController.cs" />
     <Compile Include="Controllers\JoinEventController.cs" />
+    <Compile Include="Controllers\JoinGroupController.cs" />
     <Compile Include="Controllers\LeaveEventController.cs" />
     <Compile Include="Controllers\LoggedUserController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\Abstract\ICommentRepository.cs" />
     <Compile Include="DAL\Abstract\IEventRepository.cs" />
     <Compile Include="DAL\Abstract\IGroupRepository.cs" />

@@ -4,6 +4,10 @@ eventOrganizerServices.factory('UserResource', ['$resource', function ($resource
     return $resource('/api/User/:id', { id: '@Id' });
 }]);
 
+eventOrganizerServices.factory('UsersResource', ['$resource', function ($resource) {
+    return $resource('/api/Users/:id', { id: '@Id' });
+}]);
+
 eventOrganizerServices.factory('LoggedUserResource', ['$resource', function ($resource) {
     return $resource('/api/LoggedUser');
 }]);

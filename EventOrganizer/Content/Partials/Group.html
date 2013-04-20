@@ -64,6 +64,24 @@
         <button type="button" class="btn btn-info" ng-click="save(newEvent)">Add</button>
     </div>
 </div>
+<div modal="showAddMemberDialog" style="min-width: 800px; min-height: 400px;">
+    <div class="modal-header">
+        <button type="button" class="close">&times;</button>
+        <h3>Add Member</h3>
+    </div>
+    <div class="modal-body">
+        <div class="control-group">
+            <label class="control-label">Member</label>
+            <div class='container-fluid'>
+                <input type="text" ng-model="selectedUser" 
+                    typeahead="user as user.Name + ' ' + user.Surname for user in filterUsers($viewValue)">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info" ng-click="addMember(selectedUser)">Add</button>
+    </div>
+</div>
 <div class="container-fluid" style="padding-top: 20px;">
     <div class="row-fluid">
         <div class="span10">
@@ -94,7 +112,7 @@
                         </div>
                     </li>
                 </ul>
-
+                <button type="button" class="btn btn-info" ng-click="showAddMemberDialog=true">Add Member</button>
             </div>
         </div>
     </div>

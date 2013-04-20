@@ -5,7 +5,7 @@
             'ngUpload',
             'eventOrganizer.Services',
             'eventOrganizer.Directives'])
-    .config(['$routeProvider', function ($routeProvider) {
+    .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/', {
             templateUrl: '/Content/Partials/Groups.html',
             controller: GroupsCtrl,
@@ -33,14 +33,6 @@
         });
         $routeProvider.otherwise({ redirectTo: '/' });
     }]);
-
-angular.module('eventOrganizer').value('ui.config', {
-    jq: {
-        tooltip: {
-            placement: 'top'
-        }
-    }
-});
 angular.module('eventOrganizer').value('eo.config', {
     images: {
         eventPlaceholder: '/Content/Images/upload-image.png',

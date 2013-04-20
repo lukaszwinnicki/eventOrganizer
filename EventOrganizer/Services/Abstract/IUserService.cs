@@ -15,5 +15,8 @@ namespace EventOrganizer.Web.Services.Abstract
         bool AddEventMember(long userId, long eventId);
         bool RemoveEventMember(long userId, long eventId);
         List<GroupMember> GetGroupMembers(int groupId);
+        List<User> GetUsers();
+        List<User> GetUsers(string pattern);
+        void AddGroupMember(long userId, long groupId);
     }
 }

@@ -32,6 +32,7 @@ namespace EventOrganizer.Web.Controllers
                        : Request.CreateResponse(HttpStatusCode.OK, _userService.GetGroupMembers(id));
         }
 
+
         // TODO: blocked oO
         public HttpResponseMessage JoinGroup(User member, int groupId)
         {

@@ -64,5 +64,20 @@ namespace EventOrganizer.Web.Services
         {
             return _userRepository.GetGroupMembers(groupId);
         }
+
+        public List<User> GetUsers()
+        {
+            return _userRepository.GetAll();
+        }
+
+        public List<User> GetUsers(string pattern)
+        {
+            return _userRepository.GetAll(pattern);
+        }
+
+        public void AddGroupMember(long userId, long groupId)
+        {
+            _userRepository.AddGroupMember(userId, groupId);
+        }
     }
 }
