@@ -1,51 +1,48 @@
-function SearchCtrl($scope, $location, searchService) {
+function SearchCtrl($scope, $location, $q, searchService, searchResource) {
     $scope.searchResults = [];
+    $scope.selectedItem = null;
     var patternMinLength = 2;
 
-    $scope.search = function (pattern) {
-        $scope.searchResults = [];
-        if (pattern.length > patternMinLength) {
-            searchService.search(pattern).then(function (data) {
-                var searchResults = prepareSearchResultsToDisplay(data);
+    $scope.searchItems = function(pattern) {
+        var deferred = $q.defer();
 
-                if (searchResults.length > 0) {
-                    $scope.searchResults = searchResults;
-                    $('.dropdown-toggle').dropdown('toggle');
-                    $('#search-input').focus();
+        if (pattern.length > patternMinLength) {
+
+            searchResource.get({ pattern: pattern }, function(data) {
+                if (data) {
+                    var foundedItems = [];
+                    angular.forEach(data.Users, function(value) {
+                        value.Path = '/';
+                        foundedItems.push(value);
+                    });
+                    angular.forEach(data.Groups, function(value) {
+                        value.Path = '/group/' + value.Id;
+                        foundedItems.push(value);
+                    });
+                    angular.forEach(data.Events, function(value) {
+                        value.Path = '/event/' + value.Id;
+                        foundedItems.push(value);
+                    });
+                    deferred.resolve(foundedItems);
+                }
+                else {
+                    deferred.resolve([]);
                 }
             });
-
         }
+        else {
+            deferred.resolve([]);
+        }
+
+        return deferred.promise;
     };
 
-    function prepareSearchResultsToDisplay(dataFromRequest) {
-        var searchResults = [];
-        if (angular.isArray(dataFromRequest.Groups)) {
-            angular.forEach(dataFromRequest.Groups, function(value) {
-                value.GoTo = function() {
-                    $location.url('/group/' + value.Id);
-                };
-                searchResults.push(value);
-            });
+    $scope.goToItem = function(item) {
+        if (item.Path) {
+            $location.url(item.Path);
+            $scope.selectedItem = null;
         }
-        if (angular.isArray(dataFromRequest.Users)) {
-            angular.forEach(dataFromRequest.Users, function(value) {
-                value.GoTo = function() {
-                    $location.url('/');
-                };
-                searchResults.push(value);
-            });
-        }
-        if (angular.isArray(dataFromRequest.Events)) {
-            angular.forEach(dataFromRequest.Events, function(value) {
-                value.GoTo = function() {
-                    $location.url('/event/' + value.Id);
-                };
-                searchResults.push(value);
-            });
-        }
-        return searchResults;
     };
 }
 
-SearchCtrl.$inject = ['$scope', '$location', 'SearchService'];
+SearchCtrl.$inject = ['$scope', '$location', '$q', 'SearchService', 'SearchResource'];
