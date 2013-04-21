@@ -15,23 +15,58 @@
                     </div>
                 </div>
                 <div class="span10">
-                    <h1>{{event.Name}}</h1>
+                    <div ng-show="!editMode"><h1>{{event.Name}}</h1></div>
+                    <div ng-show="editMode">
+                        <input ng-model="event.Name" style="height: 40px;" />
+                    </div>
                 </div>
             </div>
             <div>
                 <div class="row">
-                    <div class="span6">Start</div>
-                    <div class="span6">{{ event.StartDate | date: 'dd.MM.yyyy HH:mm' }}</div>
+                    <div class="span4">Start</div>
+                    <div class="span6" ng-show="!editMode">{{ event.StartDate | date: 'dd.MM.yyyy HH:mm' }}</div>
+                    <div class="span6 row" ng-show="editMode">
+                        <div data-date-format="dd-mm-yyyy" class="span5 date">
+                            <input type="text" name="StartDate" ng-model="event.StartDate" ui-date required>
+                        </div>
+                        <div class="span5">
+                            <select style="width: 70px; margin-left: 15px;" name="SelectedHourStart" ng-model="event.SelectedHourStart"
+                                    ng-options="hour for hour in hoursInDay">
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="span6">Where</div>
-                    <div class="span6">{{ event.Address }}</div>
+                    <div class="span4">End</div>
+                    <div class="span6" ng-show="!editMode">{{ event.EndDate | date: 'dd.MM.yyyy HH:mm' }}</div>
+                    <div class="span6 row" ng-show="editMode">
+                        <div data-date-format="dd-mm-yyyy" class="span5 date">
+                            <input type="text" name="EndDate" ng-model="event.EndDate" ui-date required>
+                        </div>
+                        <div class="span5">
+                            <select style="width: 70px; margin-left: 15px;" name="SelectedHourEnd" ng-model="event.SelectedHourEnd"
+                                    ng-options="hour for hour in hoursInDay">
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="span6">Description</div>
+                    <div class="span4">Where</div>
+                    <div class="span6" ng-show="!editMode">{{ event.Address }}</div>
+                    <div class="span6" ng-show="editMode">
+                        <input type="text" ng-model="event.Address" />
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="span6">{{ event.Description }}</div>
+                    <div class="span4">Description</div>
+                    <div class="span6" ng-show="!editMode">{{ event.Description }}</div>
+                    <div class="span6" ng-show="editMode">
+                        <textarea ng-model="event.Description" id="" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span6" ng-show="!editMode"><button class="btn btn-primary" ng-click="switchToEditMode()">Edit</button></div>
+                    <div class="span6" ng-show="editMode"><button class="btn btn-primary" ng-click="saveEvent(event)">Save</button></div>
                 </div>
             </div>
 

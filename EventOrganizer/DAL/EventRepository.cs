@@ -52,6 +52,27 @@ namespace EventOrganizer.Web.DAL
             }
         }
 
+        public bool Update(int id, Event eventToUpdate)
+        {
+            using (var connection = OpenConnection())
+            {
+                const string sql =
+                "UPDATE [Events] SET [Name] = @Name, StartDate = @StartDate, EndDate = @EndDate, Address = @Address, Description = @Description WHERE Id = @Id";
+
+                connection.Execute(sql, new
+                    {
+                        Id = id,
+                        eventToUpdate.Name,
+                        eventToUpdate.Description,
+                        eventToUpdate.StartDate,
+                        eventToUpdate.EndDate,
+                        eventToUpdate.Address
+                    });
+
+                return true;
+            }
+        }
+
         public void UpdatePhoto(int id, string photoUrl)
         {
             using (var connection = OpenConnection())

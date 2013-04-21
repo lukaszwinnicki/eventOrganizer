@@ -7,6 +7,7 @@ namespace EventOrganizer.Web.DAL.Abstract
     {
         IList<Event> GetEvents(long groupId);
         long Save(Event eventToSave);
+        bool Update(int id, Event eventToUpdate);
         Event GetById(int eventId);
         IList<Event> GetAll();
         void UpdatePhoto(int id, string photoUrl);

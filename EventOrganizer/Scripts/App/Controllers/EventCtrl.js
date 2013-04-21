@@ -1,11 +1,13 @@
-﻿function EventCtrl($scope, $route, event, members, comments, eventCommentsResource, joinEventResource, leaveEventResource, loggedInUser, eoConfig) {
+﻿function EventCtrl($scope, $route, $filter, event, members, comments, eventCommentsResource, joinEventResource, leaveEventResource, eventResource, loggedInUser, eoConfig) {
     $scope.loggedUserIsMemberOfEvent = false;
     $scope.event = event;
+    $scope.editMode = false;
     $scope.comments = comments;
     $scope.commentActionDisplay = false;
     $scope.newComment = { EventId: $route.current.params.id };
     $scope.defaultEventImage = eoConfig.images.eventPlaceholder;
     $scope.hasImage = event.PhotoUrl != null;
+    $scope.hoursInDay = [];
 
     members.getMembers().then(function(data) {
         $scope.members = data;
@@ -80,6 +82,33 @@
             }
         });
     };
+
+    $scope.saveEvent = function(eventToUpdate) {
+        var event = eventResource.get({ id: eventToUpdate.Id }, function () {
+            event.Name = eventToUpdate.Name;
+            event.Address = eventToUpdate.Address;
+            event.Description = eventToUpdate.Description;
+            event.StartDate = new Date(eventToUpdate.StartDate);
+            event.StartDate.setHours(eventToUpdate.SelectedHourStart);
+            event.EndDate = new Date(eventToUpdate.EndDate);
+            event.EndDate.setHours(eventToUpdate.SelectedHourEnd);
+            event.$update(function(event) {
+                $scope.event = event;
+                $scope.editMode = false;
+            });
+        });
+    };
+
+    $scope.switchToEditMode = function() {
+        $scope.editMode = true;
+    };
+
+    for (var l = 0; l < 24; l++) {
+        $scope.hoursInDay.push(l);
+    }
+
+    $scope.event.SelectedHourStart = parseInt($filter('date')($scope.event.StartDate, 'HH'), 10);
+    $scope.event.SelectedHourEnd = parseInt($filter('date')($scope.event.EndDate, 'HH'), 10);
 }
 
 EventCtrl.loadEvent = function ($q, $route, eventResource) {
@@ -132,7 +161,7 @@ EventCtrl.loadComments = function ($q, $route, eventCommentsResource) {
     return defer.promise;
 };
 
-EventCtrl.$inject = ['$scope', '$route', 'loadedEvent', 'eventMembers', 'loadedComments', 'EventCommentsResource', 'JoinEventResource', 'LeaveEventResource', 'LoggedInUser', 'eo.config'];
+EventCtrl.$inject = ['$scope', '$route', '$filter', 'loadedEvent', 'eventMembers', 'loadedComments', 'EventCommentsResource', 'JoinEventResource', 'LeaveEventResource', 'EventResource', 'LoggedInUser', 'eo.config'];
 EventCtrl.loadEvent.$inject = ['$q', '$route', 'EventResource'];
 EventCtrl.eventMembers.$inject = ['$q', '$route', 'EventMembersResource'];
 EventCtrl.loadComments.$inject = ['$q', '$route', 'EventCommentsResource'];

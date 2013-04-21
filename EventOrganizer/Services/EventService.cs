@@ -29,6 +29,11 @@ namespace EventOrganizer.Web.Services
             return _eventRepository.Save(eventToSave);
         }
 
+        public bool Update(int id, Event eventToUpdate)
+        {
+            return _eventRepository.Update(id, eventToUpdate);
+        }
+
         public void UpdatePhoto(int id, string photoUrl)
         {
             _eventRepository.UpdatePhoto(id, photoUrl);

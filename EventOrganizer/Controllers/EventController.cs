@@ -33,6 +33,14 @@ namespace EventOrganizer.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, eventToSave);
         }
 
+        public void Put(int id, Event eventToUpdate)
+        {
+            if (!_eventService.Update(id, eventToUpdate))
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+        }
+
         public HttpResponseMessage Get(int id)
         {
             Event groupEvent = _eventService.GetEvent(id);
