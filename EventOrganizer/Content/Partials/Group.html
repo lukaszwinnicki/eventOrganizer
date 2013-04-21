@@ -6,13 +6,13 @@
     <div class="modal-body">
         <form class="form-horizontal event-form" name="eventForm" enctype="multipart/form-data">
             <div class="control-group">
-                <label class="control-label" for="eventName">Event name</label>
+                <label class="control-label" for="eventName"><span class="required">*</span> Event name</label>
                 <div class="controls" ng-class="{error: eventForm.Name.$invalid}">
                     <input type="text" id="eventName" name="Name" ng-model="newEvent.Name" focusable="{{ modalShown }}" required>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="City">Address</label>
+                <label class="control-label" for="City"><span class="required">*</span> Address</label>
                 <div class="controls">
                     <input type="text" id="Address" ng-model="newEvent.Address" required>
                 </div>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">Start Date</label>
+                <label class="control-label"><span class="required">*</span> Start Date</label>
                 <div class="controls">
                     <div id="Div2" data-date-format="dd-mm-yyyy" style="float: left;">
                         <input class="span2" size="16" type="text" id="StartDate" name="StartDate" ng-model="newEvent.StartDate" ui-date required ng-change="updateEndDate()" placeholder="Click to choose a date">

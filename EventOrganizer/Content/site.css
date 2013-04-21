@@ -62,3 +62,7 @@
 .event-form input[type='text'] {
     width: 250px;
 }
+
+.form-horizontal .required {
+    color: #ff0000;
+}
