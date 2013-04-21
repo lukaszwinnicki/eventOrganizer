@@ -55,7 +55,7 @@
     };
 
     $scope.addMember = function (member) {
-        var joinGroup = new joinGroupResource({ User: member, GroupId: $route.current.params.id });
+        var joinGroup = new joinGroupResource({ UserId: member.Id, GroupId: $route.current.params.id });
         joinGroup.$save(function (data) {
             $scope.members.push(member);
             $scope.showAddMemberDialog = false;
